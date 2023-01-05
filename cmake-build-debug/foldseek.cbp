@@ -1,0 +1,2680 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="foldseek"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="clang"/>
+		<Option virtualFolders="CMake Files\;CMake Files\lib\;CMake Files\lib\mmseqs\;CMake Files\lib\mmseqs\cmake\;CMake Files\lib\mmseqs\lib\;CMake Files\lib\mmseqs\lib\zstd\;CMake Files\lib\mmseqs\lib\zstd\build\;CMake Files\lib\mmseqs\lib\zstd\build\cmake\;CMake Files\lib\mmseqs\lib\zstd\build\cmake\lib\;CMake Files\lib\mmseqs\lib\zstd\build\cmake\CMakeModules\;CMake Files\lib\mmseqs\lib\tinyexpr\;CMake Files\lib\mmseqs\lib\microtar\;CMake Files\lib\mmseqs\lib\cacode\;CMake Files\lib\mmseqs\lib\alp\;CMake Files\lib\mmseqs\lib\ksw2\;CMake Files\lib\mmseqs\data\;CMake Files\lib\mmseqs\data\resources\;CMake Files\lib\mmseqs\data\workflow\;CMake Files\lib\mmseqs\src\;CMake Files\lib\mmseqs\src\alignment\;CMake Files\lib\mmseqs\src\clustering\;CMake Files\lib\mmseqs\src\commons\;CMake Files\lib\mmseqs\src\linclust\;CMake Files\lib\mmseqs\src\multihit\;CMake Files\lib\mmseqs\src\prefiltering\;CMake Files\lib\mmseqs\src\taxonomy\;CMake Files\lib\mmseqs\src\util\;CMake Files\lib\mmseqs\src\workflow\;CMake Files\lib\foldcomp\;CMake Files\lib\foldcomp\src\;CMake Files\lib\3di\;CMake Files\lib\pulchra\;CMake Files\lib\kerasify\;CMake Files\lib\tmalign\;CMake Files\data\;CMake Files\src\;CMake Files\src\strucclustutils\;CMake Files\src\commons\;CMake Files\src\version\;CMake Files\src\workflow\;CMake Files\.git\;CMake Files\.git\refs\;CMake Files\.git\refs\heads\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="libzstd_static">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib/libzstd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/build/cmake/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/common"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib/Makefile&quot;  VERBOSE=1 libzstd_static"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="libzstd_static/fast">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib/libzstd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/build/cmake/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/common"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib/Makefile&quot;  VERBOSE=1 libzstd_static/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="libzstd.pc">
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib/Makefile&quot;  VERBOSE=1 libzstd.pc"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uninstall">
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib/Makefile&quot;  VERBOSE=1 uninstall"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/zstd/build/cmake/lib/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tinyexpr">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/tinyexpr/libtinyexpr.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/tinyexpr"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/tinyexpr/Makefile&quot;  VERBOSE=1 tinyexpr"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/tinyexpr/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/tinyexpr/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/tinyexpr/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tinyexpr/fast">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/tinyexpr/libtinyexpr.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/tinyexpr"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/tinyexpr/Makefile&quot;  VERBOSE=1 tinyexpr/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/tinyexpr/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/tinyexpr/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/tinyexpr/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="microtar">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/microtar/libmicrotar.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/microtar"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/microtar/Makefile&quot;  VERBOSE=1 microtar"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/microtar/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/microtar/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/microtar/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="microtar/fast">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/microtar/libmicrotar.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/microtar"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/microtar/Makefile&quot;  VERBOSE=1 microtar/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/microtar/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/microtar/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/microtar/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cacode">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/cacode/CMakeFiles/cacode.dir/cacode.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/cacode"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simde"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simd"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/gzstream"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ksw2"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/xxhash"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ips4o"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/cacode/Makefile&quot;  VERBOSE=1 cacode"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/cacode/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/cacode/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/cacode/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cacode/fast">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/cacode/CMakeFiles/cacode.dir/cacode.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/cacode"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simde"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simd"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/gzstream"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ksw2"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/xxhash"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ips4o"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/cacode/Makefile&quot;  VERBOSE=1 cacode/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/cacode/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/cacode/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/cacode/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="alp">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/CMakeFiles/alp.dir/alp.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simde"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simd"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/gzstream"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ksw2"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/xxhash"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ips4o"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/Makefile&quot;  VERBOSE=1 alp"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="alp/fast">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/CMakeFiles/alp.dir/alp.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simde"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simd"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/gzstream"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ksw2"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/xxhash"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ips4o"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/Makefile&quot;  VERBOSE=1 alp/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ksw2">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/ksw2/CMakeFiles/ksw2.dir/ksw2.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/ksw2"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simde"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simd"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/gzstream"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ksw2"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/xxhash"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ips4o"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/ksw2/Makefile&quot;  VERBOSE=1 ksw2"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/ksw2/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/ksw2/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/ksw2/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ksw2/fast">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/ksw2/CMakeFiles/ksw2.dir/ksw2.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/ksw2"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simde"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simd"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/gzstream"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ksw2"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/xxhash"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ips4o"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/ksw2/Makefile&quot;  VERBOSE=1 ksw2/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/ksw2/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/ksw2/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/ksw2/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="generated">
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/data"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/data/Makefile&quot;  VERBOSE=1 generated"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/data/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/data/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/data/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mmseqs-framework">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/src/libmmseqs-framework.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_POSIX_MADVISE=1"/>
+					<Add option="-DENABLE_IPS4O=1"/>
+					<Add option="-DHAVE_ZLIB=1"/>
+					<Add option="-DHAVE_BZLIB=1"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simde"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simd"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/gzstream"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ksw2"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/xxhash"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ips4o"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/clustering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/multihit"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/linclust"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/src/Makefile&quot;  VERBOSE=1 mmseqs-framework"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mmseqs-framework/fast">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/src/libmmseqs-framework.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_POSIX_MADVISE=1"/>
+					<Add option="-DENABLE_IPS4O=1"/>
+					<Add option="-DHAVE_ZLIB=1"/>
+					<Add option="-DHAVE_BZLIB=1"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simde"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simd"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/gzstream"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ksw2"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/xxhash"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ips4o"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/clustering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/multihit"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/linclust"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/src/Makefile&quot;  VERBOSE=1 mmseqs-framework/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="3di">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/3di/lib3di.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/3di"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_POSIX_MADVISE=1"/>
+					<Add option="-DENABLE_IPS4O=1"/>
+					<Add option="-DHAVE_ZLIB=1"/>
+					<Add option="-DHAVE_BZLIB=1"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simde"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simd"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/gzstream"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ksw2"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/xxhash"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ips4o"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/clustering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/multihit"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/linclust"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/."/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/3di/.."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/3di/Makefile&quot;  VERBOSE=1 3di"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/3di/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/3di/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/3di/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="3di/fast">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/3di/lib3di.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/3di"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_POSIX_MADVISE=1"/>
+					<Add option="-DENABLE_IPS4O=1"/>
+					<Add option="-DHAVE_ZLIB=1"/>
+					<Add option="-DHAVE_BZLIB=1"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simde"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simd"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/gzstream"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ksw2"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/xxhash"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ips4o"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/clustering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/multihit"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/linclust"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/."/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/3di/.."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/3di/Makefile&quot;  VERBOSE=1 3di/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/3di/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/3di/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/3di/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pulchra">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/pulchra/libpulchra.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/pulchra"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_POSIX_MADVISE=1"/>
+					<Add option="-DENABLE_IPS4O=1"/>
+					<Add option="-DHAVE_ZLIB=1"/>
+					<Add option="-DHAVE_BZLIB=1"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simde"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simd"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/gzstream"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ksw2"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/xxhash"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ips4o"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/clustering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/multihit"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/linclust"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/pulchra/Makefile&quot;  VERBOSE=1 pulchra"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/pulchra/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/pulchra/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/pulchra/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pulchra/fast">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/pulchra/libpulchra.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/pulchra"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_POSIX_MADVISE=1"/>
+					<Add option="-DENABLE_IPS4O=1"/>
+					<Add option="-DHAVE_ZLIB=1"/>
+					<Add option="-DHAVE_BZLIB=1"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simde"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simd"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/gzstream"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ksw2"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/xxhash"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ips4o"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/clustering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/multihit"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/linclust"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/pulchra/Makefile&quot;  VERBOSE=1 pulchra/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/pulchra/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/pulchra/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/pulchra/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="kerasify">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/kerasify/libkerasify.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/kerasify"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_POSIX_MADVISE=1"/>
+					<Add option="-DENABLE_IPS4O=1"/>
+					<Add option="-DHAVE_ZLIB=1"/>
+					<Add option="-DHAVE_BZLIB=1"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simde"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simd"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/gzstream"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ksw2"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/xxhash"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ips4o"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/clustering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/multihit"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/linclust"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/kerasify/Makefile&quot;  VERBOSE=1 kerasify"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/kerasify/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/kerasify/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/kerasify/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="kerasify/fast">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/kerasify/libkerasify.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/kerasify"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_POSIX_MADVISE=1"/>
+					<Add option="-DENABLE_IPS4O=1"/>
+					<Add option="-DHAVE_ZLIB=1"/>
+					<Add option="-DHAVE_BZLIB=1"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simde"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simd"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/gzstream"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ksw2"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/xxhash"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ips4o"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/clustering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/multihit"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/linclust"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/kerasify/Makefile&quot;  VERBOSE=1 kerasify/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/kerasify/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/kerasify/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/kerasify/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tmalign">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/tmalign/libtmalign.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/tmalign"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_POSIX_MADVISE=1"/>
+					<Add option="-DENABLE_IPS4O=1"/>
+					<Add option="-DHAVE_ZLIB=1"/>
+					<Add option="-DHAVE_BZLIB=1"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simde"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simd"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/gzstream"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ksw2"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/xxhash"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ips4o"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/clustering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/multihit"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/linclust"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/tmalign/Makefile&quot;  VERBOSE=1 tmalign"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/tmalign/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/tmalign/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/tmalign/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tmalign/fast">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/tmalign/libtmalign.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/tmalign"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_POSIX_MADVISE=1"/>
+					<Add option="-DENABLE_IPS4O=1"/>
+					<Add option="-DHAVE_ZLIB=1"/>
+					<Add option="-DHAVE_BZLIB=1"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simde"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simd"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/gzstream"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ksw2"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/xxhash"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ips4o"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/clustering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/multihit"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/linclust"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/tmalign/Makefile&quot;  VERBOSE=1 tmalign/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/tmalign/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/tmalign/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/tmalign/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="foldcomp">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/foldcomp/libfoldcomp.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/foldcomp"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-D_USE_MATH_DEFINES=1"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/foldcomp/Makefile&quot;  VERBOSE=1 foldcomp"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/foldcomp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/foldcomp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/foldcomp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="foldcomp/fast">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/foldcomp/libfoldcomp.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/foldcomp"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-D_USE_MATH_DEFINES=1"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/foldcomp/Makefile&quot;  VERBOSE=1 foldcomp/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/foldcomp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/foldcomp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/foldcomp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="local-generated">
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/data"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/data/Makefile&quot;  VERBOSE=1 local-generated"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/data/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/data/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/data/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="foldseek">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/foldseek" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_POSIX_MADVISE=1"/>
+					<Add option="-DENABLE_IPS4O=1"/>
+					<Add option="-DHAVE_ZLIB=1"/>
+					<Add option="-DHAVE_BZLIB=1"/>
+					<Add option="-D_USE_MATH_DEFINES=1"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/3di"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/pulchra"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/kerasify"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/gemmi"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/src/commons"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simde"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simd"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/gzstream"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ksw2"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/xxhash"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ips4o"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/clustering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/multihit"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/linclust"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 foldseek"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="foldseek/fast">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/foldseek" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_POSIX_MADVISE=1"/>
+					<Add option="-DENABLE_IPS4O=1"/>
+					<Add option="-DHAVE_ZLIB=1"/>
+					<Add option="-DHAVE_BZLIB=1"/>
+					<Add option="-D_USE_MATH_DEFINES=1"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/3di"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/pulchra"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/kerasify"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/gemmi"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/src/commons"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simde"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/simd"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/gzstream"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ksw2"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/xxhash"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ips4o"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/generated"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/clustering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/multihit"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/linclust"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 foldseek/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gemmiwrapper">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/strucclustutils/CMakeFiles/gemmiwrapper.dir/gemmiwrapper.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/strucclustutils"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-D_USE_MATH_DEFINES=1"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/3di"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/pulchra"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/kerasify"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/gemmi"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/src/commons"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/src/strucclustutils/../../lib/foldcomp/src"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/strucclustutils/Makefile&quot;  VERBOSE=1 gemmiwrapper"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/strucclustutils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/strucclustutils/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/strucclustutils/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gemmiwrapper/fast">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/strucclustutils/CMakeFiles/gemmiwrapper.dir/gemmiwrapper.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/strucclustutils"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-D_USE_MATH_DEFINES=1"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/3di"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/pulchra"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/kerasify"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/gemmi"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/src/commons"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/src/strucclustutils/../../lib/foldcomp/src"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/strucclustutils/Makefile&quot;  VERBOSE=1 gemmiwrapper/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/strucclustutils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/strucclustutils/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/strucclustutils/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="version">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/version/libversion.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/version"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DGIT_SHA1=45a977f71f02701b5ebb138c3379bb483c4163d3"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/3di"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/pulchra"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/kerasify"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/gemmi"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/src/commons"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/version/Makefile&quot;  VERBOSE=1 version"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/version/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/version/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/version/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="version/fast">
+				<Option output="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/version/libversion.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/version"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DGIT_SHA1=45a977f71f02701b5ebb138c3379bb483c4163d3"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/3di"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/pulchra"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/kerasify"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/lib/gemmi"/>
+					<Add directory="/Users/woosubkim/Documents/workspace/foldseek/src/commons"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/version/Makefile&quot;  VERBOSE=1 version/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/version/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/version/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/version/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/CMakeFiles/alp.dir/njn_dynprogprob.cpp.o">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/CMakeFiles/alp.dir/njn_dynprogproblim.cpp.o">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/CMakeFiles/alp.dir/njn_dynprogprobproto.cpp.o">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/CMakeFiles/alp.dir/njn_ioutil.cpp.o">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/CMakeFiles/alp.dir/njn_localmaxstat.cpp.o">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/CMakeFiles/alp.dir/njn_localmaxstatmatrix.cpp.o">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/CMakeFiles/alp.dir/njn_localmaxstatutil.cpp.o">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/CMakeFiles/alp.dir/njn_random.cpp.o">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/CMakeFiles/alp.dir/sls_alignment_evaluer.cpp.o">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/CMakeFiles/alp.dir/sls_alp.cpp.o">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/CMakeFiles/alp.dir/sls_alp_data.cpp.o">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/CMakeFiles/alp.dir/sls_alp_regression.cpp.o">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/CMakeFiles/alp.dir/sls_alp_sim.cpp.o">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/CMakeFiles/alp.dir/sls_basic.cpp.o">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/alp/CMakeFiles/alp.dir/sls_pvalues.cpp.o">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/cacode/CMakeFiles/cacode.dir/lambda_calculator.cpp.o">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/cacode/CMakeFiles/cacode.dir/lubksb.cpp.o">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/cacode/CMakeFiles/cacode.dir/ludcmp.cpp.o">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/cacode/CMakeFiles/cacode.dir/nrutil.cpp.o">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/lib/mmseqs/lib/ksw2/CMakeFiles/ksw2.dir/ksw2_extz2_sse.cpp.o">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug/src/strucclustutils/CMakeFiles/gemmiwrapper.dir/GemmiWrapper.cpp.o">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/3di/structureto3di.cpp">
+			<Option target="3di"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/3di/structureto3di.h">
+			<Option target="3di"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/3di/structureto3diseqdist.cpp">
+			<Option target="3di"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/3di/structureto3diseqdist.h">
+			<Option target="3di"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/amino_acid.cpp">
+			<Option target="foldcomp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/amino_acid.h">
+			<Option target="foldcomp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/atom_coordinate.cpp">
+			<Option target="foldcomp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/atom_coordinate.h">
+			<Option target="foldcomp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/bond_info.h">
+			<Option target="foldcomp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/database_reader.cpp">
+			<Option target="foldcomp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/database_reader.h">
+			<Option target="foldcomp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/discretizer.cpp">
+			<Option target="foldcomp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/discretizer.h">
+			<Option target="foldcomp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/execution_timer.h">
+			<Option target="foldcomp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/float3d.h">
+			<Option target="foldcomp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/foldcomp.cpp">
+			<Option target="foldcomp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/foldcomp.h">
+			<Option target="foldcomp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/nerf.cpp">
+			<Option target="foldcomp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/nerf.h">
+			<Option target="foldcomp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/sidechain.cpp">
+			<Option target="foldcomp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/sidechain.h">
+			<Option target="foldcomp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/torsion_angle.cpp">
+			<Option target="foldcomp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/torsion_angle.h">
+			<Option target="foldcomp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/utility.cpp">
+			<Option target="foldcomp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/utility.h">
+			<Option target="foldcomp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/kerasify/keras_model.cpp">
+			<Option target="kerasify"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/kerasify/keras_model.h">
+			<Option target="kerasify"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_approx.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_doubletype.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_dynprogprob.cpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_dynprogprob.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_dynprogproblim.cpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_dynprogproblim.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_dynprogprobproto.cpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_dynprogprobproto.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_function.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_integer.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_ioutil.cpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_ioutil.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_localmaxstat.cpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_localmaxstat.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_localmaxstatmatrix.cpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_localmaxstatmatrix.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_localmaxstatutil.cpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_localmaxstatutil.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_matrix.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_memutil.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_random.cpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_random.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_root.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_uniform.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/njn_vector.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/sls_alignment_evaluer.cpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/sls_alignment_evaluer.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/sls_alp.cpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/sls_alp.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/sls_alp_data.cpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/sls_alp_data.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/sls_alp_regression.cpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/sls_alp_regression.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/sls_alp_sim.cpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/sls_alp_sim.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/sls_basic.cpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/sls_basic.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/sls_normal_distr_array.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/sls_pvalues.cpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/sls_pvalues.hpp">
+			<Option target="alp"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode/lambda_calculator.cpp">
+			<Option target="cacode"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode/lambda_calculator.h">
+			<Option target="cacode"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode/lubksb.cpp">
+			<Option target="cacode"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode/ludcmp.cpp">
+			<Option target="cacode"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode/nrutil.cpp">
+			<Option target="cacode"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode/nrutil.h">
+			<Option target="cacode"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ksw2/ksw2.h">
+			<Option target="ksw2"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ksw2/ksw2_extz2_sse.cpp">
+			<Option target="ksw2"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar/microtar.c">
+			<Option target="microtar"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar/microtar.h">
+			<Option target="microtar"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr/tinyexpr.c">
+			<Option target="tinyexpr"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr/tinyexpr.h">
+			<Option target="tinyexpr"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/common/bitstream.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/common/debug.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/common/entropy_common.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/common/error_private.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/common/error_private.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/common/fse.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/common/fse_decompress.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/common/huf.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/common/mem.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/common/pool.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/common/pool.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/common/threading.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/common/threading.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/common/xxhash.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/common/xxhash.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/common/zstd_common.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/common/zstd_errors.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/common/zstd_internal.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/compress/fse_compress.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/compress/hist.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/compress/hist.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/compress/huf_compress.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/compress/zstd_compress.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/compress/zstd_compress_internal.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/compress/zstd_double_fast.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/compress/zstd_double_fast.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/compress/zstd_fast.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/compress/zstd_fast.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/compress/zstd_lazy.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/compress/zstd_lazy.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/compress/zstd_ldm.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/compress/zstd_ldm.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/compress/zstd_opt.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/compress/zstd_opt.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/compress/zstdmt_compress.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/compress/zstdmt_compress.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/decompress/huf_decompress.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/decompress/zstd_ddict.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/decompress/zstd_ddict.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/decompress/zstd_decompress.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/decompress/zstd_decompress_block.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/decompress/zstd_decompress_block.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/decompress/zstd_decompress_internal.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/deprecated/zbuff.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/deprecated/zbuff_common.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/deprecated/zbuff_compress.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/deprecated/zbuff_decompress.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/dictBuilder/cover.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/dictBuilder/cover.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/dictBuilder/divsufsort.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/dictBuilder/divsufsort.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/dictBuilder/fastcover.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/dictBuilder/zdict.c">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/dictBuilder/zdict.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/lib/zstd.h">
+			<Option target="libzstd_static"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/CommandDeclarations.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/MMseqsBase.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/Alignment.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/Alignment.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/BandedNucleotideAligner.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/BandedNucleotideAligner.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/CompressedA3M.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/CompressedA3M.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/DistanceCalculator.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/EvalueComputation.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/Main.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/Matcher.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/Matcher.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/MsaFilter.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/MsaFilter.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/MultipleAlignment.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/MultipleAlignment.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/PSSMCalculator.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/PSSMCalculator.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/PSSMMasker.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/StripedSmithWaterman.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/StripedSmithWaterman.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/rescorediagonal.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/clustering/AlignmentSymmetry.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/clustering/AlignmentSymmetry.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/clustering/Clustering.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/clustering/Clustering.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/clustering/ClusteringAlgorithms.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/clustering/ClusteringAlgorithms.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/clustering/Main.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/A3MReader.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/A3MReader.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/AminoAcidLookupTables.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/Application.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/BacktraceTranslator.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/BaseMatrix.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/BaseMatrix.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/ByteParser.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/CSProfile.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/CSProfile.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/Command.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/Command.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/CommandCaller.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/CommandCaller.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/Concat.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/DBConcat.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/DBConcat.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/DBReader.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/DBReader.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/DBWriter.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/DBWriter.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/Debug.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/Debug.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/Domain.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/ExpressionParser.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/ExpressionParser.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/FileUtil.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/FileUtil.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/HeaderSummarizer.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/HeaderSummarizer.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/IndexReader.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/IntervalArray.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/KSeqBufferReader.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/KSeqWrapper.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/KSeqWrapper.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/LibraryReader.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/LibraryReader.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/MMseqsMPI.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/MMseqsMPI.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/MathUtil.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/MemoryMapped.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/MemoryMapped.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/MemoryTracker.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/MemoryTracker.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/MultiParam.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/MultiParam.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/NucleotideMatrix.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/NucleotideMatrix.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/Orf.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/Orf.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/Parameters.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/Parameters.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/PatternCompiler.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/ProfileStates.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/ProfileStates.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/ScoreMatrix.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/Sequence.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/Sequence.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/StringBlock.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/SubstitutionMatrix.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/SubstitutionMatrix.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/SubstitutionMatrixProfileStates.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/Timer.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/TranslateNucl.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/UniprotKB.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/UniprotKB.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/Util.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/Util.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/itoa.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/tantan.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/tantan.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/linclust/LinsearchIndexReader.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/linclust/LinsearchIndexReader.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/linclust/kmerindexdb.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/linclust/kmermatcher.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/linclust/kmermatcher.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/linclust/kmersearch.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/linclust/kmersearch.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/multihit/Aggregation.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/multihit/Aggregation.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/multihit/MultiHitDb.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/multihit/MultiHitSearch.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/multihit/besthitperset.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/multihit/combinepvalperset.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/CacheFriendlyOperations.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/CacheFriendlyOperations.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/ExtendedSubstitutionMatrix.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/ExtendedSubstitutionMatrix.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/IndexBuilder.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/IndexBuilder.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/IndexTable.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/Indexer.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/Indexer.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/KmerGenerator.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/KmerGenerator.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/Main.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/Prefiltering.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/Prefiltering.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/PrefilteringIndexReader.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/PrefilteringIndexReader.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/QueryMatcher.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/QueryMatcher.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/QueryMatcherTaxonomyHook.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/ReducedMatrix.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/ReducedMatrix.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/SequenceLookup.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/SequenceLookup.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/UngappedAlignment.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/UngappedAlignment.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/ungappedprefilter.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy/NcbiTaxonomy.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy/NcbiTaxonomy.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy/TaxonomyExpression.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy/addtaxonomy.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy/aggregatetax.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy/createbintaxmapping.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy/createbintaxonomy.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy/createtaxdb.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy/filtertaxdb.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy/filtertaxseqdb.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy/lca.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy/taxonomyreport.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/alignall.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/alignbykmer.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/appenddbtoindex.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/apply.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/clusthash.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/compress.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/convert2fasta.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/convertalignments.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/convertca3m.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/convertkb.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/convertmsa.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/convertprofiledb.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/countkmer.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/cpmvrmlndb.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/createdb.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/createseqfiledb.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/createsubdb.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/createtsv.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/db2tar.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/dbtype.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/diffseqdbs.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/diskspaceavail.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/expandaln.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/extractalignedregion.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/extractdomains.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/extractframes.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/extractorfs.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/filterdb.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/gff2db.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/indexdb.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/maskbygff.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/masksequence.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/mergeclusters.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/mergedbs.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/mergeresultsbyset.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/msa2profile.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/msa2result.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/nrtotaxmapping.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/offsetalignment.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/orftocontig.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/pairaln.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/prefixid.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/profile2pssm.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/profile2seq.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/proteinaln2nucl.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/renamedbkeys.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/result2dnamsa.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/result2flat.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/result2msa.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/result2profile.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/result2rbh.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/result2repseq.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/result2stats.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/result2stats.h">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/reverseseq.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/sequence2profile.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/sortresult.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/splitdb.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/splitsequence.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/subtractdbs.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/summarizealis.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/summarizeheaders.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/summarizeresult.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/summarizetabs.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/swapresults.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/tar2db.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/touchdb.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/transitivealign.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/translateaa.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/translatenucs.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/tsv2db.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/tsv2exprofiledb.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/unpackdb.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/versionstring.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/view.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/workflow/Cluster.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/workflow/ClusterUpdate.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/workflow/CreateIndex.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/workflow/Databases.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/workflow/EasyCluster.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/workflow/EasyLinclust.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/workflow/EasyRbh.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/workflow/EasySearch.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/workflow/EasyTaxonomy.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/workflow/Enrich.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/workflow/Linclust.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/workflow/Linsearch.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/workflow/Map.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/workflow/Rbh.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/workflow/Search.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/workflow/Taxonomy.cpp">
+			<Option target="mmseqs-framework"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/pulchra/nco_data.h">
+			<Option target="pulchra"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/pulchra/pulchra.cpp">
+			<Option target="pulchra"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/pulchra/pulchra.h">
+			<Option target="pulchra"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/pulchra/pulchra_common.h">
+			<Option target="pulchra"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/tmalign/Coordinates.h">
+			<Option target="tmalign"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/tmalign/Kabsch.h">
+			<Option target="tmalign"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/tmalign/TMalign.cpp">
+			<Option target="tmalign"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/tmalign/TMalign.h">
+			<Option target="tmalign"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/tmalign/affineneedlemanwunsch.cpp">
+			<Option target="tmalign"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/tmalign/affineneedlemanwunsch.h">
+			<Option target="tmalign"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/tmalign/basic_fun.h">
+			<Option target="tmalign"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/LocalCommandDeclarations.h">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/commons/Coordinate16.h">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/commons/LDDT.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/commons/LDDT.h">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/commons/LocalParameters.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/commons/LocalParameters.h">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/commons/StructureSmithWaterman.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/commons/StructureSmithWaterman.h">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/commons/StructureUtil.h">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/commons/TMaligner.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/commons/TMaligner.h">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/foldseek.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/strucclustutils/EvalueNeuralNet.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/strucclustutils/EvalueNeuralNet.h">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/strucclustutils/GemmiWrapper.cpp">
+			<Option target="gemmiwrapper"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/strucclustutils/GemmiWrapper.h">
+			<Option target="gemmiwrapper"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/strucclustutils/PulchraWrapper.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/strucclustutils/PulchraWrapper.h">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/strucclustutils/aln2tmscore.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/strucclustutils/samplemulambda.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/strucclustutils/scorecomplex.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/strucclustutils/structcreatedb.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/strucclustutils/structurealign.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/strucclustutils/structureconvertalis.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/strucclustutils/structurerescorediagonal.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/strucclustutils/structureto3didescriptor.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/strucclustutils/tmalign.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/version/Version.cpp">
+			<Option target="version"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/workflow/EasyStructureCluster.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/workflow/EasyStructureSearch.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/workflow/StructureCluster.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/workflow/StructureEasyRbh.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/workflow/StructureIndex.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/workflow/StructureRbh.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/workflow/StructureSearch.cpp">
+			<Option target="foldseek"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\mmseqs\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/cmake/AppendTargetProperty.cmake">
+			<Option virtualFolder="CMake Files\lib\mmseqs\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/cmake/CheckSSEFeatures.cmake">
+			<Option virtualFolder="CMake Files\lib\mmseqs\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/cmake/FindAtomic.cmake">
+			<Option virtualFolder="CMake Files\lib\mmseqs\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/cmake/GetGitRevisionDescription.cmake">
+			<Option virtualFolder="CMake Files\lib\mmseqs\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/cmake/GetGitRevisionDescription.cmake.in">
+			<Option virtualFolder="CMake Files\lib\mmseqs\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/cmake/MMseqsResourceCompiler.cmake">
+			<Option virtualFolder="CMake Files\lib\mmseqs\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/cmake/MMseqsSetupDerivedTarget.cmake">
+			<Option virtualFolder="CMake Files\lib\mmseqs\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/build/cmake/lib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\mmseqs\lib\zstd\build\cmake\lib\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/build/cmake/lib/cmake_uninstall.cmake.in">
+			<Option virtualFolder="CMake Files\lib\mmseqs\lib\zstd\build\cmake\lib\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/zstd/build/cmake/CMakeModules/GetZstdLibraryVersion.cmake">
+			<Option virtualFolder="CMake Files\lib\mmseqs\lib\zstd\build\cmake\CMakeModules\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/tinyexpr/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\mmseqs\lib\tinyexpr\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\mmseqs\lib\microtar\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/cacode/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\mmseqs\lib\cacode\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/alp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\mmseqs\lib\alp\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/ksw2/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\mmseqs\lib\ksw2\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/data/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\mmseqs\data\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/data/resources/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\mmseqs\data\resources\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/data/workflow/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\mmseqs\data\workflow\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\mmseqs\src\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/alignment/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\mmseqs\src\alignment\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/clustering/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\mmseqs\src\clustering\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/commons/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\mmseqs\src\commons\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/linclust/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\mmseqs\src\linclust\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/multihit/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\mmseqs\src\multihit\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/prefiltering/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\mmseqs\src\prefiltering\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/taxonomy/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\mmseqs\src\taxonomy\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/util/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\mmseqs\src\util\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/src/workflow/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\mmseqs\src\workflow\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\foldcomp\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/foldcomp/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\foldcomp\src\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/3di/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\3di\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/pulchra/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\pulchra\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/kerasify/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\kerasify\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/lib/tmalign/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\tmalign\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/data/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\data\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/strucclustutils/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\strucclustutils\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/commons/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\commons\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/version/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\version\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/src/workflow/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\workflow\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/.git/HEAD">
+			<Option virtualFolder="CMake Files\.git\"/>
+		</Unit>
+		<Unit filename="/Users/woosubkim/Documents/workspace/foldseek/.git/refs/heads/master">
+			<Option virtualFolder="CMake Files\.git\refs\heads\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

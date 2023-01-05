@@ -34,7 +34,7 @@ void setStructureSearchMustPassAlong(LocalParameters *p) {
 }
 
 int structuresearch(int argc, const char **argv, const Command &command) {
-    LocalParameters &par = LocalParameters::getLocalInstance();
+     LocalParameters &par = LocalParameters::getLocalInstance();
 
     setStructureSearchWorkflowDefaults(&par);
     par.parseParameters(argc, argv, command, true, Parameters::PARSE_VARIADIC, 0);
@@ -129,6 +129,7 @@ int structuresearch(int argc, const char **argv, const Command &command) {
         std::string program = tmpDir + "/structuresearch.sh";
         FileUtil::writeFile(program, structuresearch_sh, structuresearch_sh_len);
         cmd.execProgram(program.c_str(), par.filenames);
+
     }
 
     // Should never get here

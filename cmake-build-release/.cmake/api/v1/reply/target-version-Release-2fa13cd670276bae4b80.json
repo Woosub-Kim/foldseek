@@ -1,0 +1,163 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "src/version/libversion.a"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_compile_definitions",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"src/version/CMakeLists.txt",
+			"CMakeLists.txt",
+			"src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 8,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 21,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 22,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 23,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 24,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 25,
+				"parent" : 3
+			},
+			{
+				"file" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 4,
+				"parent" : 9
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.0.sdk"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 2,
+					"define" : "GIT_SHA1=45a977f71f02701b5ebb138c3379bb483c4163d3"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 4,
+					"path" : "/Users/woosubkim/Documents/workspace/foldseek/lib"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/Users/woosubkim/Documents/workspace/foldseek/lib/3di"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/Users/woosubkim/Documents/workspace/foldseek/lib/pulchra"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/Users/woosubkim/Documents/workspace/foldseek/lib/kerasify"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "/Users/woosubkim/Documents/workspace/foldseek/lib/gemmi"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "/Users/woosubkim/Documents/workspace/foldseek/src/commons"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"id" : "version::@2b5f86c53b08059b0b18",
+	"name" : "version",
+	"nameOnDisk" : "libversion.a",
+	"paths" : 
+	{
+		"build" : "src/version",
+		"source" : "src/version"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/version/Version.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

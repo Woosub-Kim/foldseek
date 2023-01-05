@@ -62,6 +62,7 @@ public:
     std::vector<MMseqsParameter *> easystructuresearchworkflow;
     std::vector<MMseqsParameter *> easystructureclusterworkflow;
     std::vector<MMseqsParameter *> structurecreatedb;
+    std::vector<MMseqsParameter *> scorecomplex;
     PARAMETER(PARAM_TMSCORE_THRESHOLD)
     PARAMETER(PARAM_MASK_BFACTOR_THRESHOLD)
     PARAMETER(PARAM_ALIGNMENT_TYPE)

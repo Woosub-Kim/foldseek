@@ -1,0 +1,132 @@
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+gcc-12: fatal error: no input files
+compilation terminated.
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+gcc-12: fatal error: no input files
+compilation terminated.
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+g++-12: fatal error: no input files
+compilation terminated.
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+g++-12: fatal error: no input files
+compilation terminated.
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: /Users/woosubkim/Documents/workspace/foldseek/build/CMakeFiles/CMakeScratch/TryCompile-BIRO2K
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_6f67d/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_6f67d.dir/build.make CMakeFiles/cmTC_6f67d.dir/build
+Building C object CMakeFiles/cmTC_6f67d.dir/CMakeCCompilerABI.c.o
+/usr/local/bin/gcc-12    -o CMakeFiles/cmTC_6f67d.dir/CMakeCCompilerABI.c.o -c /usr/local/Cellar/cmake/3.25.0/share/cmake/Modules/CMakeCCompilerABI.c
+clang: error: invalid version number in '-mmacosx-version-min=11.0'
+make[1]: *** [CMakeFiles/cmTC_6f67d.dir/CMakeCCompilerABI.c.o] Error 1
+make: *** [cmTC_6f67d/fast] Error 2
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: /Users/woosubkim/Documents/workspace/foldseek/build/CMakeFiles/CMakeScratch/TryCompile-rvj6X9
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_95b33/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_95b33.dir/build.make CMakeFiles/cmTC_95b33.dir/build
+Building C object CMakeFiles/cmTC_95b33.dir/testCCompiler.c.o
+/usr/local/bin/gcc-12    -o CMakeFiles/cmTC_95b33.dir/testCCompiler.c.o -c /Users/woosubkim/Documents/workspace/foldseek/build/CMakeFiles/CMakeScratch/TryCompile-rvj6X9/testCCompiler.c
+clang: error: invalid version number in '-mmacosx-version-min=11.0'
+make[1]: *** [CMakeFiles/cmTC_95b33.dir/testCCompiler.c.o] Error 1
+make: *** [cmTC_95b33/fast] Error 2
+
+
+
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+gcc-12: fatal error: no input files
+compilation terminated.
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+gcc-12: fatal error: no input files
+compilation terminated.
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+g++-12: fatal error: no input files
+compilation terminated.
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+g++-12: fatal error: no input files
+compilation terminated.
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: /Users/woosubkim/Documents/workspace/foldseek/build/CMakeFiles/CMakeScratch/TryCompile-a4QhBM
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_777ac/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_777ac.dir/build.make CMakeFiles/cmTC_777ac.dir/build
+Building C object CMakeFiles/cmTC_777ac.dir/CMakeCCompilerABI.c.o
+/usr/local/bin/gcc-12    -o CMakeFiles/cmTC_777ac.dir/CMakeCCompilerABI.c.o -c /usr/local/Cellar/cmake/3.25.0/share/cmake/Modules/CMakeCCompilerABI.c
+clang: error: invalid version number in '-mmacosx-version-min=11.0'
+make[1]: *** [CMakeFiles/cmTC_777ac.dir/CMakeCCompilerABI.c.o] Error 1
+make: *** [cmTC_777ac/fast] Error 2
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: /Users/woosubkim/Documents/workspace/foldseek/build/CMakeFiles/CMakeScratch/TryCompile-4paS8S
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_485dc/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_485dc.dir/build.make CMakeFiles/cmTC_485dc.dir/build
+Building C object CMakeFiles/cmTC_485dc.dir/testCCompiler.c.o
+/usr/local/bin/gcc-12    -o CMakeFiles/cmTC_485dc.dir/testCCompiler.c.o -c /Users/woosubkim/Documents/workspace/foldseek/build/CMakeFiles/CMakeScratch/TryCompile-4paS8S/testCCompiler.c
+clang: error: invalid version number in '-mmacosx-version-min=11.0'
+make[1]: *** [CMakeFiles/cmTC_485dc.dir/testCCompiler.c.o] Error 1
+make: *** [cmTC_485dc/fast] Error 2
+
+
+
+Performing C++ SOURCE FILE Test HAVE_POSIX_FADVISE failed with the following output:
+Change Dir: /Users/woosubkim/Documents/workspace/foldseek/build/CMakeFiles/CMakeScratch/TryCompile-4kMKY3
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_728fc/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_728fc.dir/build.make CMakeFiles/cmTC_728fc.dir/build
+Building CXX object CMakeFiles/cmTC_728fc.dir/src.cxx.o
+/usr/local/bin/g++-12 -DHAVE_POSIX_FADVISE  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -o CMakeFiles/cmTC_728fc.dir/src.cxx.o -c /Users/woosubkim/Documents/workspace/foldseek/build/CMakeFiles/CMakeScratch/TryCompile-4kMKY3/src.cxx
+/Users/woosubkim/Documents/workspace/foldseek/build/CMakeFiles/CMakeScratch/TryCompile-4kMKY3/src.cxx: In function 'int main()':
+/Users/woosubkim/Documents/workspace/foldseek/build/CMakeFiles/CMakeScratch/TryCompile-4kMKY3/src.cxx:9:54: error: 'POSIX_FADV_SEQUENTIAL' was not declared in this scope
+    9 |           int test = posix_fadvise(input_desc, 0, 0, POSIX_FADV_SEQUENTIAL);
+      |                                                      ^~~~~~~~~~~~~~~~~~~~~
+/Users/woosubkim/Documents/workspace/foldseek/build/CMakeFiles/CMakeScratch/TryCompile-4kMKY3/src.cxx:9:22: error: 'posix_fadvise' was not declared in this scope
+    9 |           int test = posix_fadvise(input_desc, 0, 0, POSIX_FADV_SEQUENTIAL);
+      |                      ^~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_728fc.dir/src.cxx.o] Error 1
+make: *** [cmTC_728fc/fast] Error 2
+
+
+Source file was:
+
+        #include <stdlib.h>
+        #include <fcntl.h>
+        #include <stdio.h>
+
+        int main() {
+          FILE* tmpf = tmpfile();
+          int input_desc = fileno(tmpf);
+          int test = posix_fadvise(input_desc, 0, 0, POSIX_FADV_SEQUENTIAL);
+          fclose(tmpf);
+          return 0;
+        }
+
+Performing C++ SOURCE FILE Test ATOMIC_LIBRARY_NATIVE failed with the following output:
+Change Dir: /Users/woosubkim/Documents/workspace/foldseek/build/CMakeFiles/CMakeScratch/TryCompile-nXMn8e
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_d53a8/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_d53a8.dir/build.make CMakeFiles/cmTC_d53a8.dir/build
+Building CXX object CMakeFiles/cmTC_d53a8.dir/src.cxx.o
+/usr/local/bin/g++-12 -DATOMIC_LIBRARY_NATIVE  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -o CMakeFiles/cmTC_d53a8.dir/src.cxx.o -c /Users/woosubkim/Documents/workspace/foldseek/build/CMakeFiles/CMakeScratch/TryCompile-nXMn8e/src.cxx
+Linking CXX executable cmTC_d53a8
+/usr/local/Cellar/cmake/3.25.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d53a8.dir/link.txt --verbose=1
+/usr/local/bin/g++-12  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_d53a8.dir/src.cxx.o -o cmTC_d53a8 
+Undefined symbols for architecture x86_64:
+  "___atomic_fetch_add_16", referenced from:
+      _main in src.cxx.o
+ld: symbol(s) not found for architecture x86_64
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_d53a8] Error 1
+make: *** [cmTC_d53a8/fast] Error 2
+
+
+Source file was:
+
+           int main() {
+             volatile unsigned __int128 all_ = 4;
+             __atomic_fetch_add(&all_, 8, __ATOMIC_RELAXED);
+             return 0;
+           }
+        
+

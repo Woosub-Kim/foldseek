@@ -452,11 +452,11 @@ int structureconvertalis(int argc, const char **argv, const Command &command) {
                 queryHeaderBuffer.assign(qHeader, qHeaderLen);
                 qHeader = (char*) queryHeaderBuffer.c_str();
             }
-            
             if(needLDDT){
-	        lddtcalculator->initQuery(querySeqLen, queryCaData, &queryCaData[querySeqLen], &queryCaData[querySeqLen+querySeqLen]);
+	            lddtcalculator->initQuery(querySeqLen, queryCaData, &queryCaData[querySeqLen], &queryCaData[querySeqLen+querySeqLen]);
             }
-	    if (format == Parameters::FORMAT_ALIGNMENT_HTML) {
+
+            if (format == Parameters::FORMAT_ALIGNMENT_HTML) {
                 const char* jsStart = "{\"query\": {\"accession\": \"%s\",\"sequence\": \"";
                 int count = snprintf(buffer, sizeof(buffer), jsStart, queryId.c_str(), querySeqData);
                 if (count < 0 || static_cast<size_t>(count) >= sizeof(buffer)) {

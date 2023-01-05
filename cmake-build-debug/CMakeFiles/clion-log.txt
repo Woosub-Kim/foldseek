@@ -1,0 +1,15 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DREQUIRE_OPENMP=0 -G "CodeBlocks - Unix Makefiles" -S /Users/woosubkim/Documents/workspace/foldseek -B /Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug
+-- Source Directory: /Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs
+-- Project Directory: /Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs
+-- Compiler is clang(++)
+-- ZSTD VERSION 1.3.8
+-- ShellCheck not found
+-- IPS4O sorting works
+-- Found ZLIB
+-- ZLIB works
+-- Found BZLIB
+-- BZLIB works
+-- ShellCheck not found
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug

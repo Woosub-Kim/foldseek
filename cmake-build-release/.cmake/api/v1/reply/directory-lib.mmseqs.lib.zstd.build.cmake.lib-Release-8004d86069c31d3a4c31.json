@@ -1,0 +1,81 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"INSTALL"
+		],
+		"files" : 
+		[
+			"lib/mmseqs/lib/zstd/build/cmake/lib/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 180,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 184,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 198,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "/usr/local/bin/pkgconfig",
+			"paths" : 
+			[
+				"cmake-build-release/lib/mmseqs/lib/zstd/build/cmake/lib/libzstd.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "include",
+			"paths" : 
+			[
+				"lib/mmseqs/lib/zstd/lib/zstd.h",
+				"lib/mmseqs/lib/zstd/lib/deprecated/zbuff.h",
+				"lib/mmseqs/lib/zstd/lib/dictBuilder/zdict.h",
+				"lib/mmseqs/lib/zstd/lib/dictBuilder/cover.h",
+				"lib/mmseqs/lib/zstd/lib/common/zstd_errors.h"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"lib/mmseqs/lib/zstd/build/cmake/lib/libzstd.a"
+			],
+			"targetId" : "libzstd_static::@7e30f4f9618df749a338",
+			"targetIndex" : 10,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "lib/mmseqs/lib/zstd/build/cmake/lib",
+		"source" : "lib/mmseqs/lib/zstd/build/cmake/lib"
+	}
+}

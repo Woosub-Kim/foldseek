@@ -1,0 +1,759 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						21,
+						22,
+						23,
+						24,
+						25,
+						27,
+						28
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "lib/mmseqs",
+					"childIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						11
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-lib.mmseqs-Debug-43f84c87303675dddedc.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "lib/mmseqs"
+				},
+				{
+					"build" : "lib/mmseqs/lib/zstd/build/cmake/lib",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-lib.mmseqs.lib.zstd.build.cmake.lib-Debug-42b4aba87a5039744db2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 2,
+					"source" : "lib/mmseqs/lib/zstd/build/cmake/lib",
+					"targetIndexes" : 
+					[
+						9,
+						10,
+						17
+					]
+				},
+				{
+					"build" : "lib/mmseqs/lib/tinyexpr",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-lib.mmseqs.lib.tinyexpr-Debug-def01f66c9734252b3cd.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 3,
+					"source" : "lib/mmseqs/lib/tinyexpr",
+					"targetIndexes" : 
+					[
+						15
+					]
+				},
+				{
+					"build" : "lib/mmseqs/lib/microtar",
+					"jsonFile" : "directory-lib.mmseqs.lib.microtar-Debug-7faffeca15f41e7d3846.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "lib/mmseqs/lib/microtar",
+					"targetIndexes" : 
+					[
+						12
+					]
+				},
+				{
+					"build" : "lib/mmseqs/lib/cacode",
+					"jsonFile" : "directory-lib.mmseqs.lib.cacode-Debug-a545ef5694a3707659b7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "lib/mmseqs/lib/cacode",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "lib/mmseqs/lib/alp",
+					"jsonFile" : "directory-lib.mmseqs.lib.alp-Debug-ba01fc722d6663ca358f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "lib/mmseqs/lib/alp",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "lib/mmseqs/lib/ksw2",
+					"jsonFile" : "directory-lib.mmseqs.lib.ksw2-Debug-bf02e07dc82d8dc38168.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "lib/mmseqs/lib/ksw2",
+					"targetIndexes" : 
+					[
+						8
+					]
+				},
+				{
+					"build" : "lib/mmseqs/data",
+					"childIndexes" : 
+					[
+						9,
+						10
+					],
+					"jsonFile" : "directory-lib.mmseqs.data-Debug-4d2d0b6fecfb37dcd664.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "lib/mmseqs/data",
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"build" : "lib/mmseqs/data/resources",
+					"jsonFile" : "directory-lib.mmseqs.data.resources-Debug-50f5372969e78e5bafdd.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 8,
+					"projectIndex" : 1,
+					"source" : "lib/mmseqs/data/resources"
+				},
+				{
+					"build" : "lib/mmseqs/data/workflow",
+					"jsonFile" : "directory-lib.mmseqs.data.workflow-Debug-72bdec33d8f26b809567.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 8,
+					"projectIndex" : 1,
+					"source" : "lib/mmseqs/data/workflow"
+				},
+				{
+					"build" : "lib/mmseqs/src",
+					"childIndexes" : 
+					[
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20
+					],
+					"jsonFile" : "directory-lib.mmseqs.src-Debug-ba7bd7dcb7590bb86234.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "lib/mmseqs/src",
+					"targetIndexes" : 
+					[
+						13
+					]
+				},
+				{
+					"build" : "lib/mmseqs/src/alignment",
+					"jsonFile" : "directory-lib.mmseqs.src.alignment-Debug-11b549bf0ce169c6e0af.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 11,
+					"projectIndex" : 1,
+					"source" : "lib/mmseqs/src/alignment"
+				},
+				{
+					"build" : "lib/mmseqs/src/clustering",
+					"jsonFile" : "directory-lib.mmseqs.src.clustering-Debug-28645b2377c3617398cf.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 11,
+					"projectIndex" : 1,
+					"source" : "lib/mmseqs/src/clustering"
+				},
+				{
+					"build" : "lib/mmseqs/src/commons",
+					"jsonFile" : "directory-lib.mmseqs.src.commons-Debug-78abf77e4cbda6acc6df.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 11,
+					"projectIndex" : 1,
+					"source" : "lib/mmseqs/src/commons"
+				},
+				{
+					"build" : "lib/mmseqs/src/linclust",
+					"jsonFile" : "directory-lib.mmseqs.src.linclust-Debug-24f583cdaf90b1cb6950.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 11,
+					"projectIndex" : 1,
+					"source" : "lib/mmseqs/src/linclust"
+				},
+				{
+					"build" : "lib/mmseqs/src/multihit",
+					"jsonFile" : "directory-lib.mmseqs.src.multihit-Debug-b988aa579f6183fb73ce.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 11,
+					"projectIndex" : 1,
+					"source" : "lib/mmseqs/src/multihit"
+				},
+				{
+					"build" : "lib/mmseqs/src/prefiltering",
+					"jsonFile" : "directory-lib.mmseqs.src.prefiltering-Debug-d50473ea045be2f48d98.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 11,
+					"projectIndex" : 1,
+					"source" : "lib/mmseqs/src/prefiltering"
+				},
+				{
+					"build" : "lib/mmseqs/src/taxonomy",
+					"jsonFile" : "directory-lib.mmseqs.src.taxonomy-Debug-95040dc6529ccc327f41.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 11,
+					"projectIndex" : 1,
+					"source" : "lib/mmseqs/src/taxonomy"
+				},
+				{
+					"build" : "lib/mmseqs/src/util",
+					"jsonFile" : "directory-lib.mmseqs.src.util-Debug-0c613c76382667cec6f8.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 11,
+					"projectIndex" : 1,
+					"source" : "lib/mmseqs/src/util"
+				},
+				{
+					"build" : "lib/mmseqs/src/workflow",
+					"jsonFile" : "directory-lib.mmseqs.src.workflow-Debug-c37dd7a26a3c2f4e7f0c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 11,
+					"projectIndex" : 1,
+					"source" : "lib/mmseqs/src/workflow"
+				},
+				{
+					"build" : "lib/3di",
+					"jsonFile" : "directory-lib.3di-Debug-774f16d7943bcdf58db6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "lib/3di",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "lib/pulchra",
+					"jsonFile" : "directory-lib.pulchra-Debug-d22143abec92d12d2395.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "lib/pulchra",
+					"targetIndexes" : 
+					[
+						14
+					]
+				},
+				{
+					"build" : "lib/kerasify",
+					"jsonFile" : "directory-lib.kerasify-Debug-4ddf2a639dd085a3782e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "lib/kerasify",
+					"targetIndexes" : 
+					[
+						7
+					]
+				},
+				{
+					"build" : "lib/tmalign",
+					"jsonFile" : "directory-lib.tmalign-Debug-bb1ff1f910ea9f2e8251.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "lib/tmalign",
+					"targetIndexes" : 
+					[
+						16
+					]
+				},
+				{
+					"build" : "lib/foldcomp",
+					"childIndexes" : 
+					[
+						26
+					],
+					"jsonFile" : "directory-lib.foldcomp-Debug-cf28b6faad57812f53ff.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 4,
+					"source" : "lib/foldcomp",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "lib/foldcomp/src",
+					"jsonFile" : "directory-lib.foldcomp.src-Debug-c5e31e0b029ce163b8e1.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 25,
+					"projectIndex" : 4,
+					"source" : "lib/foldcomp/src"
+				},
+				{
+					"build" : "data",
+					"jsonFile" : "directory-data-Debug-6f38794c44c06cb31d42.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "data",
+					"targetIndexes" : 
+					[
+						11
+					]
+				},
+				{
+					"build" : "src",
+					"childIndexes" : 
+					[
+						29,
+						30,
+						31,
+						32
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-src-Debug-8e6e2962fad4c2f1be0f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "src/strucclustutils",
+					"jsonFile" : "directory-src.strucclustutils-Debug-1a75478efd9dfb5e6bf9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 28,
+					"projectIndex" : 0,
+					"source" : "src/strucclustutils",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "src/commons",
+					"jsonFile" : "directory-src.commons-Debug-08af58c8683ad0a92705.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 28,
+					"projectIndex" : 0,
+					"source" : "src/commons"
+				},
+				{
+					"build" : "src/version",
+					"jsonFile" : "directory-src.version-Debug-702ac8d1cb1d4d26e6f3.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 28,
+					"projectIndex" : 0,
+					"source" : "src/version",
+					"targetIndexes" : 
+					[
+						18
+					]
+				},
+				{
+					"build" : "src/workflow",
+					"jsonFile" : "directory-src.workflow-Debug-19e007d449d7e500171c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 28,
+					"projectIndex" : 0,
+					"source" : "src/workflow"
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						4
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						21,
+						22,
+						23,
+						24,
+						27,
+						28,
+						29,
+						30,
+						31,
+						32
+					],
+					"name" : "foldseek",
+					"targetIndexes" : 
+					[
+						0,
+						4,
+						5,
+						7,
+						11,
+						14,
+						16,
+						18
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						2,
+						3
+					],
+					"directoryIndexes" : 
+					[
+						1,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20
+					],
+					"name" : "MMseqs",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1,
+						2,
+						6,
+						8,
+						12,
+						13
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "libzstd",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						9,
+						10,
+						17
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "tinyexpr",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						15
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						25,
+						26
+					],
+					"name" : "foldcomp",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 21,
+					"id" : "3di::@53c4dbc9c2a1241273f6",
+					"jsonFile" : "target-3di-Debug-84f8c85ac200d5009014.json",
+					"name" : "3di",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "alp::@64450471c0ec872848c2",
+					"jsonFile" : "target-alp-Debug-fa8a323bc3c85cfa86ad.json",
+					"name" : "alp",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "cacode::@73b6215a5c3f597a5791",
+					"jsonFile" : "target-cacode-Debug-dda96816b94af1a3e903.json",
+					"name" : "cacode",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 25,
+					"id" : "foldcomp::@5da1f220729d8ac27aa3",
+					"jsonFile" : "target-foldcomp-Debug-1129bfd21dd29a455727.json",
+					"name" : "foldcomp",
+					"projectIndex" : 4
+				},
+				{
+					"directoryIndex" : 28,
+					"id" : "foldseek::@145eef247bfb46b6828c",
+					"jsonFile" : "target-foldseek-Debug-65a8f8d4aeba6324fccf.json",
+					"name" : "foldseek",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 29,
+					"id" : "gemmiwrapper::@afbe3f8a9463b7a07c9a",
+					"jsonFile" : "target-gemmiwrapper-Debug-e68992b99e881480a8d4.json",
+					"name" : "gemmiwrapper",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "generated::@c6f275c6bd5ff08753a8",
+					"jsonFile" : "target-generated-Debug-18dadd005f29bd305708.json",
+					"name" : "generated",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 23,
+					"id" : "kerasify::@9fd0fa121e1deefda967",
+					"jsonFile" : "target-kerasify-Debug-60d3e6852a26cda0764a.json",
+					"name" : "kerasify",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "ksw2::@f6180fe8388f48eadd0e",
+					"jsonFile" : "target-ksw2-Debug-9370b0b243b1b760caec.json",
+					"name" : "ksw2",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "libzstd.pc::@7e30f4f9618df749a338",
+					"jsonFile" : "target-libzstd.pc-Debug-418c1a68b134084e0bc2.json",
+					"name" : "libzstd.pc",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "libzstd_static::@7e30f4f9618df749a338",
+					"jsonFile" : "target-libzstd_static-Debug-cd4e07347e00361ca7ab.json",
+					"name" : "libzstd_static",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 27,
+					"id" : "local-generated::@efda893aa850b0c0e61f",
+					"jsonFile" : "target-local-generated-Debug-4aa87ab4a37a4feb1caa.json",
+					"name" : "local-generated",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "microtar::@8fb4341c09128a0fe0f3",
+					"jsonFile" : "target-microtar-Debug-380cb2566b9e76b94e53.json",
+					"name" : "microtar",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 11,
+					"id" : "mmseqs-framework::@e55401e54b544095d478",
+					"jsonFile" : "target-mmseqs-framework-Debug-a497ab3169c0eaf10532.json",
+					"name" : "mmseqs-framework",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 22,
+					"id" : "pulchra::@4c3e976b69eea8aac7b5",
+					"jsonFile" : "target-pulchra-Debug-39810b7be809ffea320b.json",
+					"name" : "pulchra",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "tinyexpr::@8ad028254d07eadc5d17",
+					"jsonFile" : "target-tinyexpr-Debug-c3f6eda49e087e576336.json",
+					"name" : "tinyexpr",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 24,
+					"id" : "tmalign::@92c38a5decfdbb4e505e",
+					"jsonFile" : "target-tmalign-Debug-de3c7e36939963743c65.json",
+					"name" : "tmalign",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "uninstall::@7e30f4f9618df749a338",
+					"jsonFile" : "target-uninstall-Debug-1a5184ae00979b24aecd.json",
+					"name" : "uninstall",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 31,
+					"id" : "version::@2b5f86c53b08059b0b18",
+					"jsonFile" : "target-version-Debug-dc7cff2aac89b8a6d008.json",
+					"name" : "version",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/woosubkim/Documents/workspace/foldseek/cmake-build-debug",
+		"source" : "/Users/woosubkim/Documents/workspace/foldseek"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

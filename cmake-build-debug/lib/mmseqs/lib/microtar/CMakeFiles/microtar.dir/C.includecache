@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar/microtar.c
+stdio.h
+-
+stdlib.h
+-
+stddef.h
+-
+string.h
+-
+microtar.h
+/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar/microtar.h
+
+/Users/woosubkim/Documents/workspace/foldseek/lib/mmseqs/lib/microtar/microtar.h
+stdio.h
+-
+stdlib.h
+-
+
