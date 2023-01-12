@@ -674,9 +674,9 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
         std::cout << "0" << std::endl;
         ComplexScorer complexScorer(&q3DiDbr, t3DiDbr, qLookupFile, dbLookupFile);
         std::vector<Complex> qComplexes = complexScorer.getQComplexes(alnDbr, qCaDbr, tCaDbr, qCoords, tCoords, thread_idx);
+        std::cout << "1" << std::endl;
 #pragma omp for schedule(dynamic, 1)
         // workflow 3,4
-        std::cout << "1" << std::endl;
         for (size_t qComplexIdx=0; qComplexIdx < qComplexes.size(); qComplexIdx++) {
             std::vector<OutputLine> resultLines = complexScorer.getOutputLines(qComplexes[qComplexIdx]);
             progress.updateProgress();
