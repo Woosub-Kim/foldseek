@@ -659,7 +659,7 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
     DBWriter resultWriter(par.db4.c_str(), par.db4Index.c_str(), static_cast<unsigned int>(par.threads), par.compressed, Parameters::DBTYPE_ALIGNMENT_RES);
     resultWriter.open();
     Debug::Progress progress(alnDbr.getSize());
-#pragma omp parallel 
+#pragma omp parallel
     {
         unsigned int thread_idx = 0;
 #ifdef OPENMP
@@ -690,6 +690,6 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
     if (!sameDB) {
         delete t3DiDbr;
     }
-    resultWriter.close();
+    resultWriter.close(true);
     return EXIT_SUCCESS;
 }
