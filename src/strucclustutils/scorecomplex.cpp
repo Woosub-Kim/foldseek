@@ -671,10 +671,12 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
         Coordinate16 qCoords;
         Coordinate16 tCoords;
         // workflow 1,2
+        std::cout << "0" << std::endl;
         ComplexScorer complexScorer(&q3DiDbr, t3DiDbr, qLookupFile, dbLookupFile);
         std::vector<Complex> qComplexes = complexScorer.getQComplexes(alnDbr, qCaDbr, tCaDbr, qCoords, tCoords, thread_idx);
 #pragma omp for schedule(dynamic, 1)
         // workflow 3,4
+        std::cout << "1" << std::endl;
         for (size_t qComplexIdx=0; qComplexIdx < qComplexes.size(); qComplexIdx++) {
             std::vector<OutputLine> resultLines = complexScorer.getOutputLines(qComplexes[qComplexIdx]);
             progress.updateProgress();
@@ -686,10 +688,13 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
             }
         }
     }
+    std::cout << "2" << std::endl;
     alnDbr.close();
     if (!sameDB) {
         delete t3DiDbr;
     }
+    std::cout << "3" << std::endl;
     resultWriter.close(true);
+    std::cout << "4" << std::endl;
     return EXIT_SUCCESS;
 }
