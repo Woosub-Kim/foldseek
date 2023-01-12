@@ -636,6 +636,7 @@ private:
 };
 
 int scorecomplex(int argc, const char **argv, const Command& command) {
+    std::cout << "-1" << std::endl;
     LocalParameters &par = LocalParameters::getLocalInstance();
     par.parseParameters(argc, argv, command, true, 0, MMseqsParameter::COMMAND_ALIGN);
     const bool touch = (par.preloadMode != Parameters::PRELOAD_MODE_MMAP);
