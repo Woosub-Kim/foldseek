@@ -643,6 +643,7 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
     IndexReader *t3DiDbr = NULL;
     IndexReader *qCaDbr = new IndexReader(par.db1, par.threads, IndexReader::makeUserDatabaseType(LocalParameters::INDEX_DB_CA_KEY), touch ? IndexReader::PRELOAD_INDEX : 0,  DBReader<unsigned int>::USE_INDEX | DBReader<unsigned int>::USE_DATA, "_ca" );
     IndexReader *tCaDbr = NULL;
+    std::cout << "0" << std::endl;
     bool sameDB = false;
     if (par.db1.compare(par.db2) == 0) {
         sameDB = true;
@@ -652,6 +653,7 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
         t3DiDbr = new IndexReader(StructureUtil::getIndexWithSuffix(par.db2, "_ss"), par.threads, IndexReader::SEQUENCES, touch ? IndexReader::PRELOAD_INDEX : 0);
         tCaDbr = new IndexReader(par.db2, par.threads, IndexReader::makeUserDatabaseType(LocalParameters::INDEX_DB_CA_KEY), touch ? IndexReader::PRELOAD_INDEX : 0, DBReader<unsigned int>::USE_INDEX | DBReader<unsigned int>::USE_DATA, "_ca");
     }
+    std::cout << "1" << std::endl;
     std::string qLookupFile = par.db1 + ".lookup";
     std::string dbLookupFile = par.db2 + ".lookup";
     DBReader<unsigned int> alnDbr(par.db3.c_str(), par.db3Index.c_str(), par.threads, DBReader<unsigned int>::USE_INDEX|DBReader<unsigned int>::USE_DATA);
@@ -659,6 +661,7 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
     DBWriter resultWriter(par.db4.c_str(), par.db4Index.c_str(), static_cast<unsigned int>(par.threads), par.compressed, Parameters::DBTYPE_ALIGNMENT_RES);
     resultWriter.open();
     Debug::Progress progress(alnDbr.getSize());
+    std::cout << "2" << std::endl;
 #pragma omp parallel
     {
         unsigned int thread_idx = 0;
@@ -671,10 +674,10 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
         Coordinate16 qCoords;
         Coordinate16 tCoords;
         // workflow 1,2
-        std::cout << "0" << std::endl;
+        std::cout << "3" << std::endl;
         ComplexScorer complexScorer(&q3DiDbr, t3DiDbr, qLookupFile, dbLookupFile);
         std::vector<Complex> qComplexes = complexScorer.getQComplexes(alnDbr, qCaDbr, tCaDbr, qCoords, tCoords, thread_idx);
-        std::cout << "1" << std::endl;
+        std::cout << "4" << std::endl;
 #pragma omp for schedule(dynamic, 1)
         // workflow 3,4
         for (size_t qComplexIdx=0; qComplexIdx < qComplexes.size(); qComplexIdx++) {
@@ -688,13 +691,13 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
             }
         }
     }
-    std::cout << "2" << std::endl;
+    std::cout << "5" << std::endl;
     alnDbr.close();
     if (!sameDB) {
         delete t3DiDbr;
     }
-    std::cout << "3" << std::endl;
+    std::cout << "6" << std::endl;
     resultWriter.close(true);
-    std::cout << "4" << std::endl;
+    std::cout << "7" << std::endl;
     return EXIT_SUCCESS;
 }
