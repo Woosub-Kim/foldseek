@@ -70,6 +70,8 @@ public:
     PARAMETER(PARAM_TMALIGN_FAST)
     PARAMETER(PARAM_N_SAMPLE)
     PARAMETER(PARAM_COORD_STORE_MODE)
+    //
+    PARAMETER(PARAM_PROTEIN_CHAIN_ONLY)
 
     float tmScoreThr;
     float maskBfactorThreshold;
@@ -78,6 +80,7 @@ public:
     int tmAlignFast;
     int nsample;
     int coordStoreMode;
+    int storeProteinChainOnly;
 
     static std::vector<int> getOutputFormat(int formatMode, const std::string &outformat, bool &needSequences, bool &needBacktrace, bool &needFullHeaders,
                                             bool &needLookup, bool &needSource, bool &needTaxonomyMapping, bool &needTaxonomy, bool &needCa, bool &needTMaligner, bool &needLDDT);
