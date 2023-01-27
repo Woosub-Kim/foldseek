@@ -568,7 +568,7 @@ private:
 //                std:: cout << tempCompAln.dbChainKeys[j] << "\t";
 //            }
 //            std::cout << "tm:\t" << tempCompAln.tmScore << std::endl;
-//            tempVecIdx++;
+            tempVecIdx++;
         }
         std::vector<ComplexToComplexAln> outputComplexAlnVec(tempComplexAlnVec.begin(), tempComplexAlnVec.begin() + tempVecIdx);
         return outputComplexAlnVec;
