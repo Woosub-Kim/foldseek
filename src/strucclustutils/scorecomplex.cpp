@@ -559,16 +559,16 @@ private:
         unsigned int tempVecIdx=0;
         while (tempVecIdx < tempComplexAlnVec.size() && tempComplexAlnVec[tempVecIdx].tmScore>maxTmScore*0.8){
             ComplexToComplexAln tempCompAln = tempComplexAlnVec[tempVecIdx];
-            std::cout<< "q:\t";
-            for (size_t j=0; j<tempCompAln.qChainKeys.size(); j++) {
-                std:: cout << tempCompAln.qChainKeys[j] << "\t";
-            }
-            std::cout<< "t:\t";
-            for (size_t j=0; j<tempCompAln.dbChainKeys.size(); j++) {
-                std:: cout << tempCompAln.dbChainKeys[j] << "\t";
-            }
-            std::cout << "tm:\t" << tempCompAln.tmScore << std::endl;
-            tempVecIdx++;
+//            std::cout<< "q:\t";
+//            for (size_t j=0; j<tempCompAln.qChainKeys.size(); j++) {
+//                std:: cout << tempCompAln.qChainKeys[j] << "\t";
+//            }
+//            std::cout<< "t:\t";
+//            for (size_t j=0; j<tempCompAln.dbChainKeys.size(); j++) {
+//                std:: cout << tempCompAln.dbChainKeys[j] << "\t";
+//            }
+//            std::cout << "tm:\t" << tempCompAln.tmScore << std::endl;
+//            tempVecIdx++;
         }
         std::vector<ComplexToComplexAln> outputComplexAlnVec(tempComplexAlnVec.begin(), tempComplexAlnVec.begin() + tempVecIdx);
         return outputComplexAlnVec;
