@@ -154,72 +154,109 @@ struct Complex {
     std::vector<unsigned int> chainKeys;
     std::vector<ChainToChainAln> alnVec;
 
-    void filteredAlnVec(float compatibleCheckRatio, float alnFilterRatio){
+    void filteredAlnVec(float compatibleCheckRatio){
         if (alnVec.empty()) {
             return;
         }
         std::vector<ChainToChainAln> newAlnVec;
         std::vector<ChainToChainAln> currDbComplexAlnVec;
-        std::vector<ChainToChainAln> tempAlnVec;
 
         ChainToChainAln firstAln = alnVec[0];
         unsigned int dbPrevComplexId = firstAln.dbChain.complexId;
         unsigned int qChainCount = 1;
         unsigned int qPrevChainKey = firstAln.qChain.chainKey;
-        int maxBitScore = firstAln.bitScore;
 
         for (size_t i=0; i < alnVec.size(); i++) {
             ChainToChainAln aln = alnVec[i];
             if (aln.dbChain.complexId != dbPrevComplexId) {
-                for (size_t j = 0; j < tempAlnVec.size(); j++) {
-                    ChainToChainAln tempAln = tempAlnVec[j];
-                    if (tempAln.bitScore > (int)maxBitScore*alnFilterRatio) {
-                        currDbComplexAlnVec.emplace_back(tempAln);
-                    }
-                }
-                tempAlnVec.clear();
-
                 if (qChainCount >= (float)(chainKeys.size() * compatibleCheckRatio)) {
                     newAlnVec.insert(newAlnVec.end(), currDbComplexAlnVec.begin(), currDbComplexAlnVec.end());
                 }
                 currDbComplexAlnVec.clear();
-
                 dbPrevComplexId = aln.dbChain.complexId;
                 qChainCount = 1;
                 qPrevChainKey = aln.qChain.chainKey;
-                maxBitScore = aln.bitScore;
-                tempAlnVec.emplace_back(aln);
+                currDbComplexAlnVec.emplace_back(aln);
             } else if (aln.qChain.chainKey != qPrevChainKey) {
-                for (size_t j = 0; j < tempAlnVec.size(); j++) {
-                    ChainToChainAln tempAln = tempAlnVec[j];
-                    if (tempAln.bitScore > (int)maxBitScore*alnFilterRatio) {
-                        currDbComplexAlnVec.emplace_back(tempAln);
-                    }
-                }
-                tempAlnVec.clear();
-
                 qChainCount ++;
                 qPrevChainKey = aln.qChain.chainKey;
-                maxBitScore = aln.bitScore;
-                tempAlnVec.emplace_back(aln);
+                currDbComplexAlnVec.emplace_back(aln);
             } else {
-                maxBitScore = std::max(maxBitScore, aln.bitScore);
-                tempAlnVec.emplace_back(aln);
+                currDbComplexAlnVec.emplace_back(aln);
             }
         }
-        for (size_t j = 0; j < tempAlnVec.size(); j++) {
-            ChainToChainAln tempAln = tempAlnVec[j];
-            if (tempAln.bitScore > (int)maxBitScore*alnFilterRatio) {
-                currDbComplexAlnVec.emplace_back(tempAln);
-            }
-        }
-        tempAlnVec.clear();
-
         if (qChainCount >= (float)(chainKeys.size() * compatibleCheckRatio)) {
             newAlnVec.insert(newAlnVec.end(), currDbComplexAlnVec.begin(), currDbComplexAlnVec.end());
         }
         alnVec = newAlnVec;
     }
+
+//    void filteredAlnVec(float compatibleCheckRatio, float alnFilterRatio){
+//        if (alnVec.empty()) {
+//            return;
+//        }
+//        std::vector<ChainToChainAln> newAlnVec;
+//        std::vector<ChainToChainAln> currDbComplexAlnVec;
+//        std::vector<ChainToChainAln> tempAlnVec;
+//
+//        ChainToChainAln firstAln = alnVec[0];
+//        unsigned int dbPrevComplexId = firstAln.dbChain.complexId;
+//        unsigned int qChainCount = 1;
+//        unsigned int qPrevChainKey = firstAln.qChain.chainKey;
+//        int maxBitScore = firstAln.bitScore;
+//
+//        for (size_t i=0; i < alnVec.size(); i++) {
+//            ChainToChainAln aln = alnVec[i];
+//            if (aln.dbChain.complexId != dbPrevComplexId) {
+//                for (size_t j = 0; j < tempAlnVec.size(); j++) {
+//                    ChainToChainAln tempAln = tempAlnVec[j];
+//                    if (tempAln.bitScore > (int)maxBitScore*alnFilterRatio) {
+//                        currDbComplexAlnVec.emplace_back(tempAln);
+//                    }
+//                }
+//                tempAlnVec.clear();
+//
+//                if (qChainCount >= (float)(chainKeys.size() * compatibleCheckRatio)) {
+//                    newAlnVec.insert(newAlnVec.end(), currDbComplexAlnVec.begin(), currDbComplexAlnVec.end());
+//                }
+//                currDbComplexAlnVec.clear();
+//
+//                dbPrevComplexId = aln.dbChain.complexId;
+//                qChainCount = 1;
+//                qPrevChainKey = aln.qChain.chainKey;
+//                maxBitScore = aln.bitScore;
+//                tempAlnVec.emplace_back(aln);
+//            } else if (aln.qChain.chainKey != qPrevChainKey) {
+//                for (size_t j = 0; j < tempAlnVec.size(); j++) {
+//                    ChainToChainAln tempAln = tempAlnVec[j];
+//                    if (tempAln.bitScore > (int)maxBitScore*alnFilterRatio) {
+//                        currDbComplexAlnVec.emplace_back(tempAln);
+//                    }
+//                }
+//                tempAlnVec.clear();
+//
+//                qChainCount ++;
+//                qPrevChainKey = aln.qChain.chainKey;
+//                maxBitScore = aln.bitScore;
+//                tempAlnVec.emplace_back(aln);
+//            } else {
+//                maxBitScore = std::max(maxBitScore, aln.bitScore);
+//                tempAlnVec.emplace_back(aln);
+//            }
+//        }
+//        for (size_t j = 0; j < tempAlnVec.size(); j++) {
+//            ChainToChainAln tempAln = tempAlnVec[j];
+//            if (tempAln.bitScore > (int)maxBitScore*alnFilterRatio) {
+//                currDbComplexAlnVec.emplace_back(tempAln);
+//            }
+//        }
+//        tempAlnVec.clear();
+//
+//        if (qChainCount >= (float)(chainKeys.size() * compatibleCheckRatio)) {
+//            newAlnVec.insert(newAlnVec.end(), currDbComplexAlnVec.begin(), currDbComplexAlnVec.end());
+//        }
+//        alnVec = newAlnVec;
+//    }
 };
 
 struct ComplexToComplexAln{
@@ -389,7 +426,8 @@ public:
         std::vector<Complex> qComplexes;
         for (size_t i=0; i<qTempComplexes.size(); i++) {
             Complex qComplex = qTempComplexes[i];
-            qComplex.filteredAlnVec(1.0, 0.8);
+//            qComplex.filteredAlnVec(1.0, 0.0);
+            qComplex.filteredAlnVec(1.0);
             if (!qComplex.alnVec.empty()) {
                 qComplexes.emplace_back(qComplex);
             }
@@ -557,8 +595,11 @@ private:
         std::sort(tempComplexAlnVec.begin(), tempComplexAlnVec.end(), compareComplexToComplexAlnByTmScore);
         maxTmScore = tempComplexAlnVec[0].tmScore;
         unsigned int tempVecIdx=0;
-        while (tempVecIdx < tempComplexAlnVec.size() && tempComplexAlnVec[tempVecIdx].tmScore>maxTmScore*0.8){
-            ComplexToComplexAln tempCompAln = tempComplexAlnVec[tempVecIdx];
+        while (tempVecIdx < tempComplexAlnVec.size() && tempComplexAlnVec[tempVecIdx].tmScore>maxTmScore*0.99){
+            tempVecIdx++;
+
+//            // TODO
+//            ComplexToComplexAln tempCompAln = tempComplexAlnVec[tempVecIdx];
 //            std::cout<< "q:\t";
 //            for (size_t j=0; j<tempCompAln.qChainKeys.size(); j++) {
 //                std:: cout << tempCompAln.qChainKeys[j] << "\t";
@@ -568,7 +609,6 @@ private:
 //                std:: cout << tempCompAln.dbChainKeys[j] << "\t";
 //            }
 //            std::cout << "tm:\t" << tempCompAln.tmScore << std::endl;
-            tempVecIdx++;
         }
         std::vector<ComplexToComplexAln> outputComplexAlnVec(tempComplexAlnVec.begin(), tempComplexAlnVec.begin() + tempVecIdx);
         return outputComplexAlnVec;
