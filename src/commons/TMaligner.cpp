@@ -204,3 +204,57 @@ Matcher::result_t TMaligner::align(unsigned int dbKey, float *x, float *y, float
     float tCov = StructureSmithWaterman::computeCov(shiftT, targetLen-endT-1, targetLen);
     return Matcher::result_t(dbKey, TM_0*100000 , qCov, tCov, seqId, TM2, backtrace.length(), shiftQ, queryLen-endQ-1, queryLen, shiftT, targetLen-endT-1, targetLen, Matcher::compressAlignment(backtrace));
 }
+
+TMaligner::TMscoreResult TMaligner::computeTMscore2(float *x, float *y, float *z, unsigned int targetLen, int qStartPos, int dbStartPos, const std::string &backtrace, unsigned int alnLen) {
+    int qPos = qStartPos;
+    int tPos = dbStartPos;
+    std::string cigarString = backtrace;
+    std::fill(invmap, invmap+queryLen, -1);
+    for (size_t btPos = 0; btPos < cigarString.size(); btPos++) {
+        if (cigarString[btPos] == 'M') {
+            invmap[qPos] = tPos;
+            qPos++;
+            tPos++;
+        }
+        else if (cigarString[btPos] == 'I') {
+            qPos++;
+        }
+        else {
+            tPos++;
+        }
+    }
+
+    memcpy(target_x, x, sizeof(float) * targetLen);
+    memcpy(target_y, y, sizeof(float) * targetLen);
+    memcpy(target_z, z, sizeof(float) * targetLen);
+    Coordinates targetCaCords;
+    targetCaCords.x = target_x;
+    targetCaCords.y = target_y;
+    targetCaCords.z = target_z;
+    Coordinates queryCaCords;
+    queryCaCords.x = query_x;
+    queryCaCords.y = query_y;
+    queryCaCords.z = query_z;
+    float t[3], u[3][3];
+    float D0_MIN;
+
+    float rmsd0 = 0.0;
+    int L_ali;                // Aligned length in standard_TMscore
+    float Lnorm;         //normalization length
+    float score_d8,d0,d0_search,dcu0;//for TMscore search
+    parameter_set4search(std::min(alnLen, targetLen),  queryLen, D0_MIN, Lnorm,
+                         score_d8, d0, d0_search, dcu0);
+    double prevD0_MIN = D0_MIN;// stored for later use
+    int prevLnorm = Lnorm;
+    double prevd0 = d0;
+    double local_d0_search = d0_search;
+    double TMalnScore = standard_TMscore(r1, r2, xtm, ytm, xt, targetCaCords, queryCaCords, queryLen, invmap,
+                                         L_ali, rmsd0, D0_MIN, Lnorm, d0, score_d8, t, u,  mem);
+    D0_MIN = prevD0_MIN;
+    Lnorm = prevLnorm;
+    d0 = prevd0;
+    double TM = detailed_search_standard(r1, r2, xtm, ytm, xt, targetCaCords, queryCaCords, queryLen,
+                                         invmap, t, u, 40, local_d0_search, true, Lnorm, score_d8, d0, mem);
+    TM = std::max(TM, TMalnScore);
+    return TMaligner::TMscoreResult(u, t, TM, rmsd0);
+}

@@ -583,9 +583,9 @@ int structureconvertalis(int argc, const char **argv, const Command &command) {
                                 break;
                         }
                     }
-//                res.seqId = X / alnLen;
+//                res.seqId = X / alnLength;
                     identical = static_cast<unsigned int>(res.seqId * static_cast<float>(alnLen) + 0.5);
-                    //res.alnLength = alnLen;
+                    //res.alnLength = alnLength;
                     missMatchCount = static_cast<unsigned int>( matchCount - identical);
                 } else {
                     const int adjustQstart = (res.qStartPos == -1) ? 0 : res.qStartPos;
@@ -941,7 +941,7 @@ int structureconvertalis(int argc, const char **argv, const Command &command) {
                         break;
                     }
                     case Parameters::FORMAT_ALIGNMENT_HTML: {
-                        const char* jsAln = "{\"target\": \"%s\", \"seqId\": %1.3f, \"alnLen\": %d, \"mismatch\": %d, \"gapopen\": %d, \"qStartPos\": %d, \"qEndPos\": %d, \"dbStartPos\": %d, \"dbEndPos\": %d, \"eval\": %.2E, \"score\": %d, \"qLen\": %d, \"dbLen\": %d, \"qAln\": \"";
+                        const char* jsAln = "{\"target\": \"%s\", \"seqId\": %1.3f, \"alnLength\": %d, \"mismatch\": %d, \"gapopen\": %d, \"qStartPos\": %d, \"qEndPos\": %d, \"dbStartPos\": %d, \"dbEndPos\": %d, \"eval\": %.2E, \"score\": %d, \"qLen\": %d, \"dbLen\": %d, \"qAln\": \"";
                         int count = snprintf(buffer, sizeof(buffer), jsAln,
                                              targetId.c_str(), res.seqId, alnLen,
                                              missMatchCount, gapOpenCount,

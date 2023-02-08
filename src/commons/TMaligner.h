@@ -40,6 +40,8 @@ public:
                                  int targetStartPos, const std::string & backtrace);
     Matcher::result_t align(unsigned int dbKey, float *target_x, float *target_y, float *target_z,
                             char * targetSeq, unsigned int targetLen, float &TM);
+    TMscoreResult computeTMscore2(float *x, float *y, float *z, unsigned int targetLen, int qStartPos, int dbStartPos,
+                                  const std::string &backtrace, unsigned int alnLen);
 private:
     AffineNeedlemanWunsch affineNW;
     std::string backtrace;

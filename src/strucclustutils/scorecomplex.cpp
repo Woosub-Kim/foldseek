@@ -130,20 +130,25 @@ struct ChainToChainAln {
                     break;
             }
         }
+
         qInputChain.setStartPos(0); // 0,0
         qInputChain.setCaData(qCaXVec, qCaYVec, qCaZVec);
-        qInputChain.setLength(numMatches);
+//        qInputChain.setLength(numMatches);
+        qInputChain.setLength(qLength);
         dbInputChain.setStartPos(0); // 0,0
         dbInputChain.setCaData(dbCaXVec, dbCaYVec, dbCaZVec);
-        dbInputChain.setLength(numMatches);
+//        dbInputChain.setLength(numMatches);
+        dbInputChain.setLength(dbLength);
         qChain = qInputChain;
         dbChain = dbInputChain;
         backtrace = newBacktrace;
         bitScore = alnResult.score;
+        alnLength = inputBacktrace.size();
     }
     Chain qChain;
     Chain dbChain;
     std::string backtrace;
+    unsigned int alnLength;
     int bitScore;
 };
 
@@ -270,6 +275,7 @@ struct ComplexToComplexAln{
         backtrace = aln.backtrace;
         qLength = aln.qChain.length;
         dbLength = aln.dbChain.length;
+        alnLength = aln.alnLength;
         qCaXVec = aln.qChain.caDataX;
         qCaYVec = aln.qChain.caDataY;
         qCaZVec = aln.qChain.caDataZ;
@@ -284,6 +290,7 @@ struct ComplexToComplexAln{
     std::vector<unsigned int> dbChainKeys;
     unsigned int qLength;
     unsigned int dbLength;
+    unsigned int alnLength;
     std::string backtrace;
     std::vector<float> qCaXVec;
     std::vector<float> qCaYVec;
@@ -302,6 +309,7 @@ struct ComplexToComplexAln{
         backtrace += aln.backtrace;
         qLength += aln.qChain.length;
         dbLength += aln.dbChain.length;
+        alnLength += aln.alnLength;
         qCaXVec.insert(qCaXVec.end(), aln.qChain.caDataX.begin(), aln.qChain.caDataX.end());
         qCaYVec.insert(qCaYVec.end(), aln.qChain.caDataY.begin(), aln.qChain.caDataY.end());
         qCaZVec.insert(qCaZVec.end(), aln.qChain.caDataZ.begin(), aln.qChain.caDataZ.end());
@@ -413,9 +421,8 @@ class ComplexScorer {
 public:
     ComplexScorer(
             IndexReader *qDbr3Di, IndexReader *tDbr3Di, std::string qLookupFile, std::string tLookupFile,
-            DBReader<unsigned int> &alnDbr, IndexReader *qCaDbr, IndexReader *tCaDbr,
-            Coordinate16 qCoords, Coordinate16 tCoords, int thread_idx)
-            : alnDbr(alnDbr), qCaDbr(qCaDbr), tCaDbr(tCaDbr), qCoords(qCoords), tCoords(tCoords), thread_idx(thread_idx) {
+            DBReader<unsigned int> &alnDbr, IndexReader *qCaDbr, IndexReader *tCaDbr, int thread_idx)
+            : alnDbr(alnDbr), qCaDbr(qCaDbr), tCaDbr(tCaDbr), thread_idx(thread_idx) {
          maxSeqLen = std::max(qDbr3Di->sequenceReader->getMaxSeqLen()+1, tDbr3Di->sequenceReader->getMaxSeqLen()+1);
         getMaps(qLookupFile, qLookup, qComplexMap, qChainMap);
         getMaps(tLookupFile, tLookup, dbComplexMap, dbChainMap);
@@ -540,7 +547,8 @@ private:
             Matcher::result_t qAlnResult = Matcher::parseAlignmentRecord(data);
             size_t qId = qCaDbr->sequenceReader->getId(queryKey);
             char *qCaData = qCaDbr->sequenceReader->getData(qId, thread_idx);
-            float *queryCaData = (float *) qCaData;
+            size_t qCaLength = qCaDbr->sequenceReader->getEntryLen(qId);
+            float* queryCaData = qCoords.read(qCaData, qAlnResult.qLen, qCaLength);
             Chain qChain = Chain(queryComplexId, queryKey);
             while (*data != '\0') {
                 char dbKeyBuffer[255 + 1];
@@ -550,7 +558,8 @@ private:
                 Matcher::result_t alnResult =  Matcher::parseAlignmentRecord(data);
                 size_t tCaId = tCaDbr->sequenceReader->getId(dbKey);
                 char *tCaData = tCaDbr->sequenceReader->getData(tCaId, thread_idx);
-                float *targetCaData = (float *) tCaData;
+                size_t tCaLength = tCaDbr->sequenceReader->getEntryLen(tCaId);
+                float* targetCaData = tCoords.read(tCaData, alnResult.dbLen, tCaLength);
                 Chain dbChain = Chain(dbComplexId, dbKey);
                 ChainToChainAln chainToChainAln(qChain, dbChain, queryCaData, targetCaData, alnResult);
                 qComplexes[queryComplexId].alnVec.emplace_back(chainToChainAln);
@@ -591,7 +600,7 @@ private:
         maxTmScore = tempComplexAlnVec[0].tmScore;
         unsigned int tempVecIdx=0;
         
-        while (tempVecIdx < tempComplexAlnVec.size() && tempComplexAlnVec[tempVecIdx].tmScore>maxTmScore*0.0){
+        while (tempVecIdx < tempComplexAlnVec.size() && tempComplexAlnVec[tempVecIdx].tmScore>0){//maxTmScore-0.05){
 //             TEMP
             ComplexToComplexAln tempCompAln = tempComplexAlnVec[tempVecIdx];
             std::cout<< "q:\t";
@@ -609,7 +618,7 @@ private:
         std::vector<ComplexToComplexAln> outputComplexAlnVec(tempComplexAlnVec.begin(), tempComplexAlnVec.begin() + tempVecIdx);
         return outputComplexAlnVec;
     }
-    
+
     double getTmScore(ComplexToComplexAln aln){
         bool chainOverlapAllowed = false;
         std::vector<unsigned int> foundDbKeys;
@@ -623,7 +632,7 @@ private:
             foundDbKeys.emplace_back(currDbKey);
         }
         tmAligner->initQuery(&aln.qCaXVec[0], &aln.qCaYVec[0], &aln.qCaZVec[0], NULL, aln.qLength);
-        TMaligner::TMscoreResult tmResult = tmAligner->computeTMscore(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], aln.dbLength, 0, 0, Matcher::uncompressAlignment(aln.backtrace));
+        TMaligner::TMscoreResult tmResult = tmAligner->computeTMscore2(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], aln.dbLength, 0, 0, Matcher::uncompressAlignment(aln.backtrace), aln.alnLength);
         return tmResult.tmscore;
     }
 
@@ -671,6 +680,8 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
     IndexReader *qCaDbr = new IndexReader(par.db1, par.threads, IndexReader::makeUserDatabaseType(LocalParameters::INDEX_DB_CA_KEY), touch ? IndexReader::PRELOAD_INDEX : 0,  DBReader<unsigned int>::USE_INDEX | DBReader<unsigned int>::USE_DATA, "_ca" );
     IndexReader *tCaDbr = NULL;
 
+
+
     bool sameDB = false;
     if (par.db1.compare(par.db2) == 0) {
         sameDB = true;
@@ -699,12 +710,12 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
         std::vector<Matcher::result_t> alignmentResult;
         std::string backtrace;
         std::string resultBuffer;
-        Coordinate16 qCoords;
-        Coordinate16 tCoords;
-        ComplexScorer complexScorer(&q3DiDbr, t3DiDbr, qLookupFile, dbLookupFile, alnDbr, qCaDbr, tCaDbr, qCoords, tCoords, thread_idx);
+//        Coordinate16 qCoords;
+//        Coordinate16 tCoords;
+        ComplexScorer complexScorer(&q3DiDbr, t3DiDbr, qLookupFile, dbLookupFile, alnDbr, qCaDbr, tCaDbr, thread_idx);
         std::vector<Complex> qComplexes = complexScorer.getQComplexes();
 //#pragma omp for schedule(dynamic, 1)
-
+//        std::cout << "!!!\n";
         for (size_t qComplexIdx=0; qComplexIdx < qComplexes.size(); qComplexIdx++) {
             std::vector<OutputLine> resultLines = complexScorer.getOutputLines(qComplexes[qComplexIdx]);
             progress.updateProgress();
