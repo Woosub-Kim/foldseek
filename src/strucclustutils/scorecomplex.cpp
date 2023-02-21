@@ -234,11 +234,11 @@ struct Complex {
 
     void standardize(){
         double len = (double)(alnVec.size());
-//        double sum[12];
-        double mean[12];
-        double var[12];
-        double sd[12];
+        double mean[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
+        double var[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
+        double sd[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
         for (size_t i=0; i<len; i++){
+//            std::cout << alnVec[i].qChain.chainKey << "\t" << alnVec[i].dbChain.chainKey << "\t";
             for (size_t j=0; j<12; j++){
 //                std::cout << alnVec[i].uTMatrix.matrix[j] << "\t";
                 double val = (double)(alnVec[i].uTMatrix.matrix[j]);
@@ -342,6 +342,17 @@ struct ComplexToComplexAln{
     }
 };
 
+struct DistMatrix{
+    DistMatrix(std::pair<unsigned int, unsigned int> bestAlnIndexes, double bestDist) : bestAlnIndexes(bestAlnIndexes), bestDist(bestDist){}
+    std::pair<unsigned int, unsigned int> bestAlnIndexes;
+    double bestDist;
+    void setBestAlnAndDist(std::pair<unsigned int, unsigned int> indexes, double dist){
+        bestAlnIndexes = indexes;
+        bestDist = dist;
+    }
+
+};
+
 struct OutputLine{
     OutputLine(unsigned int qComplexId, unsigned int dbComplexId, double tmScore, std::string line) : qComplexId(qComplexId), dbComplexId(dbComplexId), tmScore(tmScore), line(line) {}
     OutputLine(unsigned int qComplexId, unsigned int dbComplexId, double tmScore, std::string qComplexName, std::string dbComplexName, std::string qChainNames, std::string dbChainNames): qComplexId(qComplexId), dbComplexId(dbComplexId), tmScore(tmScore), qComplexName(qComplexName), dbComplexName(dbComplexName), qChainNames(qChainNames), dbChainNames(dbChainNames){}
@@ -441,6 +452,16 @@ bool compareComplexToComplexAlnByTmScore(const ComplexToComplexAln &first, const
         return true;
     }
     if (first.tmScore < second.tmScore) {
+        return false;
+    }
+    return false;
+}
+
+bool compareDistMatrixByDist(const DistMatrix &first, const DistMatrix &second){
+    if (first.bestDist < second.bestDist){
+        return true;
+    }
+    if (first.bestDist > second.bestDist){
         return false;
     }
     return false;
@@ -729,16 +750,41 @@ private:
     }
 
     std::vector<ChainToChainAln>  DBSCAN(std::vector<ChainToChainAln> alnVec, float eps, unsigned int minClusterSize, unsigned int maxClusterSize, float lr) {
+        for (size_t i=0; i<alnVec.size(); i++){
+            ChainToChainAln &P = alnVec[i];
+            P.uTMatrix.resetLabel();
+        }
+        if (minClusterSize==2){
+            unsigned int C = 0;
+            std::vector<DistMatrix> distMatrix;
+            for (size_t i=0; i<alnVec.size(); i++){
+                ChainToChainAln prevAln = alnVec[i];
+                for (size_t j=i+1; j<alnVec.size(); j++){
+                    ChainToChainAln currAln = alnVec[j];
+                    if (alnVec[i].qChain.chainKey==alnVec[j].qChain.chainKey || alnVec[i].dbChain.chainKey==alnVec[j].dbChain.chainKey) continue;
+                    double dist = prevAln.uTMatrix.getDistance(currAln.uTMatrix);
+                    distMatrix.emplace_back(DistMatrix(std::pair<unsigned int, unsigned int>(i, j), dist));
+                }
+            }
+            std::sort(distMatrix.begin(), distMatrix.end(), compareDistMatrixByDist);
+            for (size_t i=0; i < distMatrix.size(); i++){
+                unsigned int alnIdx1 = distMatrix[i].bestAlnIndexes.first;
+                unsigned int alnIdx2 = distMatrix[i].bestAlnIndexes.second;
+                if (alnVec[alnIdx1].uTMatrix.label>0 || alnVec[alnIdx2].uTMatrix.label>0) continue;
+                alnVec[alnIdx1].uTMatrix.label = ++C;
+                alnVec[alnIdx2].uTMatrix.label = C;
+            }
+            std::sort(alnVec.begin(), alnVec.end(), compareChainToChainAlnByUTMatrixLabel);
+            return alnVec;
+        }
+
         unsigned int minPts = 2;
         int C = 0;
         std::vector<unsigned int> validClusters;
         std::vector<unsigned int> tooSmallClusters;
         std::vector<unsigned int> tooBigClusters;
         std::vector<unsigned int> fpClusters;
-        for (size_t i=0; i<alnVec.size(); i++){
-            ChainToChainAln &P = alnVec[i];
-            P.uTMatrix.resetLabel();
-        }
+
         for (size_t i=0; i<alnVec.size(); i++) {
             ChainToChainAln &P = alnVec[i];
             if (P.uTMatrix.label != 0) continue;
@@ -789,24 +835,23 @@ private:
             else
                 validClusters.emplace_back(C);
         } // for end
-        // valid check
-//        std::cout << minClusterSize << "\t" << C << "\t" << validClusters.size() << "\t"  << tooBigClusters.size() << "\t" << tooSmallClusters.size() << "\t" << fpClusters.size() << "\t" << eps<< std::endl;
-
+//        std::cout << minClusterSize << "\t" << validClusters.size() << "\t"  << tooBigClusters.size() << "\t" << tooSmallClusters.size() << "\t" << fpClusters.size() << "\t" << eps<< std::endl;
         if (!validClusters.empty()){
+//            std::cout << minClusterSize << std::endl;
             // relabelling
+            std::vector<ChainToChainAln> ourputVec;
             for (size_t i=0; i<alnVec.size(); i++){
-                ChainToChainAln P = alnVec[i];
+                ChainToChainAln &P = alnVec[i];
                 P.uTMatrix.label = std::find(validClusters.begin(), validClusters.end(), P.uTMatrix.label) == validClusters.end() ? -1 : P.uTMatrix.label;
             }
             std::sort(alnVec.begin(), alnVec.end(), compareChainToChainAlnByUTMatrixLabel);
-            std::cout << minClusterSize << "\t" << C << "\t" << validClusters.size() << "\t"  << tooBigClusters.size() << "\t" << tooSmallClusters.size() << "\t" << fpClusters.size() << "\t" << eps<< std::endl;
             return alnVec;
-        } else if (!fpClusters.empty() && minClusterSize>2)
-            return DBSCAN(alnVec, eps*(1-lr), minClusterSize-1 , maxClusterSize, lr);
-        else if (!tooSmallClusters.empty() || C==0)
-            return DBSCAN(alnVec, eps*(1+lr), minClusterSize, maxClusterSize, lr);
-        else if (!tooBigClusters.empty())
-            return DBSCAN(alnVec, eps*(1-lr), minClusterSize, maxClusterSize, lr);
+        }
+        else if (!tooSmallClusters.empty() || C==0) return DBSCAN(alnVec, eps*(1+lr), minClusterSize, maxClusterSize, lr);
+        else if (!tooBigClusters.empty()) return DBSCAN(alnVec, eps * (1 - lr), minClusterSize, maxClusterSize, lr);
+        else if (!fpClusters.empty() && minClusterSize>2) return DBSCAN(alnVec, eps * (1 - lr), minClusterSize - 1, maxClusterSize, lr);
+        else return DBSCAN(alnVec, eps * (1 + lr), minClusterSize, maxClusterSize, lr);
+
     }
 };
 
@@ -853,13 +898,14 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
 //#pragma omp for schedule(dynamic, 1)
 
         for (size_t qComplexIdx=0; qComplexIdx < qComplexes.size(); qComplexIdx++) {
-            for (size_t i=0; i<qComplexes[qComplexIdx].alnVec.size(); i++){
-                std::cout << qComplexes[qComplexIdx].alnVec[i].qChain.chainKey << "\t" << qComplexes[qComplexIdx].alnVec[i].dbChain.chainKey << "\t";
-                for (size_t j=0; j<12; j++) {
-                    std::cout << qComplexes[qComplexIdx].alnVec[i].uTMatrix.matrix[j] << "\t";
-                }
-                std::cout<< std::endl;
-            }
+
+//            for (size_t i=0; i<qComplexes[qComplexIdx].alnVec.size(); i++){
+//                std::cout << qComplexes[qComplexIdx].alnVec[i].qChain.chainKey << "\t" << qComplexes[qComplexIdx].alnVec[i].dbChain.chainKey << "\t";
+//                for (size_t j=0; j<12; j++) {
+//                    std::cout << qComplexes[qComplexIdx].alnVec[i].uTMatrix.matrix[j] << "\t";
+//                }
+//                std::cout<< std::endl;
+//            }
             std::vector<OutputLine> resultLines = complexScorer.getOutputLines(qComplexes[qComplexIdx]);
             progress.updateProgress();
             for (size_t resultIdx=0; resultIdx < resultLines.size(); resultIdx++) {
