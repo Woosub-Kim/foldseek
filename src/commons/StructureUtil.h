@@ -7,7 +7,7 @@
 class StructureUtil {
 public:
     static std::string getIndexWithSuffix(std::string db, const std::string &suffix) {
-        if (Util::endsWith(".idx", db)) {
+        if (Util::endsWith(".resultIdx", db)) {
             db = db.substr(0, db.length() - 4);
         } else {
             return db + suffix;

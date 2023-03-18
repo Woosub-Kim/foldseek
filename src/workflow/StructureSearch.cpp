@@ -97,7 +97,7 @@ int structuresearch(int argc, const char **argv, const Command &command) {
     cmd.addVariable("QUERY_PREFILTER", (query+"_ss").c_str());
 
     const bool isIndex = PrefilteringIndexReader::searchForIndex(target).empty() == false;
-    cmd.addVariable("INDEXEXT", isIndex ? ".idx" : NULL);
+    cmd.addVariable("INDEXEXT", isIndex ? ".resultIdx" : NULL);
     par.compBiasCorrectionScale = 0.15;
     cmd.addVariable("PREFILTER_PAR", par.createParameterString(par.prefilter).c_str());
     par.compBiasCorrectionScale = 0.5;
