@@ -26,7 +26,7 @@ struct Chain {
     int startPos;
     unsigned int length;
 
-    void setCaData(std::vector<float> caX, std::vector<float> caY, std::vector<float> caZ){
+    void setCaData(std::vector<float> &caX, std::vector<float> &caY, std::vector<float> &caZ){
         caVecX = caX;
         caVecY = caY;
         caVecZ = caZ;
@@ -36,43 +36,20 @@ struct Chain {
 struct FeatureVector{
     FeatureVector(){}
     FeatureVector(float u[3][3], float t[3]) {
-        features[0] = 0.0;
-        features[1] = 0.0;
-        features[2] = 0.0;
-        features[3] = 0.0;
-        float w2 = (u[0][0] + u[1][1] + u[2][2] + 1)/4;
-        float x2 = -(u[1][1]+u[2][2])/2;
-        float y2 = (1-u[2][2])/2;
-        if (w2>0) {
-            features[0] = sqrt(w2);
-            features[1] = (u[1][2] - u[2][1]) / (4 * features[0]);
-            features[2] = (u[2][0] - u[0][2]) / (4 * features[0]);
-            features[3] = (u[0][1] - u[1][0]) / (4 * features[0]);
-        } else if (x2>0) {
-            features[1] = sqrt(x2);
-            features[2] = u[0][1] / (2 * features[1]);
-            features[3] = u[0][2] / (2 * features[1]);
-        } else if (y2>0) {
-            features[2] = sqrt(y2);
-            features[3] = u[1][2] / (2 * features[2]);
-        } else {
-            features[3] = 1.0;
-        }
-        for (size_t i=0; i<3; i++){
-            features[4 + i]=t[i];
+        for (size_t i=0; i<3; i++) {
+            for (size_t j=0; j<3; j++) {
+                features[3*i+j] =  u[i][j];
+            }
+            features[9+i] = t[i];
         }
         label = 0;
     }
-    double features[7];
+    double features[12];
     int label;
-
-    void resetLabel(){
-        label=0;
-    }
 
     double getDistance(const FeatureVector &o){
         double dist = 0;
-        for (size_t i=0; i<7; i++){
+        for (size_t i=0; i<12; i++){
             dist += std::pow(features[i] - o.features[i], 2);
         }
         dist = std::sqrt(dist);
@@ -82,7 +59,7 @@ struct FeatureVector{
 
 struct ChainToChainAln {
     ChainToChainAln() {}
-    ChainToChainAln (Chain qInputChain, Chain dbInputChain, float * queryCaData, float * targetCaData, Matcher::result_t alnResult, TMaligner::TMscoreResult tmResult) {
+    ChainToChainAln(Chain qInputChain, Chain dbInputChain, float * queryCaData, float * targetCaData, Matcher::result_t alnResult, TMaligner::TMscoreResult tmResult) {
         int qStartPos = alnResult.qStartPos;
         int dbStartPos = alnResult.dbStartPos;
         unsigned int qLength = alnResult.qLen;
@@ -155,8 +132,8 @@ struct IndexPairWithDist{
 
 struct Complex {
     Complex() {}
-    Complex(unsigned int complexId, std::vector<unsigned int> chainKeys) : complexId(complexId), chainKeys(chainKeys), alnVec({}) {}
-    Complex(unsigned int complexId, std::vector<unsigned int> chainKeys, std::vector<ChainToChainAln> alnVec) : complexId(complexId), chainKeys(chainKeys), alnVec(alnVec) {}
+    Complex(unsigned int complexId, std::vector<unsigned int> &chainKeys) : complexId(complexId), chainKeys(chainKeys), alnVec({}) {}
+    Complex(unsigned int complexId, std::vector<unsigned int> &chainKeys, std::vector<ChainToChainAln> &alnVec) : complexId(complexId), chainKeys(chainKeys), alnVec(alnVec) {}
     unsigned int complexId;
     std::vector<unsigned int> chainKeys;
     std::vector<ChainToChainAln> alnVec;
@@ -195,29 +172,34 @@ struct Complex {
 
     void normalize(){
         unsigned int length = alnVec.size();
-        double mean[7] = {0,0,0,0,0,0,0};
-        double var[7] = {0,0,0,0,0,0,0};
-        double sd[7] = {0,0,0,0,0,0,0};
-        double cv[7] = {0,0,0,0,0,0,0};
+        double mean[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
+        double var[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
+        double sd[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
+        double cv[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
         for (size_t i=0; i < length; i++){
-            for (size_t j=0; j<7; j++){
+            for (size_t j=0; j<12; j++){
                 mean[j] += alnVec[i].featureVector.features[j]/(double)length;
             }
         }
         for (size_t i=0; i < length; i++){
-            for (size_t j=0; j<7; j++){
+            for (size_t j=0; j<12; j++){
                 double value = alnVec[i].featureVector.features[j];
                 value -= mean[j];
                 value *= value;
                 var[j] += value/(double)length;
             }
         }
-        for (size_t j=0; j<7; j++){
+        for (size_t j=0; j<12; j++){
             sd[j] = std::sqrt(var[j]);
-            cv[j] = mean[j] == 0 ? 10000.0 : sd[j] / std::abs(mean[j]);
+            if (sd[j] == 0){
+                cv[j] = sd[j]==0? 0:10000.0;
+                continue;
+            }
+            cv[j] = sd[j]/std::abs(mean[j]);
+
         }
         for (size_t i=0; i < length; i++){
-            for (size_t j=0; j<7; j++){
+            for (size_t j=0; j<12; j++){
                 alnVec[i].featureVector.features[j] = (cv[j] < 0.1) ? 0.0 : (alnVec[i].featureVector.features[j] - mean[j]) / sd[j];
             }
         }
@@ -242,10 +224,6 @@ struct ComplexToComplexAln{
     std::vector<float> dbCaYVec;
     std::vector<float> dbCaZVec;
     double tmScore;
-
-    void setTmScore(double tm){
-        tmScore = tm;
-    }
 
     void appendChainToChainAln(ChainToChainAln aln){
         qChainKeys.emplace_back(aln.qChain.chainKey);
@@ -283,7 +261,7 @@ struct ComplexToComplexAln{
 };
 
 struct OutputLine{
-    OutputLine(unsigned int qComplexId, unsigned int dbComplexId, double tmScore, std::string qComplexName, std::string dbComplexName, std::string qChainNames, std::string dbChainNames): qComplexId(qComplexId), dbComplexId(dbComplexId), tmScore(tmScore), qComplexName(qComplexName), dbComplexName(dbComplexName), qChainNames(qChainNames), dbChainNames(dbChainNames){}
+    OutputLine(unsigned int qComplexId, unsigned int dbComplexId, double tmScore, std::string &qComplexName, std::string &dbComplexName, std::string &qChainNames, std::string &dbChainNames): qComplexId(qComplexId), dbComplexId(dbComplexId), tmScore(tmScore), qComplexName(qComplexName), dbComplexName(dbComplexName), qChainNames(qChainNames), dbChainNames(dbChainNames){}
     unsigned int qComplexId;
     unsigned int dbComplexId;
     double tmScore;
@@ -292,6 +270,7 @@ struct OutputLine{
     std::string qChainNames;
     std::string dbChainNames;
     std::string line;
+
     void writeLine(unsigned int idx){
          char sep = '\t';
          char nl = '\n';
@@ -397,11 +376,17 @@ public:
     void  clusterAlns(Complex & qComplex, float eps, unsigned int clusterSize) {
         initializeAlnLabeling(qComplex);
         if (++recursiveNum > MAX_RECURSIVE_NUM) return;
+//        if (clusterSize < minClusterSize) {
+//            if (minClusterSize == 2)
+//                return getClusterWithClusterSize2(qComplex);
+//            else
+//                return;
+//        }
         if (clusterSize < minClusterSize) return;
-        if (clusterSize==2) return getClusterWithClusterSize2(qComplex);
+        if (clusterSize<2) return getClusterWithClusterSize2(qComplex);
+
         int cLabel = 0;
         clearClusterVectors();
-
         for (size_t i=0; i<qComplex.alnVec.size(); i++) {
             ChainToChainAln &centerAln = qComplex.alnVec[i];
             if (centerAln.featureVector.label != 0) continue;
@@ -461,7 +446,6 @@ public:
             else
                 validClusters.emplace_back(cLabel);
         }
-
         if (!validClusters.empty()){
             keepValidClustersOnly(qComplex);
             std::sort(qComplex.alnVec.begin(), qComplex.alnVec.end(), compareChainToChainAlnByClusterLabel);
@@ -512,9 +496,9 @@ private:
             }
         }
         std::sort(IndexPairs.begin(), IndexPairs.end(), compareIndexPairWithDistByDist);
-        for (size_t i=0; i < IndexPairs.size(); i++){
-            unsigned int alnIdx1 = IndexPairs[i].indexPair.first;
-            unsigned int alnIdx2 = IndexPairs[i].indexPair.second;
+        for (auto & IndexPair : IndexPairs){
+            unsigned int alnIdx1 = IndexPair.indexPair.first;
+            unsigned int alnIdx2 = IndexPair.indexPair.second;
             if (qComplex.alnVec[alnIdx1].featureVector.label > 0 || qComplex.alnVec[alnIdx2].featureVector.label > 0) continue;
             qComplex.alnVec[alnIdx1].featureVector.label = ++cLabel;
             qComplex.alnVec[alnIdx2].featureVector.label = cLabel;
@@ -524,7 +508,7 @@ private:
 
     static void initializeAlnLabeling(Complex & qComplex){
         for (auto & aln : qComplex.alnVec){
-            aln.featureVector.resetLabel();
+            aln.featureVector.label=0;
         }
     }
 
@@ -546,7 +530,7 @@ private:
 class ComplexScorer {
 public:
     ComplexScorer(
-            IndexReader *qDbr3Di, IndexReader *tDbr3Di, std::string qLookupFile, std::string tLookupFile,
+            IndexReader *qDbr3Di, IndexReader *tDbr3Di, const std::string& qLookupFile, const std::string& tLookupFile,
             DBReader<unsigned int> &alnDbr, IndexReader *qCaDbr, IndexReader *tCaDbr, unsigned int thread_idx
             ): alnDbr(alnDbr), qCaDbr(qCaDbr), tCaDbr(tCaDbr), thread_idx(thread_idx) {
         maxSeqLen = std::max(qDbr3Di->sequenceReader->getMaxSeqLen()+1, tDbr3Di->sequenceReader->getMaxSeqLen()+1);
@@ -581,7 +565,7 @@ public:
                 complexAln.appendChainToChainAln(currAln);
             } else {
                 if (currLabel>0){
-                    complexAln.setTmScore(getTmScore(complexAln));
+                    complexAln.tmScore = getTmScore(complexAln);
                     complexAlns.emplace_back(complexAln);
                 }
                 complexAln.reset(currAln.dbChain.complexId);
@@ -590,13 +574,13 @@ public:
             }
         }
         if (currLabel>0){
-            complexAln.setTmScore(getTmScore(complexAln));
+            complexAln.tmScore = getTmScore(complexAln);
             complexAlns.emplace_back(complexAln);
         }
         return complexAlns;
     }
 
-    std::vector<OutputLine>  getOutputLines(std::vector<ComplexToComplexAln> complexAlns){
+    std::vector<OutputLine>  getOutputLines(const std::vector<ComplexToComplexAln>& complexAlns){
         std::vector<OutputLine> outputLines;
         if (complexAlns.empty()) {
             Debug(Debug::WARNING) << "Assignment is not made. Nothing will be returned." << "\n";
@@ -667,7 +651,6 @@ private:
             const unsigned queryComplexId = qLookup.at(queryKey);
             char *data = alnDbr.getData(i, thread_idx);
             if (*data == '\0') continue;
-
             Matcher::result_t qAlnResult = Matcher::parseAlignmentRecord(data);
             size_t qId = qCaDbr->sequenceReader->getId(queryKey);
             char *qCaData = qCaDbr->sequenceReader->getData(qId, thread_idx);
@@ -690,6 +673,7 @@ private:
                 ChainToChainAln chainAln(qChain, dbChain, queryCaData, targetCaData, alnResult, tmResult);
                 qComplexes[queryComplexId].alnVec.emplace_back(chainAln);
                 data = Util::skipLine(data);
+
             }
             std::sort(qComplexes[queryComplexId].alnVec.begin(), qComplexes[queryComplexId].alnVec.end(), compareChainToChainAlnByComplexIdAndChainKey);
         }
@@ -733,12 +717,21 @@ private:
 
     static std::string getChainNames(std::vector<unsigned int> chainKeys, std::map<unsigned int,std::string>map){
         std::string chainListString;
+//        char sep = ',';
         unsigned int idx = 0;
         while (true) {
             chainListString += map.at(chainKeys[idx]);
             idx++;
-            if (idx < chainKeys.size()){ chainListString += ',';} else {break;}
+            if (idx < chainKeys.size()){
+                chainListString += ',';
+            } else {
+                break;
+            }
         }
+//        for (auto chainKey : chainKeys) {
+//            std::string chainName = map.at(chainKey);
+//        }
+
         return chainListString;
     }
 };
@@ -771,7 +764,7 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
     resultWriter.open();
     Debug::Progress progress(alnDbr.getSize());
 
-//#pragma omp parallel
+#pragma omp parallel
     {
         unsigned int thread_idx = 0;
 #ifdef OPENMP
@@ -782,8 +775,7 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
         std::string resultBuffer;
         ComplexScorer complexScorer(&q3DiDbr, t3DiDbr, qLookupFile, dbLookupFile, alnDbr, qCaDbr, tCaDbr, thread_idx);
         std::vector<Complex> qComplexes = complexScorer.getQComplexes();
-//#pragma omp for schedule(dynamic, 1)
-
+#pragma omp for schedule(dynamic, 1)
         for (auto & qComplex : qComplexes) {
 //            for (size_t i=0; i < qComplex.alnVec.size(); i++){
 //                std::cout << qComplex.alnVec[i].qChain.chainKey << "\t" << qComplex.alnVec[i].dbChain.chainKey << "\t";
