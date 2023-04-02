@@ -57,7 +57,7 @@ int easystructurecluster(int argc, const char **argv, const Command &command) {
     cmd.addVariable("RUNNER", par.runner.c_str());
     cmd.addVariable("CREATEDB_PAR", par.createParameterString(par.structurecreatedb).c_str());
     cmd.addVariable("CLUSTER_PAR", par.createParameterString(par.structureclusterworkflow, true).c_str());
-    cmd.addVariable("CLUSTER_MODULE", "cluster");
+    cmd.addVariable("CLUSTER_MODULE", "getComplexAlns");
     cmd.addVariable("RESULT2REPSEQ_PAR", par.createParameterString(par.result2repseq).c_str());
     cmd.addVariable("THREADS_PAR", par.createParameterString(par.onlythreads).c_str());
     cmd.addVariable("VERBOSITY_PAR", par.createParameterString(par.onlyverbosity).c_str());
