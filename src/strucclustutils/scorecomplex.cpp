@@ -376,17 +376,11 @@ public:
     void  clusterAlns(Complex & qComplex, float eps, unsigned int clusterSize) {
         initializeAlnLabeling(qComplex);
         if (++recursiveNum > MAX_RECURSIVE_NUM) return;
-//        if (clusterSize < minClusterSize) {
-//            if (minClusterSize == 2)
-//                return getClusterWithClusterSize2(qComplex);
-//            else
-//                return;
-//        }
         if (clusterSize < minClusterSize) return;
-        if (clusterSize<2) return getClusterWithClusterSize2(qComplex);
-
+        if (clusterSize==2) return getClusterWithClusterSize2(qComplex);
         int cLabel = 0;
         clearClusterVectors();
+
         for (size_t i=0; i<qComplex.alnVec.size(); i++) {
             ChainToChainAln &centerAln = qComplex.alnVec[i];
             if (centerAln.featureVector.label != 0) continue;
@@ -446,6 +440,7 @@ public:
             else
                 validClusters.emplace_back(cLabel);
         }
+
         if (!validClusters.empty()){
             keepValidClustersOnly(qComplex);
             std::sort(qComplex.alnVec.begin(), qComplex.alnVec.end(), compareChainToChainAlnByClusterLabel);
@@ -776,7 +771,8 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
         ComplexScorer complexScorer(&q3DiDbr, t3DiDbr, qLookupFile, dbLookupFile, alnDbr, qCaDbr, tCaDbr, thread_idx);
         std::vector<Complex> qComplexes = complexScorer.getQComplexes();
 #pragma omp for schedule(dynamic, 1)
-        for (auto & qComplex : qComplexes) {
+        for (size_t qComplexId=0; qComplexId< qComplexes.size(); qComplexId++) {
+            Complex & qComplex = qComplexes[qComplexId];
 //            for (size_t i=0; i < qComplex.alnVec.size(); i++){
 //                std::cout << qComplex.alnVec[i].qChain.chainKey << "\t" << qComplex.alnVec[i].dbChain.chainKey << "\t";
 //                for (size_t j=0; j<7; j++) {
