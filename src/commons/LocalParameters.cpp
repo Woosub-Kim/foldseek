@@ -146,7 +146,7 @@ LocalParameters::LocalParameters() :
     samplemulambda.push_back(&PARAM_V);
 
     //scorecomplex
-//    scorecomplex.push_back(&PARAM_THREADS);
+    scorecomplex.push_back(&PARAM_THREADS);
     scorecomplex.push_back(&PARAM_V);
 
     alignmentType = ALIGNMENT_TYPE_3DI_AA;

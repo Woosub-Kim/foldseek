@@ -297,6 +297,14 @@ bool compareComplex(const Complex &first, const Complex &second){
     return false;
 }
 
+bool compareChainToChainAlnByDbComplexId(const ChainToChainAln &first, const ChainToChainAln &second){
+    if (first.dbChain.complexId < second.dbChain.complexId)
+        return true;
+    if (first.dbChain.complexId > second.dbChain.complexId)
+        return false;
+    return false;
+}
+
 bool compareChainToChainAlnByComplexIdAndChainKey(const ChainToChainAln &first, const ChainToChainAln &second){
     if (first.qChain.complexId < second.qChain.complexId)
         return true;
@@ -534,18 +542,83 @@ public:
     }
 
     std::vector<Complex> getQComplexes(){
-        std::vector<Complex> qTempComplexes = parseInputData();
+        tmAligner = new TMaligner((unsigned int)(maxSeqLen), false);
         std::vector<Complex> qComplexes;
-        for (auto qComplex : qTempComplexes) {
+        std::vector<Complex> qTempComplexes;
+        unsigned int prevComplexId = qLookup.at(0);
+        unsigned int complexId;
+        std::vector<unsigned int> qTempChainKeys;
+        for (size_t chainKey = 0; chainKey < qLookup.size(); chainKey++) {
+            complexId = qLookup.at(chainKey);
+            if (complexId != prevComplexId) {
+                qTempComplexes.emplace_back(Complex(prevComplexId, qTempChainKeys));
+                qTempChainKeys.clear();
+            }
+            prevComplexId = complexId;
+            qTempChainKeys.emplace_back(chainKey);
+        }
+        qTempComplexes.emplace_back(Complex(prevComplexId, qTempChainKeys));
+        qTempChainKeys.clear();
+        std::sort(qTempComplexes.begin(), qTempComplexes.end(), compareComplex);
+
+        for (size_t i = 0; i < alnDbr.getSize(); i++) {
+            size_t queryKey = alnDbr.getDbKey(i);
+            const unsigned queryComplexId = qLookup.at(queryKey);
+            char *data = alnDbr.getData(i, thread_idx);
+            if (*data == '\0') continue;
+            Matcher::result_t qAlnResult = Matcher::parseAlignmentRecord(data);
+            size_t qId = qCaDbr->sequenceReader->getId(queryKey);
+            char *qCaData = qCaDbr->sequenceReader->getData(qId, thread_idx);
+            size_t qCaLength = qCaDbr->sequenceReader->getEntryLen(qId);
+            float* queryCaData = qCoords.read(qCaData, qAlnResult.qLen, qCaLength);
+            Chain qChain = Chain(queryComplexId, queryKey);
+            tmAligner->initQuery(queryCaData, &queryCaData[qAlnResult.qLen], &queryCaData[qAlnResult.qLen*2], NULL, qAlnResult.qLen);
+            while (*data != '\0') {
+                char dbKeyBuffer[255 + 1];
+                Util::parseKey(data, dbKeyBuffer);
+                const auto dbKey = (unsigned int) strtoul(dbKeyBuffer, NULL, 10);
+                const unsigned int dbComplexId = tLookup.at(dbKey);
+                Matcher::result_t alnResult =  Matcher::parseAlignmentRecord(data);
+                size_t tCaId = tCaDbr->sequenceReader->getId(dbKey);
+                char *tCaData = tCaDbr->sequenceReader->getData(tCaId, thread_idx);
+                size_t tCaLength = tCaDbr->sequenceReader->getEntryLen(tCaId);
+                float* targetCaData = tCoords.read(tCaData, alnResult.dbLen, tCaLength);
+                Chain dbChain = Chain(dbComplexId, dbKey);
+                TMaligner::TMscoreResult tmResult = tmAligner->computeTMscore(targetCaData, &targetCaData[alnResult.dbLen], &targetCaData[alnResult.dbLen + alnResult.dbLen], alnResult.dbLen, alnResult.qStartPos, alnResult.dbStartPos, Matcher::uncompressAlignment(alnResult.backtrace));
+                ChainToChainAln chainAln(qChain, dbChain, queryCaData, targetCaData, alnResult, tmResult);
+                qTempComplexes[queryComplexId].alnVec.emplace_back(chainAln);
+                data = Util::skipLine(data);
+
+            }
+            std::sort(qTempComplexes[queryComplexId].alnVec.begin(), qTempComplexes[queryComplexId].alnVec.end(), compareChainToChainAlnByDbComplexId);
+        }
+        for (size_t queryComplexId=0; queryComplexId < qTempComplexes.size(); queryComplexId++) {
+            Complex qComplex = Complex(qTempComplexes[queryComplexId].complexId, qTempComplexes[queryComplexId].chainKeys);
+            unsigned int currDbComplexId = qTempComplexes[queryComplexId].alnVec[0].dbChain.complexId;
+            for (auto& aln : qTempComplexes[queryComplexId].alnVec) {
+                if (aln.dbChain.complexId!=currDbComplexId){
+                    qComplex.filterAlnVec(1.0);
+                    if (!qComplex.alnVec.empty()) {
+                        qComplex.normalize();
+                        qComplexes.emplace_back(qComplex);
+                    }
+                    currDbComplexId = aln.dbChain.complexId;
+                    qComplex.alnVec.clear();
+                }
+                qComplex.alnVec.emplace_back(aln);
+            }
             qComplex.filterAlnVec(1.0);
             if (!qComplex.alnVec.empty()) {
                 qComplex.normalize();
                 qComplexes.emplace_back(qComplex);
             }
+            std::sort(qComplexes[queryComplexId].alnVec.begin(), qComplexes[queryComplexId].alnVec.end(), compareChainToChainAlnByComplexIdAndChainKey);
         }
-        qTempComplexes.clear();
         return qComplexes;
     }
+
+
+
     std::vector<ComplexToComplexAln> getComplexAlns(Complex qComplex) {
         tmAligner = new TMaligner((unsigned int)(maxSeqLen*qComplex.chainKeys.size()), false);
         DBSCANCluster dbscanCluster = DBSCANCluster(2, 0.5);
@@ -621,59 +694,6 @@ private:
     Coordinate16 qCoords;
     Coordinate16 tCoords;
     unsigned int thread_idx;
-
-    std::vector<Complex> parseInputData() {
-        tmAligner = new TMaligner((unsigned int)(maxSeqLen), false);
-        std::vector<Complex> qComplexes;
-        unsigned int prevComplexId = qLookup.at(0);
-        unsigned int complexId;
-        std::vector<unsigned int> qTempChainKeys;
-        for (size_t chainKey = 0; chainKey < qLookup.size(); chainKey++) {
-            complexId = qLookup.at(chainKey);
-            if (complexId != prevComplexId) {
-                qComplexes.emplace_back(Complex(prevComplexId, qTempChainKeys));
-                qTempChainKeys.clear();
-            }
-            prevComplexId = complexId;
-            qTempChainKeys.emplace_back(chainKey);
-        }
-        qComplexes.emplace_back(Complex(prevComplexId, qTempChainKeys));
-        qTempChainKeys.clear();
-        std::sort(qComplexes.begin(), qComplexes.end(), compareComplex);
-
-        for (size_t i = 0; i < alnDbr.getSize(); i++) {
-            size_t queryKey = alnDbr.getDbKey(i);
-            const unsigned queryComplexId = qLookup.at(queryKey);
-            char *data = alnDbr.getData(i, thread_idx);
-            if (*data == '\0') continue;
-            Matcher::result_t qAlnResult = Matcher::parseAlignmentRecord(data);
-            size_t qId = qCaDbr->sequenceReader->getId(queryKey);
-            char *qCaData = qCaDbr->sequenceReader->getData(qId, thread_idx);
-            size_t qCaLength = qCaDbr->sequenceReader->getEntryLen(qId);
-            float* queryCaData = qCoords.read(qCaData, qAlnResult.qLen, qCaLength);
-            Chain qChain = Chain(queryComplexId, queryKey);
-            tmAligner->initQuery(queryCaData, &queryCaData[qAlnResult.qLen], &queryCaData[qAlnResult.qLen*2], NULL, qAlnResult.qLen);
-            while (*data != '\0') {
-                char dbKeyBuffer[255 + 1];
-                Util::parseKey(data, dbKeyBuffer);
-                const auto dbKey = (unsigned int) strtoul(dbKeyBuffer, NULL, 10);
-                const unsigned int dbComplexId = tLookup.at(dbKey);
-                Matcher::result_t alnResult =  Matcher::parseAlignmentRecord(data);
-                size_t tCaId = tCaDbr->sequenceReader->getId(dbKey);
-                char *tCaData = tCaDbr->sequenceReader->getData(tCaId, thread_idx);
-                size_t tCaLength = tCaDbr->sequenceReader->getEntryLen(tCaId);
-                float* targetCaData = tCoords.read(tCaData, alnResult.dbLen, tCaLength);
-                Chain dbChain = Chain(dbComplexId, dbKey);
-                TMaligner::TMscoreResult tmResult = tmAligner->computeTMscore(targetCaData, &targetCaData[alnResult.dbLen], &targetCaData[alnResult.dbLen + alnResult.dbLen], alnResult.dbLen, alnResult.qStartPos, alnResult.dbStartPos, Matcher::uncompressAlignment(alnResult.backtrace));
-                ChainToChainAln chainAln(qChain, dbChain, queryCaData, targetCaData, alnResult, tmResult);
-                qComplexes[queryComplexId].alnVec.emplace_back(chainAln);
-                data = Util::skipLine(data);
-
-            }
-            std::sort(qComplexes[queryComplexId].alnVec.begin(), qComplexes[queryComplexId].alnVec.end(), compareChainToChainAlnByComplexIdAndChainKey);
-        }
-        return qComplexes;
-    }
 
     double getTmScore(ComplexToComplexAln aln){
         bool chainOverlapAllowed = false;
