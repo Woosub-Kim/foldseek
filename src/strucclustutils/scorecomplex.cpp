@@ -534,8 +534,8 @@ class ComplexScorer {
 public:
     ComplexScorer(
             IndexReader *qDbr3Di, IndexReader *tDbr3Di, const std::string& qLookupFile, const std::string& tLookupFile,
-            DBReader<unsigned int> &alnDbr, IndexReader *qCaDbr, IndexReader *tCaDbr, unsigned int thread_idx
-            ): alnDbr(alnDbr), qCaDbr(qCaDbr), tCaDbr(tCaDbr), thread_idx(thread_idx) {
+            DBReader<unsigned int> &alnDbr, IndexReader *qCaDbr, IndexReader *tCaDbr, unsigned int thread_idx, float minAssignedChainsRatio
+            ): alnDbr(alnDbr), qCaDbr(qCaDbr), tCaDbr(tCaDbr), thread_idx(thread_idx), minAssignedChainsRatio(minAssignedChainsRatio) {
         maxSeqLen = std::max(qDbr3Di->sequenceReader->getMaxSeqLen()+1, tDbr3Di->sequenceReader->getMaxSeqLen()+1);
         getMaps(qLookupFile, qLookup, qComplexMap, qChainMap);
         getMaps(tLookupFile, tLookup, dbComplexMap, dbChainMap);
@@ -621,8 +621,7 @@ public:
 
     std::vector<ComplexToComplexAln> getComplexAlns(Complex qComplex) {
         tmAligner = new TMaligner((unsigned int)(maxSeqLen*qComplex.chainKeys.size()), false);
-        DBSCANCluster dbscanCluster = DBSCANCluster(2, 0.5);
-//        DBSCANCluster dbscanCluster = DBSCANCluster((unsigned int)std::ceil(qComplex.chainKeys.size()*0.8), 0.5);
+        DBSCANCluster dbscanCluster = DBSCANCluster((unsigned int)std::ceil(qComplex.chainKeys.size()*minAssignedChainsRatio), 0.5);
         dbscanCluster.clusterAlns(qComplex, 0.5, qComplex.chainKeys.size());
         int currLabel = 0;
         std::vector<ComplexToComplexAln> complexAlns;
@@ -694,6 +693,7 @@ private:
     Coordinate16 qCoords;
     Coordinate16 tCoords;
     unsigned int thread_idx;
+    float minAssignedChainsRatio;
 
     double getTmScore(ComplexToComplexAln aln){
         bool chainOverlapAllowed = false;
@@ -778,6 +778,9 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
     DBWriter resultWriter(par.db4.c_str(), par.db4Index.c_str(), static_cast<unsigned int>(par.threads), par.compressed, Parameters::DBTYPE_ALIGNMENT_RES);
     resultWriter.open();
     Debug::Progress progress(alnDbr.getSize());
+    float minAssignedChainsRatio = par.minAssignedChainsThreshold/100;
+    minAssignedChainsRatio = minAssignedChainsRatio>1 ? 1.0 : minAssignedChainsRatio;
+
 
 #pragma omp parallel
     {
@@ -788,7 +791,8 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
         std::vector<Matcher::result_t> alignmentResult;
         std::string backtrace;
         std::string resultBuffer;
-        ComplexScorer complexScorer(&q3DiDbr, t3DiDbr, qLookupFile, dbLookupFile, alnDbr, qCaDbr, tCaDbr, thread_idx);
+
+        ComplexScorer complexScorer(&q3DiDbr, t3DiDbr, qLookupFile, dbLookupFile, alnDbr, qCaDbr, tCaDbr, thread_idx, minAssignedChainsRatio);
         std::vector<Complex> qComplexes = complexScorer.getQComplexes();
 #pragma omp for schedule(dynamic, 1)
         for (size_t qComplexId=0; qComplexId< qComplexes.size(); qComplexId++) {

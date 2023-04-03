@@ -83,6 +83,7 @@ public:
     PARAMETER(PARAM_COORD_STORE_MODE)
     //
     PARAMETER(PARAM_PROTEIN_CHAINS_ONLY)
+    PARAMETER(PARAM_MIN_ASSIGNED_CHAINS_THRESHOLD)
 
     float tmScoreThr;
     int tmAlignHitOrder;
@@ -95,6 +96,7 @@ public:
     int nsample;
     int coordStoreMode;
     int storeProteinChainsOnly;
+    float minAssignedChainsThreshold;
 
     static std::vector<int> getOutputFormat(int formatMode, const std::string &outformat, bool &needSequences, bool &needBacktrace, bool &needFullHeaders,
                                             bool &needLookup, bool &needSource, bool &needTaxonomyMapping, bool &needTaxonomy, bool &needCa, bool &needTMaligner, bool &needLDDT);
