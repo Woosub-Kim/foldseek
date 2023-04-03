@@ -191,7 +191,7 @@ struct Complex {
         }
         for (size_t j=0; j<12; j++){
             sd[j] = std::sqrt(var[j]);
-            if (sd[j] == 0){
+            if (mean[j] == 0){
                 cv[j] = sd[j]==0? 0:10000.0;
                 continue;
             }
@@ -799,7 +799,7 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
             Complex & qComplex = qComplexes[qComplexId];
 //            for (size_t i=0; i < qComplex.alnVec.size(); i++){
 //                std::cout << qComplex.alnVec[i].qChain.chainKey << "\t" << qComplex.alnVec[i].dbChain.chainKey << "\t";
-//                for (size_t j=0; j<7; j++) {
+//                for (size_t j=0; j<12; j++) {
 //                    std::cout << qComplex.alnVec[i].featureVector.features[j] << "\t";
 //                }
 //                std::cout<< std::endl;
