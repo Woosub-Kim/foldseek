@@ -779,7 +779,7 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
     resultWriter.open();
     Debug::Progress progress(alnDbr.getSize());
     float minAssignedChainsRatio = par.minAssignedChainsThreshold/100;
-    minAssignedChainsRatio = minAssignedChainsRatio>1 ? 1.0 : minAssignedChainsRatio;
+    minAssignedChainsRatio = minAssignedChainsRatio > 1.0 ? 1.0 : minAssignedChainsRatio;
 
 
 #pragma omp parallel
