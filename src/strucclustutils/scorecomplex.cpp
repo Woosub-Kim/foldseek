@@ -59,12 +59,8 @@ struct FeatureVector{
 
 struct ChainToChainAln {
     ChainToChainAln() {}
-    ChainToChainAln(Chain qInputChain, Chain dbInputChain, float * queryCaData, float * targetCaData, Matcher::result_t alnResult, TMaligner::TMscoreResult tmResult) {
-        int qStartPos = alnResult.qStartPos;
-        int dbStartPos = alnResult.dbStartPos;
-        unsigned int qLength = alnResult.qLen;
-        unsigned int dbLength = alnResult.dbLen;
-        std::string  inputBacktrace = alnResult.backtrace;
+    ChainToChainAln(Chain queryChain, Chain targetChain, float * queryCaData, float * targetCaData, Matcher::result_t alnResult, TMaligner::TMscoreResult tmResult)
+    : qChain(queryChain), dbChain(targetChain), alnLength(alnResult.alnLength)  {
         std::vector<float> qCaXVec;
         std::vector<float> qCaYVec;
         std::vector<float> qCaZVec;
@@ -72,26 +68,24 @@ struct ChainToChainAln {
         std::vector<float> dbCaYVec;
         std::vector<float> dbCaZVec;
         std::string newBacktrace;
-        unsigned int qPos = qStartPos;
-        unsigned int dbPos = dbStartPos;
+        unsigned int qPos = alnResult.qStartPos;
+        unsigned int dbPos = alnResult.dbStartPos;
         unsigned int qXPos = 0;
-        unsigned int qYPos = qLength;
-        unsigned int qZPos = qLength*2;
+        unsigned int qYPos = alnResult.qLen;
+        unsigned int qZPos = alnResult.qLen*2;
         unsigned int dbXPos = 0;
-        unsigned int dbYPos = dbLength;
-        unsigned int dbZPos = dbLength*2;
-        for (char cigar : inputBacktrace){
+        unsigned int dbYPos = alnResult.dbLen;
+        unsigned int dbZPos = alnResult.dbLen*2;
+        for (char cigar : alnResult.backtrace){
             switch (cigar) {
                 case 'M':
                     newBacktrace += "M";
                     qCaXVec.emplace_back(queryCaData[qXPos + qPos]);
                     qCaYVec.emplace_back(queryCaData[qYPos + qPos]);
-                    qCaZVec.emplace_back(queryCaData[qZPos + qPos]);
+                    qCaZVec.emplace_back(queryCaData[qZPos + qPos++]);
                     dbCaXVec.emplace_back(targetCaData[dbXPos + dbPos]);
                     dbCaYVec.emplace_back(targetCaData[dbYPos + dbPos]);
-                    dbCaZVec.emplace_back(targetCaData[dbZPos + dbPos]);
-                    qPos++;
-                    dbPos++;
+                    dbCaZVec.emplace_back(targetCaData[dbZPos + dbPos++]);
                     break;
                 case 'I':
                     qPos++;
@@ -99,22 +93,18 @@ struct ChainToChainAln {
                 case 'D':
                     dbPos++;
                     break;
-                default:
-                    // TODO
-                    Debug(Debug::WARNING) << "backtrace ???" << "\n";
-                    break;
+//                default:
+//                    Debug(Debug::WARNING) << "backtrace ???" << "\n";
+//                    break;
             }
         }
-        qInputChain.startPos = 0;
-        qInputChain.setCaData(qCaXVec, qCaYVec, qCaZVec);
-        qInputChain.length = qLength;
-        dbInputChain.startPos = 0;
-        dbInputChain.setCaData(dbCaXVec, dbCaYVec, dbCaZVec);
-        dbInputChain.length=dbLength;
-        qChain = qInputChain;
-        dbChain = dbInputChain;
+        qChain.setCaData(qCaXVec, qCaYVec, qCaZVec);
+        dbChain.setCaData(dbCaXVec, dbCaYVec, dbCaZVec);
+        qChain.startPos = 0;
+        dbChain.startPos = 0;
+        qChain.length = alnResult.qLen;
+        dbChain.length = alnResult.dbLen;
         backtrace = newBacktrace;
-        alnLength = inputBacktrace.size();
         featureVector = FeatureVector(tmResult.u, tmResult.t);
     }
     Chain qChain;
@@ -133,7 +123,6 @@ struct IndexPairWithDist{
 struct Complex {
     Complex() {}
     Complex(unsigned int complexId, std::vector<unsigned int> &chainKeys) : complexId(complexId), chainKeys(chainKeys), alnVec({}) {}
-    Complex(unsigned int complexId, std::vector<unsigned int> &chainKeys, std::vector<ChainToChainAln> &alnVec) : complexId(complexId), chainKeys(chainKeys), alnVec(alnVec) {}
     unsigned int complexId;
     std::vector<unsigned int> chainKeys;
     std::vector<ChainToChainAln> alnVec;
@@ -191,12 +180,13 @@ struct Complex {
         }
         for (size_t j=0; j<12; j++){
             sd[j] = std::sqrt(var[j]);
-            if (mean[j] == 0){
-                cv[j] = sd[j]==0? 0:10000.0;
-                continue;
-            }
-            cv[j] = sd[j]/std::abs(mean[j]);
-
+// TODO
+//            if (mean[j] == 0){
+//                cv[j] = sd[j]==0? 0:10000.0;
+//                continue;
+//            }
+//            cv[j] = sd[j]/std::abs(mean[j]);
+            cv[j] = abs(mean[j]) > 1.0 ? sd[j]/std::abs(mean[j]) : sd[j];
         }
         for (size_t i=0; i < length; i++){
             for (size_t j=0; j<12; j++){
@@ -383,9 +373,12 @@ public:
     }
     void  clusterAlns(Complex & qComplex, float eps, unsigned int clusterSize) {
         initializeAlnLabeling(qComplex);
-        if (++recursiveNum > MAX_RECURSIVE_NUM) return;
-        if (clusterSize < minClusterSize) return;
-        if (clusterSize==2) return getClusterWithClusterSize2(qComplex);
+        if (++recursiveNum > MAX_RECURSIVE_NUM)
+            return;
+        if (clusterSize < minClusterSize)
+            return;
+        if (clusterSize==2)
+            return getClusterWithClusterSize2(qComplex);
         int cLabel = 0;
         clearClusterVectors();
 
@@ -425,8 +418,8 @@ public:
             std::vector<unsigned int> qFoundChainKeys;
             std::vector<unsigned int> dbFoundChainKeys;
             bool isDefectiveCluster = false;
-            for (size_t k=0; k < neighborsOfNeighbors.size(); k++) {
-                ChainToChainAln currAln = qComplex.alnVec[neighborsOfNeighbors[k]];
+            for (auto neighborIdx : neighborsOfNeighbors) {
+                ChainToChainAln currAln = qComplex.alnVec[neighborIdx];
                 unsigned int qChainKey = currAln.qChain.chainKey;
                 unsigned int dbChainKey = currAln.dbChain.chainKey;
                 bool isNewQChainKey = std::find(qFoundChainKeys.begin(), qFoundChainKeys.end(), qChainKey) == qFoundChainKeys.end();
@@ -650,7 +643,7 @@ public:
     std::vector<OutputLine>  getOutputLines(const std::vector<ComplexToComplexAln>& complexAlns){
         std::vector<OutputLine> outputLines;
         if (complexAlns.empty()) {
-            Debug(Debug::WARNING) << "Assignment is not made. Nothing will be returned." << "\n";
+            Debug(Debug::WARNING) << "Any Assignment is not made. Nothing will be returned." << "\n";
             return outputLines;
         }
 
