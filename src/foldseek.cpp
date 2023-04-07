@@ -246,25 +246,32 @@ std::vector<struct Command> commands = {
                 "<i:Db> <o:pdbFile>",
                 CITATION_FOLDSEEK, {{"Db", DbType::ACCESS_MODE_INPUT, DbType::NEED_DATA|DbType::NEED_HEADER, &DbValidator::sequenceDb },
                                           {"pdbFile", DbType::ACCESS_MODE_OUTPUT, DbType::NEED_DATA, &DbValidator::flatfile}}},
-{"scorecomplex", scorecomplex, &localPar.scorecomplex, COMMAND_ALIGNMENT,
-"get complex score",
-NULL,
-"Woosub Kim <woosubgo@snu.ac.kr>",
-"<i:queryDb> <i:targetDb> <i:alignmentDB> <o:resultDB>",
-CITATION_FOLDSEEK,
-{{"queryDB", DbType::ACCESS_MODE_INPUT, DbType::NEED_DATA | DbType::NEED_HEADER, &DbValidator::sequenceDb},
-{"targetDB", DbType::ACCESS_MODE_INPUT, DbType::NEED_DATA | DbType::NEED_HEADER, &DbValidator::sequenceDb},
-{"alignmentDB", DbType::ACCESS_MODE_INPUT, DbType::NEED_DATA, &DbValidator::alignmentDb},
-{"resultFile", DbType::ACCESS_MODE_OUTPUT, DbType::NEED_DATA, &DbValidator::flatfile}}},
-
-        {"version",              versionstring,        &localPar.empty,                COMMAND_HIDDEN,
-                "",
-                NULL,
-                "",
-                "",
-                CITATION_FOLDSEEK, {{"",DbType::ACCESS_MODE_INPUT, DbType::NEED_DATA, NULL}}}
+        {"scorecomplex", scorecomplex, &localPar.scorecomplex, COMMAND_ALIGNMENT,
+            "get complex score",
+            NULL,
+            "Woosub Kim <woosubgo@snu.ac.kr>",
+            "<i:queryDb> <i:targetDb> <i:alignmentDB> <o:resultDB>",
+            CITATION_FOLDSEEK, {
+                {"queryDB", DbType::ACCESS_MODE_INPUT, DbType::NEED_DATA | DbType::NEED_HEADER, &DbValidator::sequenceDb},
+                {"targetDB", DbType::ACCESS_MODE_INPUT, DbType::NEED_DATA | DbType::NEED_HEADER, &DbValidator::sequenceDb},
+                {"alignmentDB", DbType::ACCESS_MODE_INPUT, DbType::NEED_DATA, &DbValidator::alignmentDb},
+                {"resultFile", DbType::ACCESS_MODE_OUTPUT, DbType::NEED_DATA, &DbValidator::flatfile}
+            }
+        },
+        {"easy-scorecomplex", easyscorecomplex, &localPar.easyscorecomplexworkflow, COMMAND_EASY,
+            "run scorecomplex",
+            NULL,
+            "Woosub Kim <woosubgo@snu.ac.kr>",
+            "<i:PDB|mmCIF[.gz]> ... <i:PDB|mmCIF[.gz]>|<i:stdin> <i:targetFastaFile[.gz]>|<i:targetDB> <o:outputFile> <tmpDir>",
+            CITATION_FOLDSEEK, {
+                {"PDB|mmCIF[.gz|.bz2]", DbType::ACCESS_MODE_INPUT, DbType::NEED_DATA|DbType::VARIADIC, &FoldSeekDbValidator::flatfileStdinAndFolder},
+                {"targetDB", DbType::ACCESS_MODE_INPUT, DbType::NEED_DATA, &FoldSeekDbValidator::flatfileAndFolder},
+                {"outputFile", DbType::ACCESS_MODE_OUTPUT, DbType::NEED_DATA, &DbValidator::flatfile},
+                {"tempDir", DbType::ACCESS_MODE_OUTPUT, DbType::NEED_DATA, &DbValidator::directory}
+            }
+        },
+        {"version",versionstring,&localPar.empty,COMMAND_HIDDEN,"",NULL,"","",CITATION_FOLDSEEK, {{"",DbType::ACCESS_MODE_INPUT, DbType::NEED_DATA, NULL}}}
 };
-
 
 std::vector<KmerThreshold> externalThreshold = { {Parameters::DBTYPE_AMINO_ACIDS, 7, 197.0, 11.22}};
 

@@ -149,6 +149,10 @@ LocalParameters::LocalParameters() :
     scorecomplex.push_back(&PARAM_THREADS);
     scorecomplex.push_back(&PARAM_V);
     scorecomplex.push_back(&PARAM_MIN_ASSIGNED_CHAINS_THRESHOLD);
+    easyscorecomplexworkflow = combineList(easyscorecomplexworkflow, structurecreatedb);
+    easyscorecomplexworkflow = combineList(easyscorecomplexworkflow, structuresearchworkflow);
+    easyscorecomplexworkflow = combineList(easyscorecomplexworkflow, scorecomplex);
+
 
     alignmentType = ALIGNMENT_TYPE_3DI_AA;
     tmScoreThr = 0.0;

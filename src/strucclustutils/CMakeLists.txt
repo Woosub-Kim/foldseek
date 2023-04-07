@@ -12,6 +12,7 @@ set(strucclustutils_source_files
         strucclustutils/PulchraWrapper.h
         strucclustutils/structurerescorediagonal.cpp
         strucclustutils/scorecomplex.cpp
+        strucclustutils/EasyScoreComplex.cpp
         strucclustutils/convert2pdb.cpp
         strucclustutils/compressca.cpp
         PARENT_SCOPE
