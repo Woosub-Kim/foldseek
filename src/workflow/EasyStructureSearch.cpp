@@ -127,7 +127,6 @@ int easystructuresearch(int argc, const char **argv, const Command &command) {
 
     std::string program = tmpDir + "/easystructuresearch.sh";
     FileUtil::writeFile(program, easystructuresearch_sh, easystructuresearch_sh_len);
-    std::cout << "???: " << par.filenames.size() << std::endl;
     cmd.execProgram(program.c_str(), par.filenames);
 
     // Should never get here
