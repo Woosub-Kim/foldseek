@@ -688,12 +688,8 @@ private:
 
     double getTmScore(ComplexToComplexAln aln){
         unsigned int matches = aln.backtrace.length();
-//        tmAligner->initQuery(&aln.qCaXVec[0], &aln.qCaYVec[0], &aln.qCaZVec[0], NULL, matches);
-//        TMaligner::TMscoreResult tmResult = tmAligner->computeTMscore2(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], matches, 0, 0, Matcher::uncompressAlignment(aln.backtrace), matches);
-//        return tmResult.tmscore * matches / aln.alnLength;
-
-        tmAligner->initQuery2(&aln.qCaXVec[0], &aln.qCaYVec[0], &aln.qCaZVec[0], NULL, aln.qLength, matches);
-        TMaligner::TMscoreResult tmResult = tmAligner->computeTMscore2(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], aln.dbLength, 0, 0, Matcher::uncompressAlignment(aln.backtrace), aln.alnLength, matches);
+        tmAligner->initQueryforComplexAln(&aln.qCaXVec[0], &aln.qCaYVec[0], &aln.qCaZVec[0], NULL, aln.qLength, matches);
+        TMaligner::TMscoreResult tmResult = tmAligner->computeComplexTMscore(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], aln.dbLength, 0, 0, aln.backtrace, aln.alnLength, matches);
         return tmResult.tmscore;
     }
 

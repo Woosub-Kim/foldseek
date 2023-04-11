@@ -43,12 +43,12 @@ public:
     TMscoreResult computeTMscore2(float *x, float *y, float *z, unsigned int targetLen, int qStartPos, int dbStartPos,
                                   const std::string &backtrace, unsigned int alnLen);
 
-    TMscoreResult computeTMscore2(float *x, float *y, float *z, unsigned int targetLen, int qStartPos, int dbStartPos,
-                                  const std::string &backtrace, unsigned int alnLen, unsigned int qLen);
+    TMscoreResult computeComplexTMscore(float *x, float *y, float *z, unsigned int targetLen, int qStartPos, int dbStartPos,
+                                        const std::string &backtrace, unsigned int alnLen, unsigned int qLen);
 
     void initQuery2(float *x, float *y, float *z, char *querySeq, unsigned int queryLen);
 
-    void initQuery2(float *x, float *y, float *z, char *querySeq, unsigned int queryLen, unsigned int matchLen);
+    void initQueryforComplexAln(float *x, float *y, float *z, char *querySeq, unsigned int queryLen, unsigned int matchLen);
 
 private:
     AffineNeedlemanWunsch affineNW;
