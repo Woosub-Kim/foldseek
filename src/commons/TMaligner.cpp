@@ -106,6 +106,21 @@ void TMaligner::initQuery(float *x, float *y, float *z, char * querySeq, unsigne
 
 }
 
+void TMaligner::initQuery2(float *x, float *y, float *z, char * querySeq, unsigned int queryLen, unsigned int matchLen){
+    memset(querySecStruc, 0, sizeof(char) * queryLen);
+    memcpy(query_x, x, sizeof(float) * matchLen);
+    memcpy(query_y, y, sizeof(float) * matchLen);
+    memcpy(query_z, z, sizeof(float) * matchLen);
+    this->queryLen = queryLen;
+    this->querySeq = querySeq;
+    Coordinates queryCaCords;
+    queryCaCords.x = query_x;
+    queryCaCords.y = query_y;
+    queryCaCords.z = query_z;
+    make_sec(queryCaCords, queryLen, querySecStruc); // secondary structure assignment
+
+}
+
 Matcher::result_t TMaligner::align(unsigned int dbKey, float *x, float *y, float *z, char * targetSeq, unsigned int targetLen, float &TM1){
     backtrace.clear();
 
