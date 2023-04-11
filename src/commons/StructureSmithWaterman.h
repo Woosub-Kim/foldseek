@@ -49,12 +49,14 @@
 #include "Sequence.h"
 #include "EvalueComputation.h"
 #include "../strucclustutils/EvalueNeuralNet.h"
+#include "block_aligner.h"
 
 
 class StructureSmithWaterman{
 public:
 
-    StructureSmithWaterman(size_t maxSequenceLength, int aaSize, bool aaBiasCorrection, float aaBiasCorrectionScale);
+    StructureSmithWaterman(size_t maxSequenceLength, int aaSize, bool aaBiasCorrection, float aaBiasCorrectionScale,
+                           SubstitutionMatrix * subAAMat, SubstitutionMatrix * sub3DiMat);
     ~StructureSmithWaterman();
 
     // prints a __m128 vector containing 8 signed shorts
@@ -136,6 +138,15 @@ public:
             StructureSmithWaterman::s_align r,
             const int covMode, const float covThr,
             const int32_t maskLen);
+
+    s_align alignStartPosBacktraceBlock (
+            const unsigned char *db_aa_sequence,
+            const unsigned char *db_3di_sequence,
+            int32_t db_length,
+            const uint8_t gap_open,
+            const uint8_t gap_extend,
+            std::string & backtrace,
+            StructureSmithWaterman::s_align r);
 
 
     /*!	@function	Create the query profile using the query sequence.
@@ -246,7 +257,7 @@ private:
     simd_int* vE;
     simd_int* vHmax;
     uint8_t * maxColumn;
-
+    BlockHandle block;
     typedef struct {
         uint16_t score;
         int32_t ref;	 //0-based position
@@ -340,7 +351,8 @@ private:
     short * profile_3di_word_linear_data;
     bool aaBiasCorrection;
     float aaBiasCorrectionScale;
-
+    SubstitutionMatrix * subMatAA;
+    SubstitutionMatrix * subMat3Di;
 };
 
 
