@@ -606,6 +606,7 @@ public:
             }
             std::sort(qComplexes[queryComplexId].alnVec.begin(), qComplexes[queryComplexId].alnVec.end(), compareChainToChainAlnByComplexIdAndChainKey);
         }
+        delete tmAligner;
         return qComplexes;
     }
 
