@@ -60,7 +60,7 @@ struct FeatureVector{
 struct ChainToChainAln {
     ChainToChainAln() {}
     ChainToChainAln(Chain queryChain, Chain targetChain, float * queryCaData, float * targetCaData, Matcher::result_t alnResult, TMaligner::TMscoreResult tmResult)
-    : qChain(queryChain), dbChain(targetChain), alnLength(alnResult.alnLength)  {
+    : qChain(queryChain), dbChain(targetChain)  {
         std::vector<float> qCaXVec;
         std::vector<float> qCaYVec;
         std::vector<float> qCaZVec;
@@ -102,8 +102,12 @@ struct ChainToChainAln {
         dbChain.setCaData(dbCaXVec, dbCaYVec, dbCaZVec);
         qChain.startPos = 0;
         dbChain.startPos = 0;
-        qChain.length = alnResult.qLen;
-        dbChain.length = alnResult.dbLen;
+//        alnLength = alnResult.alnLength;
+//        qChain.length = alnResult.qLen;
+//        dbChain.length = alnResult.dbLen;
+        qChain.length = newBacktrace.length();
+        dbChain.length = newBacktrace.length();
+        alnLength = newBacktrace.length();
         backtrace = newBacktrace;
         featureVector = FeatureVector(tmResult.u, tmResult.t);
     }
@@ -695,13 +699,8 @@ private:
 //                return 0;
 //            foundDbKeys.emplace_back(currDbKey);
 //        }
-        float * qCaX = &aln.qCaXVec[0];
-        float * qCaY = &aln.qCaYVec[0];
-        float * qCaZ = &aln.qCaZVec[0];
-        std::cout << qCaX << "\t" << qCaY << "\t" << qCaZ << std::endl;
-        tmAligner->initQuery(qCaX, qCaY, qCaZ, NULL, aln.qLength);
         // ???
-//        tmAligner->initQuery(&aln.qCaXVec[0], &aln.qCaYVec[0], &aln.qCaZVec[0], NULL, aln.qLength);
+        tmAligner->initQuery(&aln.qCaXVec[0], &aln.qCaYVec[0], &aln.qCaZVec[0], NULL, aln.qLength);
         TMaligner::TMscoreResult tmResult = tmAligner->computeTMscore2(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], aln.dbLength, 0, 0, Matcher::uncompressAlignment(aln.backtrace), aln.alnLength);
         return tmResult.tmscore;
     }
