@@ -180,12 +180,6 @@ struct Complex {
         }
         for (size_t j=0; j<12; j++){
             sd[j] = std::sqrt(var[j]);
-// TODO
-//            if (mean[j] == 0){
-//                cv[j] = sd[j]==0? 0:10000.0;
-//                continue;
-//            }
-//            cv[j] = sd[j]/std::abs(mean[j]);
             cv[j] = abs(mean[j]) > 1.0 ? sd[j]/std::abs(mean[j]) : sd[j];
         }
         for (size_t i=0; i < length; i++){
@@ -625,6 +619,7 @@ public:
                 complexAln.appendChainToChainAln(currAln);
             } else {
                 if (currLabel>0){
+                    // ???
                     complexAln.tmScore = getTmScore(complexAln);
                     complexAlns.emplace_back(complexAln);
                 }
@@ -634,6 +629,7 @@ public:
             }
         }
         if (currLabel>0){
+            // ???
             complexAln.tmScore = getTmScore(complexAln);
             complexAlns.emplace_back(complexAln);
         }
@@ -689,16 +685,23 @@ private:
     float minAssignedChainsRatio;
 
     double getTmScore(ComplexToComplexAln aln){
-        bool chainOverlapAllowed = false;
-        std::vector<unsigned int> foundDbKeys;
-        unsigned int dbKeyIdx = 0;
-        while (!chainOverlapAllowed && dbKeyIdx<aln.dbChainKeys.size()) {
-            unsigned int currDbKey = aln.dbChainKeys[dbKeyIdx++];
-            bool found = std::count(foundDbKeys.begin(), foundDbKeys.end(), currDbKey) > 0;
-            if (found) return 0;
-            foundDbKeys.emplace_back(currDbKey);
-        }
-        tmAligner->initQuery(&aln.qCaXVec[0], &aln.qCaYVec[0], &aln.qCaZVec[0], NULL, aln.qLength);
+//        bool chainOverlapAllowed = false;
+//        std::vector<unsigned int> foundDbKeys;
+//        unsigned int dbKeyIdx = 0;
+//        while (!chainOverlapAllowed && dbKeyIdx<aln.dbChainKeys.size()) {
+//            unsigned int currDbKey = aln.dbChainKeys[dbKeyIdx++];
+//            bool found = std::count(foundDbKeys.begin(), foundDbKeys.end(), currDbKey) > 0;
+//            if (found)
+//                return 0;
+//            foundDbKeys.emplace_back(currDbKey);
+//        }
+        std::cout << aln.qCaXVec[0] << "\t" << aln.qCaYVec[0] << "\t" << aln.qCaZVec[0] << std::endl;
+        float * qCaX = &aln.qCaXVec[0];
+        float * qCaY = &aln.qCaYVec[0];
+        float * qCaZ = &aln.qCaZVec[0];
+//        tmAligner->initQuery(qCaX, qCaY, qCaZ, NULL, aln.qLength);
+        // ???
+//        tmAligner->initQuery(&aln.qCaXVec[0], &aln.qCaYVec[0], &aln.qCaZVec[0], NULL, aln.qLength);
         TMaligner::TMscoreResult tmResult = tmAligner->computeTMscore2(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], aln.dbLength, 0, 0, Matcher::uncompressAlignment(aln.backtrace), aln.alnLength);
         return tmResult.tmscore;
     }
@@ -797,6 +800,7 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
 //                }
 //                std::cout<< std::endl;
 //            }
+            // ???
             std::vector<ComplexToComplexAln> complexAlns = complexScorer.getComplexAlns(qComplex);
             std::vector<OutputLine> resultLines = complexScorer.getOutputLines(complexAlns);
             progress.updateProgress();
