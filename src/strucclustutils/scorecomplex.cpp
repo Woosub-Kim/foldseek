@@ -26,7 +26,7 @@ struct Chain {
     int startPos;
     unsigned int length;
 
-    void setCaData(std::vector<float> &caX, std::vector<float> &caY, std::vector<float> &caZ){
+    void setCaData(std::vector<float> &caX, std::vector<float> &caY, std::vector<float> &caZ) {
         caVecX = caX;
         caVecY = caY;
         caVecZ = caZ;
@@ -102,9 +102,6 @@ struct ChainToChainAln {
         dbChain.setCaData(dbCaXVec, dbCaYVec, dbCaZVec);
         qChain.startPos = 0;
         dbChain.startPos = 0;
-//        alnLength = alnResult.alnLength;
-//        qChain.length = alnResult.qLen;
-//        dbChain.length = alnResult.dbLen;
         qChain.length = newBacktrace.length();
         dbChain.length = newBacktrace.length();
         alnLength = newBacktrace.length();
@@ -625,7 +622,6 @@ public:
                 complexAln.appendChainToChainAln(currAln);
             } else {
                 if (currLabel>0){
-                    // ???
                     complexAln.tmScore = getTmScore(complexAln);
                     complexAlns.emplace_back(complexAln);
                 }
@@ -635,7 +631,6 @@ public:
             }
         }
         if (currLabel>0){
-            // ???
             complexAln.tmScore = getTmScore(complexAln);
             complexAlns.emplace_back(complexAln);
         }
@@ -791,7 +786,6 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
 //                }
 //                std::cout<< std::endl;
 //            }
-            // ???
             std::vector<ComplexToComplexAln> complexAlns = complexScorer.getComplexAlns(qComplex);
             std::vector<OutputLine> resultLines = complexScorer.getOutputLines(complexAlns);
             progress.updateProgress();
