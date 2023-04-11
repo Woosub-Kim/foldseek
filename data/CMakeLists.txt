@@ -12,6 +12,7 @@ set(COMPILED_RESOURCES
         encoder_weights_3di.kerasify
         evalue_nn.kerasify
 	    result_viz_prelude_fs.html.zst
+        easyscorecomplex.sh
         )
 
 set(GENERATED_OUTPUT_HEADERS "")
