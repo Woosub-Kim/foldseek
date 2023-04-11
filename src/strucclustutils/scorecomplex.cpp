@@ -801,8 +801,10 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
         }
     }
     alnDbr.close();
+    delete qCaDbr;
     if (!sameDB) {
         delete t3DiDbr;
+        delete tCaDbr;
     }
     resultWriter.close(true);
     return EXIT_SUCCESS;
