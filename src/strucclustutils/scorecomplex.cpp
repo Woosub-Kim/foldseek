@@ -699,7 +699,7 @@ private:
         float * qCaX = &aln.qCaXVec[0];
         float * qCaY = &aln.qCaYVec[0];
         float * qCaZ = &aln.qCaZVec[0];
-//        tmAligner->initQuery(qCaX, qCaY, qCaZ, NULL, aln.qLength);
+        tmAligner->initQuery(qCaX, qCaY, qCaZ, NULL, aln.qLength);
         // ???
 //        tmAligner->initQuery(&aln.qCaXVec[0], &aln.qCaYVec[0], &aln.qCaZVec[0], NULL, aln.qLength);
         TMaligner::TMscoreResult tmResult = tmAligner->computeTMscore2(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], aln.dbLength, 0, 0, Matcher::uncompressAlignment(aln.backtrace), aln.alnLength);
