@@ -132,7 +132,7 @@ std::pair<unsigned int, unsigned int> * ClusteringAlgorithms::execute(int mode) 
         for (size_t i = 0; i < dbSize; i++) {
             if (assignedcluster[i] == UINT_MAX) {
                 Debug(Debug::ERROR) << "there must be an error: " << seqDbr->getDbKey(i) << "\t" << i <<
-                                    "\tis not assigned to a cluster\n";
+                                    "\tis not assigned to a getComplexAlns\n";
                 continue;
             }
 
@@ -255,13 +255,13 @@ void ClusteringAlgorithms::setCover(unsigned int **elementLookupTable, unsigned 
                 if (clustersizes[elementtodecrease] == 1) {
                     Debug(Debug::ERROR) << "there must be an error: " << seqDbr->getDbKey(elementtodelete) <<
                                         " deleted from " << seqDbr->getDbKey(elementtodecrease) <<
-                                        " that now is empty, but not assigned to a cluster\n";
+                                        " that now is empty, but not assigned to a getComplexAlns\n";
                 } else if (clustersizes[elementtodecrease] > 0) {
                     decreaseClustersize(elementtodecrease);
                 }
             }
             if (!representativefound) {
-                Debug(Debug::ERROR) << "error with cluster:\t" << seqDbr->getDbKey(representative) <<
+                Debug(Debug::ERROR) << "error with getComplexAlns:\t" << seqDbr->getDbKey(representative) <<
                                     "\tis not contained in set:\t" << seqDbr->getDbKey(elementtodelete) << ".\n";
             }
         }
@@ -284,8 +284,8 @@ void ClusteringAlgorithms::greedyIncrementalLowMem( unsigned int *assignedcluste
             unsigned int clusterKey = seqDbr->getDbKey(i);
             unsigned int clusterId = i;
 
-            // try to set your self as cluster centriod
-            // if some other cluster covered
+            // try to set your self as getComplexAlns centriod
+            // if some other getComplexAlns covered
             unsigned int targetId;
             __atomic_load(&assignedcluster[clusterId], &targetId ,__ATOMIC_RELAXED);
             do {

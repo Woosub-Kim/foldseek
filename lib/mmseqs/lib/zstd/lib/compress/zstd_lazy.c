@@ -39,7 +39,7 @@ ZSTD_updateDUBT(ZSTD_matchState_t* ms,
     assert(ip + 8 <= iend);   /* condition for ZSTD_hashPtr */
     (void)iend;
 
-    assert(idx >= ms->window.dictLimit);   /* condition for valid base+idx */
+    assert(idx >= ms->window.dictLimit);   /* condition for valid base+resultIdx */
     for ( ; idx < target ; idx++) {
         size_t const h  = ZSTD_hashPtr(base + idx, hashLog, mls);   /* assumption : ip + 8 <= iend */
         U32    const matchIndex = hashTable[h];
@@ -124,7 +124,7 @@ ZSTD_insertDUBT1(ZSTD_matchState_t* ms,
 
         if (match[matchLength] < ip[matchLength]) {  /* necessarily within buffer */
             /* match is smaller than current */
-            *smallerPtr = matchIndex;             /* update smaller idx */
+            *smallerPtr = matchIndex;             /* update smaller resultIdx */
             commonLengthSmaller = matchLength;    /* all smaller will now have at least this guaranteed common length */
             if (matchIndex <= btLow) { smallerPtr=&dummy32; break; }   /* beyond tree size, stop searching */
             DEBUGLOG(8, "ZSTD_insertDUBT1: %u (>btLow=%u) is smaller : next => %u",
@@ -337,7 +337,7 @@ ZSTD_DUBT_findBestMatch(ZSTD_matchState_t* ms,
 
             if (match[matchLength] < ip[matchLength]) {
                 /* match is smaller than current */
-                *smallerPtr = matchIndex;             /* update smaller idx */
+                *smallerPtr = matchIndex;             /* update smaller resultIdx */
                 commonLengthSmaller = matchLength;    /* all smaller will now have at least this guaranteed common length */
                 if (matchIndex <= btLow) { smallerPtr=&dummy32; break; }   /* beyond tree size, stop the search */
                 smallerPtr = nextPtr+1;               /* new "smaller" => larger of match */

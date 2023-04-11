@@ -88,7 +88,7 @@ public:
         return this->lastKmerIndex;
     }
     
-    // get the int sequence for the k-mer with the index idx of kmerSize
+    // get the int sequence for the k-mer with the index resultIdx of kmerSize
     inline void index2int(size_t * int_seq, size_t idx, int kmerSize){
         for (int i = kmerSize - 1; i >= 0; i--){
             int_seq[i] = idx / powers[i];

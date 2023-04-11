@@ -6,7 +6,7 @@ example_gz.*
 fitblk.*
 fitblk_zstd.*
 zwrapbench.*
-foo.gz
+getChainToChainAln.gz
 
 minigzip
 minigzip_zstd

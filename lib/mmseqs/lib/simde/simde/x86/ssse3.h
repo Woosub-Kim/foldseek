@@ -688,10 +688,10 @@ simde_mm_maddubs_epi16 (simde__m128i a, simde__m128i b) {
       r_.neon_i16 = vqaddq_s16(prod1, prod2);
     #else
       for (size_t i = 0 ; i < (sizeof(r_.i16) / sizeof(r_.i16[0])) ; i++) {
-        const int idx = HEDLEY_STATIC_CAST(int, i) << 1;
+        const int resultIdx = HEDLEY_STATIC_CAST(int, i) << 1;
         int32_t ts =
-          (HEDLEY_STATIC_CAST(int16_t, a_.u8[  idx  ]) * HEDLEY_STATIC_CAST(int16_t, b_.i8[  idx  ])) +
-          (HEDLEY_STATIC_CAST(int16_t, a_.u8[idx + 1]) * HEDLEY_STATIC_CAST(int16_t, b_.i8[idx + 1]));
+          (HEDLEY_STATIC_CAST(int16_t, a_.u8[  resultIdx  ]) * HEDLEY_STATIC_CAST(int16_t, b_.i8[  resultIdx  ])) +
+          (HEDLEY_STATIC_CAST(int16_t, a_.u8[resultIdx + 1]) * HEDLEY_STATIC_CAST(int16_t, b_.i8[resultIdx + 1]));
         r_.i16[i] = (ts > INT16_MIN) ? ((ts < INT16_MAX) ? HEDLEY_STATIC_CAST(int16_t, ts) : INT16_MAX) : INT16_MIN;
       }
     #endif
@@ -723,10 +723,10 @@ simde_mm_maddubs_pi16 (simde__m64 a, simde__m64 b) {
       r_.neon_i16 = vqadd_s16(vuzp1_s16(l, h), vuzp2_s16(l, h));
     #else
       for (size_t i = 0 ; i < (sizeof(r_.i16) / sizeof(r_.i16[0])) ; i++) {
-        const int idx = HEDLEY_STATIC_CAST(int, i) << 1;
+        const int resultIdx = HEDLEY_STATIC_CAST(int, i) << 1;
         int32_t ts =
-          (HEDLEY_STATIC_CAST(int16_t, a_.u8[  idx  ]) * HEDLEY_STATIC_CAST(int16_t, b_.i8[  idx  ])) +
-          (HEDLEY_STATIC_CAST(int16_t, a_.u8[idx + 1]) * HEDLEY_STATIC_CAST(int16_t, b_.i8[idx + 1]));
+          (HEDLEY_STATIC_CAST(int16_t, a_.u8[  resultIdx  ]) * HEDLEY_STATIC_CAST(int16_t, b_.i8[  resultIdx  ])) +
+          (HEDLEY_STATIC_CAST(int16_t, a_.u8[resultIdx + 1]) * HEDLEY_STATIC_CAST(int16_t, b_.i8[resultIdx + 1]));
         r_.i16[i] = (ts > INT16_MIN) ? ((ts < INT16_MAX) ? HEDLEY_STATIC_CAST(int16_t, ts) : INT16_MAX) : INT16_MIN;
       }
     #endif

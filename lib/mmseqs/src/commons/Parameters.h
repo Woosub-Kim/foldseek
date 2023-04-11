@@ -404,7 +404,7 @@ public:
     // ALIGNMENT
     int alignmentMode;                   // alignment mode 0=fastest on parameters,
                                          // 1=score only, 2=score, cov, start/end pos, 3=score, cov, start/end pos, seq.id,
-    int alignmentOutputMode;             // alignment output mode 0=alignment, 1=cluster
+    int alignmentOutputMode;             // alignment output mode 0=alignment, 1=getComplexAlns
     double evalThr;                      // e-value threshold for acceptance
     float  covThr;                       // coverage query&target threshold for acceptance
     int    covMode;                      // coverage target threshold for acceptance

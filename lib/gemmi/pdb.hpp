@@ -283,6 +283,7 @@ Structure read_pdb_from_stream(Stream&& stream, const std::string& source,
   std::unordered_map<ResidueId, int> resmap;
   while (size_t len = copy_line_from_stream(line, max_line_length+1, stream)) {
     ++line_num;
+
     if (is_record_type(line, "ATOM") || is_record_type(line, "HETATM")) {
       if (len < 55)
         wrong("The line is too short to be correct:\n" + std::string(line));

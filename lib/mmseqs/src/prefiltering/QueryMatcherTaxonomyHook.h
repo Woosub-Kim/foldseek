@@ -45,10 +45,10 @@ public:
 
     static std::string dbPathWithoutIndex(const std::string& dbname) {
         static const std::vector<std::string> suffices = {
-            "_ss.idx",
+            "_ss.resultIdx",
             "_ss.linidx",
             "_ss",
-            ".idx",
+            ".resultIdx",
             ".linidx"
         };
         for (size_t i = 0; i < suffices.size(); ++i) {

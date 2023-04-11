@@ -72,7 +72,7 @@ int linclust(int argc, const char **argv, const Command& command) {
             par.clusteringMode = Parameters::SET_COVER;
         }
         std::string cluMode = (par.clusteringMode==Parameters::GREEDY_MEM) ? "GREEDY MEM" : "SET COVER";
-        Debug(Debug::INFO) << "Set cluster mode " << cluMode << ".\n";
+        Debug(Debug::INFO) << "Set getComplexAlns mode " << cluMode << ".\n";
     }
 
     if (kmerSizeWasSet == false) {

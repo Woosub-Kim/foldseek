@@ -3822,12 +3822,12 @@ simde_mm_movemask_pd (simde__m128d a) {
         (HEDLEY_STATIC_CAST(int32_t, vgetq_lane_u64(shifted, 1)) << 1);
       HEDLEY_DIAGNOSTIC_POP
     #elif defined(SIMDE_POWER_ALTIVEC_P8_NATIVE) && defined(SIMDE_BUG_CLANG_50932)
-      SIMDE_POWER_ALTIVEC_VECTOR(unsigned char) idx = { 64, 0, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128 };
-      SIMDE_POWER_ALTIVEC_VECTOR(unsigned char) res = HEDLEY_REINTERPRET_CAST(SIMDE_POWER_ALTIVEC_VECTOR(unsigned char), vec_bperm(HEDLEY_REINTERPRET_CAST(SIMDE_POWER_ALTIVEC_VECTOR(unsigned __int128), a_.altivec_u64), idx));
+      SIMDE_POWER_ALTIVEC_VECTOR(unsigned char) resultIdx = { 64, 0, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128 };
+      SIMDE_POWER_ALTIVEC_VECTOR(unsigned char) res = HEDLEY_REINTERPRET_CAST(SIMDE_POWER_ALTIVEC_VECTOR(unsigned char), vec_bperm(HEDLEY_REINTERPRET_CAST(SIMDE_POWER_ALTIVEC_VECTOR(unsigned __int128), a_.altivec_u64), resultIdx));
       r = HEDLEY_STATIC_CAST(int32_t, vec_extract(HEDLEY_REINTERPRET_CAST(SIMDE_POWER_ALTIVEC_VECTOR(signed int), res), 2));
     #elif defined(SIMDE_POWER_ALTIVEC_P8_NATIVE)
-      SIMDE_POWER_ALTIVEC_VECTOR(unsigned char) idx = { 64, 0, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128 };
-      SIMDE_POWER_ALTIVEC_VECTOR(unsigned char) res = vec_bperm(a_.altivec_u8, idx);
+      SIMDE_POWER_ALTIVEC_VECTOR(unsigned char) resultIdx = { 64, 0, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128 };
+      SIMDE_POWER_ALTIVEC_VECTOR(unsigned char) res = vec_bperm(a_.altivec_u8, resultIdx);
       r = HEDLEY_STATIC_CAST(int32_t, vec_extract(HEDLEY_REINTERPRET_CAST(SIMDE_POWER_ALTIVEC_VECTOR(signed int), res), 2));
     #else
       SIMDE_VECTORIZE_REDUCTION(|:r)

@@ -23,8 +23,8 @@ int mergeclusters(int argc, const char **argv, const Command &command) {
     DBReader<unsigned int> dbr(par.db1.c_str(), par.db1Index.c_str(), par.threads, DBReader<unsigned int>::USE_INDEX);
     dbr.open(DBReader<unsigned int>::NOSORT);
 
-    // init the structure for cluster merging
-    // it has the size of all possible cluster (sequence amount)
+    // init the structure for getComplexAlns merging
+    // it has the size of all possible getComplexAlns (sequence amount)
     std::list<unsigned int> *mergedClustering = new std::list<unsigned int>[dbr.getSize()];
 
     // read the clustering from the first clustering step
@@ -51,7 +51,7 @@ int mergeclusters(int argc, const char **argv, const Command &command) {
             unsigned int clusterId = cluDb.getDbKey(i);
             size_t cluId = dbr.getId(clusterId);
             char *data = cluDb.getData(i, thread_idx);
-            // go through the sequences in the cluster and add them to the initial clustering
+            // go through the sequences in the getComplexAlns and add them to the initial clustering
             while (*data != '\0') {
                 Util::parseKey(data, keyBuffer);
                 unsigned int key = Util::fast_atoi<unsigned int>(keyBuffer);
@@ -87,15 +87,15 @@ int mergeclusters(int argc, const char **argv, const Command &command) {
 #pragma omp for schedule(dynamic, 100)
             for (size_t i = 0; i < cluDb.getSize(); i++) {
                 progress.updateProgress();
-                // go through the sequences in the cluster and add them and their clusters to the cluster of cluId
-                // afterwards, delete the added cluster from the clustering
+                // go through the sequences in the cluster and add them and their clusters to the getComplexAlns of cluId
+                // afterwards, delete the added getComplexAlns from the clustering
                 size_t cluId = dbr.getId(cluDb.getDbKey(i));
                 char *data = cluDb.getData(i, thread_idx);
                 while (*data != '\0') {
                     Util::parseKey(data, keyBuffer);
                     unsigned int key = Util::fast_atoi<unsigned int>(keyBuffer);
                     size_t seqId = dbr.getId(key);
-                    if (seqId != cluId) { // to avoid copies of the same cluster list
+                    if (seqId != cluId) { // to avoid copies of the same getComplexAlns list
                         mergedClustering[cluId].splice(mergedClustering[cluId].end(), mergedClustering[seqId]);
                     }
                     data = Util::skipLine(data);
@@ -127,7 +127,7 @@ int mergeclusters(int argc, const char **argv, const Command &command) {
         for (size_t i = 0; i < dbr.getSize(); i++) {
             progress.updateProgress();
 
-            // no cluster for this representative
+            // no getComplexAlns for this representative
             if (mergedClustering[i].empty())
                 continue;
 

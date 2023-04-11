@@ -67,7 +67,7 @@ Parameters::Parameters():
         PARAM_LOCAL_TMP(PARAM_LOCAL_TMP_ID, "--local-tmp", "Local temporary path", "Path where some of the temporary files will be created", typeid(std::string), (void *) &localTmp, "", MMseqsParameter::COMMAND_PREFILTER | MMseqsParameter::COMMAND_EXPERT),
         // alignment
         PARAM_ALIGNMENT_MODE(PARAM_ALIGNMENT_MODE_ID, "--alignment-mode", "Alignment mode", "How to compute the alignment:\n0: automatic\n1: only score and end_pos\n2: also start_pos and cov\n3: also seq.id\n4: only ungapped alignment", typeid(int), (void *) &alignmentMode, "^[0-5]{1}$", MMseqsParameter::COMMAND_ALIGN),
-        PARAM_ALIGNMENT_OUTPUT_MODE(PARAM_ALIGNMENT_OUTPUT_MODE_ID, "--alignment-output-mode", "Alignment mode", "How to compute the alignment:\n0: automatic\n1: only score and end_pos\n2: also start_pos and cov\n3: also seq.id\n4: only ungapped alignment\n5: score only (output) cluster format", typeid(int), (void *) &alignmentOutputMode, "^[0-1]{1}$", MMseqsParameter::COMMAND_ALIGN),
+        PARAM_ALIGNMENT_OUTPUT_MODE(PARAM_ALIGNMENT_OUTPUT_MODE_ID, "--alignment-output-mode", "Alignment mode", "How to compute the alignment:\n0: automatic\n1: only score and end_pos\n2: also start_pos and cov\n3: also seq.id\n4: only ungapped alignment\n5: score only (output) getComplexAlns format", typeid(int), (void *) &alignmentOutputMode, "^[0-1]{1}$", MMseqsParameter::COMMAND_ALIGN),
         PARAM_E(PARAM_E_ID, "-e", "E-value threshold", "List matches below this E-value (range 0.0-inf)", typeid(double), (void *) &evalThr, "^([-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)|[0-9]*(\\.[0-9]+)?$", MMseqsParameter::COMMAND_ALIGN),
         PARAM_C(PARAM_C_ID, "-c", "Coverage threshold", "List matches above this fraction of aligned (covered) residues (see --cov-mode)", typeid(float), (void *) &covThr, "^0(\\.[0-9]+)?|^1(\\.0+)?$", MMseqsParameter::COMMAND_ALIGN | MMseqsParameter::COMMAND_CLUSTLINEAR),
         PARAM_COV_MODE(PARAM_COV_MODE_ID, "--cov-mode", "Coverage mode", "0: coverage of query and target\n1: coverage of target\n2: coverage of query\n3: target seq. length has to be at least x% of query length\n4: query seq. length has to be at least x% of target length\n5: short seq. needs to be at least x% of the other seq. length", typeid(int), (void *) &covMode, "^[0-5]{1}$", MMseqsParameter::COMMAND_ALIGN),
@@ -88,10 +88,10 @@ Parameters::Parameters():
         PARAM_GAP_PSEUDOCOUNT(PARAM_GAP_PSEUDOCOUNT_ID, "--gap-pc", "Gap pseudo count", "Pseudo count for calculating position-specific gap opening penalties", typeid(int), &gapPseudoCount, "^[0-9]+$", MMseqsParameter::COMMAND_ALIGN|MMseqsParameter::COMMAND_EXPERT),
         PARAM_ZDROP(PARAM_ZDROP_ID, "--zdrop", "Zdrop", "Maximal allowed difference between score values before alignment is truncated  (nucleotide alignment only)", typeid(int), (void*) &zdrop, "^[0-9]{1}[0-9]*$", MMseqsParameter::COMMAND_ALIGN | MMseqsParameter::COMMAND_EXPERT),
         // clustering
-        PARAM_CLUSTER_MODE(PARAM_CLUSTER_MODE_ID, "--cluster-mode", "Cluster mode", "0: Set-Cover (greedy)\n1: Connected component (BLASTclust)\n2,3: Greedy clustering by sequence length (CDHIT)", typeid(int), (void *) &clusteringMode, "[0-3]{1}$", MMseqsParameter::COMMAND_CLUST),
-        PARAM_CLUSTER_STEPS(PARAM_CLUSTER_STEPS_ID, "--cluster-steps", "Cascaded clustering steps", "Cascaded clustering steps from 1 to -s", typeid(int), (void *) &clusterSteps, "^[1-9]{1}$", MMseqsParameter::COMMAND_CLUST | MMseqsParameter::COMMAND_EXPERT),
+        PARAM_CLUSTER_MODE(PARAM_CLUSTER_MODE_ID, "--getComplexAlns-mode", "Cluster mode", "0: Set-Cover (greedy)\n1: Connected component (BLASTclust)\n2,3: Greedy clustering by sequence length (CDHIT)", typeid(int), (void *) &clusteringMode, "[0-3]{1}$", MMseqsParameter::COMMAND_CLUST),
+        PARAM_CLUSTER_STEPS(PARAM_CLUSTER_STEPS_ID, "--getComplexAlns-steps", "Cascaded clustering steps", "Cascaded clustering steps from 1 to -s", typeid(int), (void *) &clusterSteps, "^[1-9]{1}$", MMseqsParameter::COMMAND_CLUST | MMseqsParameter::COMMAND_EXPERT),
         PARAM_CASCADED(PARAM_CASCADED_ID, "--single-step-clustering", "Single step clustering", "Switch from cascaded to simple clustering workflow", typeid(bool), (void *) &singleStepClustering, "", MMseqsParameter::COMMAND_CLUST),
-        PARAM_CLUSTER_REASSIGN(PARAM_CLUSTER_REASSIGN_ID, "--cluster-reassign", "Cluster reassign", "Cascaded clustering can cluster sequence that do not fulfill the clustering criteria.\nCluster reassignment corrects these errors", typeid(bool), (void *) &clusterReassignment, "", MMseqsParameter::COMMAND_CLUST),
+        PARAM_CLUSTER_REASSIGN(PARAM_CLUSTER_REASSIGN_ID, "--getComplexAlns-reassign", "Cluster reassign", "Cascaded clustering can getComplexAlns sequence that do not fulfill the clustering criteria.\nCluster reassignment corrects these errors", typeid(bool), (void *) &clusterReassignment, "", MMseqsParameter::COMMAND_CLUST),
         // affinity clustering
         PARAM_MAXITERATIONS(PARAM_MAXITERATIONS_ID, "--max-iterations", "Max connected component depth", "Maximum depth of breadth first search in connected component clustering", typeid(int), (void *) &maxIteration, "^[1-9]{1}[0-9]*$", MMseqsParameter::COMMAND_CLUST | MMseqsParameter::COMMAND_EXPERT),
         PARAM_SIMILARITYSCORE(PARAM_SIMILARITYSCORE_ID, "--similarity-type", "Similarity type", "Type of score used for clustering. 1: alignment score 2: sequence identity", typeid(int), (void *) &similarityScoreType, "^[1-2]{1}$", MMseqsParameter::COMMAND_CLUST | MMseqsParameter::COMMAND_EXPERT),
@@ -109,7 +109,7 @@ Parameters::Parameters():
         // result2msa
         PARAM_MSA_FORMAT_MODE(PARAM_MSA_FORMAT_MODE_ID, "--msa-format-mode", "MSA format mode", "Format MSA as: 0: binary cA3M DB\n1: binary ca3m w. consensus DB\n2: aligned FASTA DB\n3: aligned FASTA w. header summary\n4: STOCKHOLM flat file\n5: A3M format\n6: A3M format w. alignment info", typeid(int), (void *) &msaFormatMode, "^[0-6]{1}$"),
         PARAM_ALLOW_DELETION(PARAM_ALLOW_DELETION_ID, "--allow-deletion", "Allow deletions", "Allow deletions in a MSA", typeid(bool), (void *) &allowDeletion, ""),
-        PARAM_SUMMARY_PREFIX(PARAM_SUMMARY_PREFIX_ID, "--summary-prefix", "Summary prefix", "Set the cluster summary prefix", typeid(std::string), (void *) &summaryPrefix, "", MMseqsParameter::COMMAND_EXPERT),
+        PARAM_SUMMARY_PREFIX(PARAM_SUMMARY_PREFIX_ID, "--summary-prefix", "Summary prefix", "Set the getComplexAlns summary prefix", typeid(std::string), (void *) &summaryPrefix, "", MMseqsParameter::COMMAND_EXPERT),
         PARAM_SKIP_QUERY(PARAM_SKIP_QUERY_ID, "--skip-query", "Skip query", "Skip the query sequence", typeid(bool), (void *) &skipQuery, "", MMseqsParameter::COMMAND_EXPERT),
         // convertmsa
         PARAM_IDENTIFIER_FIELD(PARAM_IDENTIFIER_FIELD_ID, "--identifier-field", "Identifier field", "Field from STOCKHOLM comments for choosing the MSA identifier: 0: ID, 1: AC. If the respective comment does not exist, the name of the first sequence will become the identifier", typeid(int), (void *) &identifierField, "^[0-1]{1}$", MMseqsParameter::COMMAND_COMMON),
@@ -138,7 +138,7 @@ Parameters::Parameters():
         PARAM_TARGET_COLUMN(PARAM_TARGET_COLUMN_ID, "--target-column", "Target column", "Select a target column (default 1), 0 if no target id exists", typeid(int), (void *) &targetTsvColumn, "^[0-9]*$"),
         PARAM_FIRST_SEQ_REP_SEQ(PARAM_FIRST_SEQ_REP_SEQ_ID, "--first-seq-as-repr", "First sequence as representative", "Use the first sequence of the clustering result as representative sequence", typeid(bool), (void *) &firstSeqRepr, "", MMseqsParameter::COMMAND_MISC),
         PARAM_FULL_HEADER(PARAM_FULL_HEADER_ID, "--full-header", "Add full header", "Replace DB ID by its corresponding Full Header", typeid(bool), (void *) &fullHeader, ""),
-        PARAM_IDX_SEQ_SRC(PARAM_IDX_SEQ_SRC_ID, "--idx-seq-src", "Sequence source", "0: auto, 1: split/translated sequences, 2: input sequences", typeid(int), (void *) &idxSeqSrc, "^[0-2]{1}$", MMseqsParameter::COMMAND_MISC),
+        PARAM_IDX_SEQ_SRC(PARAM_IDX_SEQ_SRC_ID, "--resultIdx-seq-src", "Sequence source", "0: auto, 1: split/translated sequences, 2: input sequences", typeid(int), (void *) &idxSeqSrc, "^[0-2]{1}$", MMseqsParameter::COMMAND_MISC),
 
         // result2stats
         PARAM_STAT(PARAM_STAT_ID, "--stat", "Statistics to be computed", "One of: linecount, mean, min, max, doolittle, charges, seqlen, firstline", typeid(std::string), (void *) &stat, ""),
@@ -151,10 +151,10 @@ Parameters::Parameters():
         PARAM_PICK_N_SIMILAR(PARAM_PICK_N_SIMILAR_ID, "--pick-n-sim-kmer", "Add N similar to search", "Add N similar k-mers to search", typeid(int), (void *) &pickNbest, "^[1-9]{1}[0-9]*$", MMseqsParameter::COMMAND_CLUSTLINEAR | MMseqsParameter::COMMAND_EXPERT),
         PARAM_ADJUST_KMER_LEN(PARAM_ADJUST_KMER_LEN_ID, "--adjust-kmer-len", "Adjust k-mer length", "Adjust k-mer length based on specificity (only for nucleotides)", typeid(bool), (void *) &adjustKmerLength, "", MMseqsParameter::COMMAND_CLUSTLINEAR | MMseqsParameter::COMMAND_EXPERT),
         PARAM_RESULT_DIRECTION(PARAM_RESULT_DIRECTION_ID, "--result-direction", "Result direction", "result is 0: query, 1: target centric", typeid(int), (void *) &resultDirection, "^[0-1]{1}$", MMseqsParameter::COMMAND_CLUSTLINEAR | MMseqsParameter::COMMAND_EXPERT),
-        PARAM_WEIGHT_FILE(PARAM_WEIGHT_FILE_ID, "--weights", "Weight file name", "Weights used for cluster priorization", typeid(std::string), (void*) &weightFile, "", MMseqsParameter::COMMAND_CLUSTLINEAR | MMseqsParameter::COMMAND_EXPERT ),
-        PARAM_WEIGHT_THR(PARAM_WEIGHT_THR_ID, "--cluster-weight-threshold", "Cluster Weight threshold", "Weight threshold used for cluster priorization", typeid(float), (void*) &weightThr, "^[0-9]*(\\.[0-9]+)?$", MMseqsParameter::COMMAND_CLUSTLINEAR | MMseqsParameter::COMMAND_EXPERT ),
+        PARAM_WEIGHT_FILE(PARAM_WEIGHT_FILE_ID, "--weights", "Weight file name", "Weights used for getComplexAlns priorization", typeid(std::string), (void*) &weightFile, "", MMseqsParameter::COMMAND_CLUSTLINEAR | MMseqsParameter::COMMAND_EXPERT ),
+        PARAM_WEIGHT_THR(PARAM_WEIGHT_THR_ID, "--getComplexAlns-weight-threshold", "Cluster Weight threshold", "Weight threshold used for getComplexAlns priorization", typeid(float), (void*) &weightThr, "^[0-9]*(\\.[0-9]+)?$", MMseqsParameter::COMMAND_CLUSTLINEAR | MMseqsParameter::COMMAND_EXPERT ),
         // workflow
-        PARAM_RUNNER(PARAM_RUNNER_ID, "--mpi-runner", "MPI runner", "Use MPI on compute cluster with this MPI command (e.g. \"mpirun -np 42\")", typeid(std::string), (void *) &runner, "", MMseqsParameter::COMMAND_COMMON | MMseqsParameter::COMMAND_EXPERT),
+        PARAM_RUNNER(PARAM_RUNNER_ID, "--mpi-runner", "MPI runner", "Use MPI on compute getComplexAlns with this MPI command (e.g. \"mpirun -np 42\")", typeid(std::string), (void *) &runner, "", MMseqsParameter::COMMAND_COMMON | MMseqsParameter::COMMAND_EXPERT),
         PARAM_REUSELATEST(PARAM_REUSELATEST_ID, "--force-reuse", "Force restart with latest tmp", "Reuse tmp filse in tmp/latest folder ignoring parameters and version changes", typeid(bool), (void *) &reuseLatest, "", MMseqsParameter::COMMAND_COMMON | MMseqsParameter::COMMAND_EXPERT),
         // search workflow
         PARAM_NUM_ITERATIONS(PARAM_NUM_ITERATIONS_ID, "--num-iterations", "Search iterations", "Number of iterative profile search iterations", typeid(int), (void *) &numIterations, "^[1-9]{1}[0-9]*$", MMseqsParameter::COMMAND_PROFILE),
@@ -205,8 +205,8 @@ Parameters::Parameters():
         // createseqfiledb
         PARAM_ADD_ORF_STOP(PARAM_ADD_ORF_STOP_ID, "--add-orf-stop", "Add orf stop", "Add stop codon '*' at complete start and end", typeid(bool), (void *) &addOrfStop, ""),
         // createseqfiledb
-        PARAM_MIN_SEQUENCES(PARAM_MIN_SEQUENCES_ID, "--min-sequences", "Min sequences", "Minimum number of sequences a cluster may contain", typeid(int), (void *) &minSequences, "^[1-9]{1}[0-9]*$"),
-        PARAM_MAX_SEQUENCES(PARAM_MAX_SEQUENCES_ID, "--max-sequences", "Max sequences", "Maximum number of sequences a cluster may contain", typeid(int), (void *) &maxSequences, "^[1-9]{1}[0-9]*$"),
+        PARAM_MIN_SEQUENCES(PARAM_MIN_SEQUENCES_ID, "--min-sequences", "Min sequences", "Minimum number of sequences a getComplexAlns may contain", typeid(int), (void *) &minSequences, "^[1-9]{1}[0-9]*$"),
+        PARAM_MAX_SEQUENCES(PARAM_MAX_SEQUENCES_ID, "--max-sequences", "Max sequences", "Maximum number of sequences a getComplexAlns may contain", typeid(int), (void *) &maxSequences, "^[1-9]{1}[0-9]*$"),
         PARAM_HH_FORMAT(PARAM_HH_FORMAT_ID, "--hh-format", "HH format", "Format entries to use with hhsuite (for singleton clusters)", typeid(bool), (void *) &hhFormat, ""),
         // filterdb
         PARAM_FILTER_COL(PARAM_FILTER_COL_ID, "--filter-column", "Filter column", "column", typeid(int), (void *) &filterColumn, "^[1-9]{1}[0-9]*$"),
@@ -259,7 +259,7 @@ Parameters::Parameters():
         PARAM_TAXON_LIST(PARAM_TAXON_LIST_ID, "--taxon-list", "Selected taxa", "Taxonomy ID, possibly multiple values separated by ','", typeid(std::string), (void *) &taxonList, ""),
         // view
         PARAM_ID_LIST(PARAM_ID_LIST_ID, "--id-list", "Selected entries with key", "Entries to be printed separated by ','", typeid(std::string), (void *) &idList, ""),
-        PARAM_IDX_ENTRY_TYPE(PARAM_IDX_ENTRY_TYPE_ID, "--idx-entry-type", "Index entry type", "0: sequence, 1: src sequence, 2: header, 3: src header", typeid(int), (void *) &idxEntryType, "^[0-3]{1}$"),
+        PARAM_IDX_ENTRY_TYPE(PARAM_IDX_ENTRY_TYPE_ID, "--resultIdx-entry-type", "Index entry type", "0: sequence, 1: src sequence, 2: header, 3: src header", typeid(int), (void *) &idxEntryType, "^[0-3]{1}$"),
         // lca and addtaxonomy
         PARAM_PICK_ID_FROM(PARAM_PICK_ID_FROM_ID, "--pick-id-from", "Extract mode", "Query 1, Target 2", typeid(int), (void *) &pickIdFrom, "^[1-2]{1}$"),
         PARAM_LCA_RANKS(PARAM_LCA_RANKS_ID, "--lca-ranks", "LCA ranks", "Add column with specified ranks (',' separated)", typeid(std::string), (void *) &lcaRanks, ""),
@@ -277,7 +277,7 @@ Parameters::Parameters():
         PARAM_TAX_DB_MODE(PARAM_TAX_DB_MODE_ID, "--tax-db-mode", "Taxonomy db mode", "Create taxonomy database as: 0: .dmp flat files (human readable) 1: binary dump (faster readin)", typeid(int), (void *) &taxDbMode, "^[0-1]{1}$"),
         // expandaln
         PARAM_EXPANSION_MODE(PARAM_EXPANSION_MODE_ID, "--expansion-mode", "Expansion mode", "Update score, E-value, and sequence identity by 0: input alignment 1: rescoring the inferred backtrace", typeid(int), (void *) &expansionMode, "^[0-2]{1}$"),
-        PARAM_EXPAND_FILTER_CLUSTERS(PARAM_EXPAND_FILTER_CLUSTERS_ID, "--expand-filter-clusters", "Expand filter clusters", "Filter each target cluster during expansion 0: no filter 1: filter", typeid(int), (void *) &expandFilterClusters, "^[0-1]{1}$"),
+        PARAM_EXPAND_FILTER_CLUSTERS(PARAM_EXPAND_FILTER_CLUSTERS_ID, "--expand-filter-clusters", "Expand filter clusters", "Filter each target getComplexAlns during expansion 0: no filter 1: filter", typeid(int), (void *) &expandFilterClusters, "^[0-1]{1}$"),
         // taxonomy
         PARAM_LCA_MODE(PARAM_LCA_MODE_ID, "--lca-mode", "LCA mode", "LCA Mode 1: single search LCA , 2/3: approximate 2bLCA, 4: top hit", typeid(int), (void *) &taxonomySearchMode, "^[1-4]{1}$"),
         PARAM_TAX_OUTPUT_MODE(PARAM_TAX_OUTPUT_MODE_ID, "--tax-output-mode", "Taxonomy output mode", "0: output LCA, 1: output alignment 2: output both", typeid(int), (void *) &taxonomyOutputMode, "^[0-2]{1}$"),

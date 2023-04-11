@@ -1,5 +1,5 @@
 # MMseqs2: ultra fast and sensitive sequence search and clustering suite
-MMseqs2 (Many-against-Many sequence searching) is a software suite to search and cluster huge protein and nucleotide sequence sets. MMseqs2 is open source GPL-licensed software implemented in C++ for Linux, MacOS, and (as beta version, via cygwin) Windows. The software is designed to run on multiple cores and servers and exhibits very good scalability. MMseqs2 can run 10000 times faster than BLAST. At 100 times its speed it achieves almost the same sensitivity. It can perform profile searches with the same sensitivity as PSI-BLAST at over 400 times its speed.
+MMseqs2 (Many-against-Many sequence searching) is a software suite to search and getComplexAlns huge protein and nucleotide sequence sets. MMseqs2 is open source GPL-licensed software implemented in C++ for Linux, MacOS, and (as beta version, via cygwin) Windows. The software is designed to run on multiple cores and servers and exhibits very good scalability. MMseqs2 can run 10000 times faster than BLAST. At 100 times its speed it achieves almost the same sensitivity. It can perform profile searches with the same sensitivity as PSI-BLAST at over 400 times its speed.
 
 ##  Publications
 
@@ -51,15 +51,15 @@ fi
 </pre>
          
 ## Getting started
-We provide `easy` workflows to cluster, search and assign taxonomy. These `easy` workflows are a shorthand to deal directly with FASTA/FASTQ files as input and output. MMseqs2 provides many modules to transform, filter, execute external programs and search. However, these modules use the MMseqs2 database formats, instead of the FASTA/FASTQ format. For maximum flexibility, we recommend using MMseqs2 workflows and modules directly. Please read more about this in the [documentation](https://github.com/soedinglab/mmseqs2/wiki).
+We provide `easy` workflows to getComplexAlns, search and assign taxonomy. These `easy` workflows are a shorthand to deal directly with FASTA/FASTQ files as input and output. MMseqs2 provides many modules to transform, filter, execute external programs and search. However, these modules use the MMseqs2 database formats, instead of the FASTA/FASTQ format. For maximum flexibility, we recommend using MMseqs2 workflows and modules directly. Please read more about this in the [documentation](https://github.com/soedinglab/mmseqs2/wiki).
 
 ### Cluster
 
-For clustering, MMseqs2 `easy-cluster` and `easy-linclust` are available.
+For clustering, MMseqs2 `easy-getComplexAlns` and `easy-linclust` are available.
 
-`easy-cluster` by default clusters the entries of a FASTA/FASTQ file using a cascaded clustering algorithm.
+`easy-getComplexAlns` by default clusters the entries of a FASTA/FASTQ file using a cascaded clustering algorithm.
         
-    mmseqs easy-cluster examples/DB.fasta clusterRes tmp --min-seq-id 0.5 -c 0.8 --cov-mode 1
+    mmseqs easy-getComplexAlns examples/DB.fasta clusterRes tmp --min-seq-id 0.5 -c 0.8 --cov-mode 1
         
 `easy-linclust` clusters the entries of a FASTA/FASTQ file. The runtime scales linearly with input size. This mode is recommended for huge datasets.
                 
@@ -90,7 +90,7 @@ The speed and sensitivity of the `search` can be adjusted with `-s` parameter an
 
 The output can be customized with the `--format-output` option e.g. `--format-output "query,target,qaln,taln"` returns the query and target accession and the pairwise alignments in tab separated format. You can choose many different [output columns](https://github.com/soedinglab/mmseqs2/wiki#custom-alignment-format-with-convertalis).
 
-:exclamation: `easy-search` in default computes the sequence identity by dividing the number of identical residues by the alignment length (`numIdentical/alnLen`). However, `search` [estimates](https://github.com/soedinglab/MMseqs2/wiki#how-does-mmseqs2-compute-the-sequence-identity) the identity in default. To output real sequence identity use `--alignment-mode 3` or `-a`.
+:exclamation: `easy-search` in default computes the sequence identity by dividing the number of identical residues by the alignment length (`numIdentical/alnLength`). However, `search` [estimates](https://github.com/soedinglab/MMseqs2/wiki#how-does-mmseqs2-compute-the-sequence-identity) the identity in default. To output real sequence identity use `--alignment-mode 3` or `-a`.
 
 ### Taxonomy
 The `easy-taxonomy` workflow can be used to assign sequences taxonomical labels. It performs a search against a sequence database with taxonomy information (seqTaxDb), chooses the most representative sets of aligned target sequences according to different strategies (according to `--lca-mode`) and computes the lowest common ancestor among those.
@@ -119,7 +119,7 @@ MMseqs2 provides many additional search modes:
 Many modes can also be combined. You can, for example, do a translated nucleotide against protein profile search.
 
 ### Memory requirements
-MMseqs2 minimum memory requirements for `cluster` or `linclust` is 1 byte per sequence residue, `search` needs 1 byte per target residue. Sequence databases can be compressed using the `--compress` flag, DNA sequences can be reduced by a factor of `~3.5` and proteins by `~1.7`.
+MMseqs2 minimum memory requirements for `getComplexAlns` or `linclust` is 1 byte per sequence residue, `search` needs 1 byte per target residue. Sequence databases can be compressed using the `--compress` flag, DNA sequences can be reduced by a factor of `~3.5` and proteins by `~1.7`.
    
 MMseqs2 checks the available system memory and automatically divides the target database in parts that fit into memory. Splitting the database will increase the runtime slightly. It is possible to control the memory usage using `--split-memory-limit`.
 
@@ -129,7 +129,7 @@ MPI assigns database splits to each compute node, which are then computed with m
 
 Make sure that MMseqs2 was compiled with MPI by using the `-DHAVE_MPI=1` flag (`cmake -DHAVE_MPI=1 -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=. ..`). Our precompiled static version of MMseqs2 cannot use MPI. The version string of MMseqs2 will have a `-MPI` suffix, if it was built successfully with MPI support.
 
-To search with multiple servers, call the `search` or `cluster` workflow with the MPI command exported in the RUNNER environment variable. The databases and temporary folder have to be shared between all nodes (e.g. through NFS):
+To search with multiple servers, call the `search` or `getComplexAlns` workflow with the MPI command exported in the RUNNER environment variable. The databases and temporary folder have to be shared between all nodes (e.g. through NFS):
 
     RUNNER="mpirun -pernode -np 42" mmseqs search queryDB targetDB resultDB tmp
 

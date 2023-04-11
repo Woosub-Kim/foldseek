@@ -117,7 +117,7 @@ int doeasysearch(int argc, const char **argv, const Command &command, bool linse
         cmd.addVariable("SEARCH_PAR", par.createParameterString(par.linsearchworkflow, true).c_str());
     } else {
         const bool isIndex = PrefilteringIndexReader::searchForIndex(target).empty() == false;
-        cmd.addVariable("INDEXEXT", isIndex ? ".idx" : NULL);
+        cmd.addVariable("INDEXEXT", isIndex ? ".resultIdx" : NULL);
         cmd.addVariable("SEARCH_MODULE", "search");
         cmd.addVariable("LINSEARCH", NULL);
         cmd.addVariable("CREATELININDEX_PAR", NULL);

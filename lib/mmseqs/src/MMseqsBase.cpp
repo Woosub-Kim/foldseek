@@ -35,12 +35,12 @@ std::vector<Command> baseCommands = {
                                                            {"targetDB", DbType::ACCESS_MODE_INPUT, DbType::NEED_DATA, &DbValidator::flatfile },
                                                            {"alignmentFile", DbType::ACCESS_MODE_OUTPUT, DbType::NEED_DATA, &DbValidator::flatfile },
                                                            {"tmpDir", DbType::ACCESS_MODE_OUTPUT, DbType::NEED_DATA, &DbValidator::directory }}},
-        {"easy-cluster",         easycluster,          &par.easyclusterworkflow, COMMAND_EASY,
+        {"easy-getComplexAlns",         easycluster,          &par.easyclusterworkflow, COMMAND_EASY,
                 "Slower, sensitive clustering",
-                "mmseqs easy-cluster examples/DB.fasta result tmp\n"
+                "mmseqs easy-getComplexAlns examples/DB.fasta result tmp\n"
                 "# Cluster output\n"
                 "#  - result_rep_seq.fasta: Representatives\n"
-                "#  - result_all_seq.fasta: FASTA-like per cluster\n"
+                "#  - result_all_seq.fasta: FASTA-like per getComplexAlns\n"
                 "#  - result_cluster.tsv:   Adjacency list\n\n"
                 "# Important parameter: --min-seq-id, --cov-mode and -c \n"
                 "#                  --cov-mode \n"
@@ -52,18 +52,18 @@ std::vector<Command> baseCommands = {
                 "# Cascaded clustering with reassignment\n"
                 "# - Corrects criteria-violations of cascaded merging\n"
                 "# - Produces more clusters and is a bit slower\n"
-                "mmseqs easy-cluster examples/DB.fasta result tmp --cluster-reassign\n",
+                "mmseqs easy-cluster examples/DB.fasta result tmp --getComplexAlns-reassign\n",
                 "Martin Steinegger <martin.steinegger@snu.ac.kr>",
                 "<i:fastaFile1[.gz|.bz2]> ... <i:fastaFileN[.gz|.bz2]> <o:clusterPrefix> <tmpDir>",
                 CITATION_MMSEQS2|CITATION_LINCLUST, {{"queryFastaFile[.gz]", DbType::ACCESS_MODE_INPUT, DbType::NEED_DATA|DbType::VARIADIC, &DbValidator::flatfileAndStdin },
                                                            {"clusterPrefix", DbType::ACCESS_MODE_OUTPUT, DbType::NEED_DATA, &DbValidator::flatfile },
                                                            {"tmpDir", DbType::ACCESS_MODE_OUTPUT, DbType::NEED_DATA, &DbValidator::directory }}},
         {"easy-linclust",        easylinclust,         &par.easylinclustworkflow, COMMAND_EASY,
-                "Fast linear time cluster, less sensitive clustering",
+                "Fast linear time getComplexAlns, less sensitive clustering",
                 "mmseqs easy-linclust examples/DB.fasta result tmp\n\n"
                 "# Linclust output\n"
                 "#  - result_rep_seq.fasta: Representatives\n"
-                "#  - result_all_seq.fasta: FASTA-like per cluster\n"
+                "#  - result_all_seq.fasta: FASTA-like per getComplexAlns\n"
                 "#  - result_cluster.tsv:   Adjecency list\n\n"
                 "# Important parameter: --min-seq-id, --cov-mode and -c \n"
                 "#                  --cov-mode \n"
@@ -260,10 +260,10 @@ std::vector<Command> baseCommands = {
                 CITATION_MMSEQS2|CITATION_LINCLUST, {{"sequenceDB", DbType::ACCESS_MODE_INPUT, DbType::NEED_DATA, &DbValidator::sequenceDb },
                                                            {"clusterDB", DbType::ACCESS_MODE_OUTPUT, DbType::NEED_DATA, &DbValidator::clusterDb },
                                                            {"tmpDir", DbType::ACCESS_MODE_OUTPUT, DbType::NEED_DATA, &DbValidator::directory }}},
-        {"cluster",              clusteringworkflow,   &par.clusterworkflow,      COMMAND_MAIN,
+        {"getComplexAlns",              clusteringworkflow,   &par.clusterworkflow,      COMMAND_MAIN,
                 "Slower, sensitive clustering",
                 "# Cascaded clustering of FASTA file\n"
-                "mmseqs cluster sequenceDB clusterDB tmp\n\n"
+                "mmseqs getComplexAlns sequenceDB clusterDB tmp\n\n"
                 "#                  --cov-mode \n"
                 "# Sequence         0    1    2\n"
                 "# Q: MAVGTACRPA  60%  IGN  60%\n"
@@ -273,7 +273,7 @@ std::vector<Command> baseCommands = {
                 "# Cascaded clustering with reassignment\n"
                 "# - Corrects criteria-violations of cascaded merging\n"
                 "# - Produces more clusters and is a bit slower\n"
-                "mmseqs cluster sequenceDB clusterDB tmp --cluster-reassign\n",
+                "mmseqs getComplexAlns sequenceDB clusterDB tmp --cluster-reassign\n",
                 "Martin Steinegger <martin.steinegger@snu.ac.kr> & Lars von den Driesch",
                 "<i:sequenceDB> <o:clusterDB> <tmpDir>",
                 CITATION_LINCLUST|CITATION_MMSEQS1|CITATION_MMSEQS2, {{"sequenceDB", DbType::ACCESS_MODE_INPUT, DbType::NEED_DATA, &DbValidator::sequenceDb },
@@ -284,7 +284,7 @@ std::vector<Command> baseCommands = {
                 "# Update clustering workflow \n"
                 "# Perform initial clustering of 5000 sequences\n"
                 "mmseqs createdb <(head -n 10000 examples/DB.fasta) sequenceDB\n"
-                "mmseqs cluster sequenceDB clusterDB tmp\n\n"
+                "mmseqs getComplexAlns sequenceDB clusterDB tmp\n\n"
                 "# Use-case 1: Update by only adding sequences\n"
                 "mmseqs createdb examples/QUERY.fasta addedSequenceDB\n"
                 "mmseqs concatdbs sequenceDB addedSequenceDB allSequenceDB\n"
@@ -371,7 +371,7 @@ std::vector<Command> baseCommands = {
                     {"fastaDB", DbType::ACCESS_MODE_OUTPUT, DbType::NEED_DATA, &DbValidator::flatfile}}},
         {"createseqfiledb",      createseqfiledb,      &par.createseqfiledb,      COMMAND_FORMAT_CONVERSION | COMMAND_EXPERT,
                 "Create a DB of unaligned FASTA entries",
-                "# Gather all sequences from a cluster DB\n"
+                "# Gather all sequences from a getComplexAlns DB\n"
                 "mmseqs createseqfiledb sequenceDB clusterDB unalignedDB --min-sequences 2\n"
                 "# Build MSAs with Clustal-Omega\n"
                 "mmseqs apply unalignedDB msaDB -- clustalo -i - -o stdout --threads=1\n",
@@ -749,7 +749,7 @@ std::vector<Command> baseCommands = {
                 "# Create a new sequenceDB from sequenceDB entries with keys 1, 2 and 3\n"
                 "mmseqs createsubdb <(printf '1\n2\n3\n') sequenceDB oneTwoThreeDB\n\n"
                 "# Create a new sequence database with representatives of clusterDB\n"
-                "mmseqs cluster sequenceDB clusterDB tmp\n"
+                "mmseqs getComplexAlns sequenceDB clusterDB tmp\n"
                 "mmseqs createsubdb clusterDB sequenceDB representativesDB\n",
                 "Milot Mirdita <milot@mirdita.de>",
                 "<i:subsetFile|DB> <i:DB> <o:DB>",
@@ -810,7 +810,7 @@ std::vector<Command> baseCommands = {
                 COMMAND_DB,
 #endif
                 "Execute given program on each DB entry",
-                "# Gather all sequences from a cluster DB\n"
+                "# Gather all sequences from a getComplexAlns DB\n"
                 "mmseqs createseqfiledb sequenceDB clusterDB unalignedDB --min-sequences 2\n"
                 "# Build MSAs with Clustal-Omega\n"
                 "mmseqs apply unalignedDB msaDB -- clustalo -i - -o stdout --threads=1\n\n"

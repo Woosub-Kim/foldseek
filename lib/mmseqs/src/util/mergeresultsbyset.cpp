@@ -31,7 +31,7 @@ int mergeresultsbyset(int argc, const char **argv, const Command &command) {
 #pragma omp for schedule(static)
         for (size_t i = 0; i < setReader.getSize(); ++i) {
             char *data = setReader.getData(i, thread_idx);
-            // go through the results in the cluster and add them to one entry
+            // go through the results in the getComplexAlns and add them to one entry
             while (*data != '\0'){
                 Util::parseKey(data, dbKey);
                 unsigned int key = Util::fast_atoi<unsigned int>(dbKey);

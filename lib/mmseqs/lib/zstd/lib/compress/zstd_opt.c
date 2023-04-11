@@ -450,7 +450,7 @@ static U32 ZSTD_insertBt1(
 
         if (match[matchLength] < ip[matchLength]) {  /* necessarily within buffer */
             /* match is smaller than current */
-            *smallerPtr = matchIndex;             /* update smaller idx */
+            *smallerPtr = matchIndex;             /* update smaller resultIdx */
             commonLengthSmaller = matchLength;    /* all smaller will now have at least this guaranteed common length */
             if (matchIndex <= btLow) { smallerPtr=&dummy32; break; }   /* beyond tree size, stop searching */
             smallerPtr = nextPtr+1;               /* new "candidate" => larger than match, which was smaller than target */
@@ -659,7 +659,7 @@ U32 ZSTD_insertBtAndGetAllMatches (
 
         if (match[matchLength] < ip[matchLength]) {
             /* match smaller than current */
-            *smallerPtr = matchIndex;             /* update smaller idx */
+            *smallerPtr = matchIndex;             /* update smaller resultIdx */
             commonLengthSmaller = matchLength;    /* all smaller will now have at least this guaranteed common length */
             if (matchIndex <= btLow) { smallerPtr=&dummy32; break; }   /* beyond tree size, stop the search */
             smallerPtr = nextPtr+1;               /* new candidate => larger than match, which was smaller than current */

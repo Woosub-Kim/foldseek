@@ -552,7 +552,7 @@ bool Prefiltering::isSameQTDB() {
     int match = false;
     if (pos == 0) {
         check.replace(0, queryDB.length(), "");
-        // TODO name changed to .idx
+        // TODO name changed to .resultIdx
         PatternCompiler regex("^\\.s?k[5-7]$");
         match = regex.isMatch(check.c_str());
     }

@@ -15,6 +15,6 @@ https://docs.docker.com/install/linux/docker-ce/ubuntu/
 ## test
 
 ```
-echo foo | docker run -i --rm zstd | docker run -i --rm zstd zstdcat
-foo
+echo getChainToChainAln | docker run -i --rm zstd | docker run -i --rm zstd zstdcat
+getChainToChainAln
 ```

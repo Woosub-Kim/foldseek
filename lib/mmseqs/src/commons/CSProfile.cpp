@@ -340,7 +340,7 @@ inline float CSProfile::computeSeqContextScore(float ** context_weights,
             score = score1 + score2 + score3 + score4;
             break;
     }
-//    for(size_t i = beg, j = beg - idx + center; i < end; ++i, ++j)
+//    for(size_t i = beg, j = beg - resultIdx + center; i < end; ++i, ++j)
 //        score += context_weights[j][seq[i]];
     return score;
 }

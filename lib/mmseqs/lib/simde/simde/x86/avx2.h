@@ -2780,10 +2780,10 @@ simde_mm256_maddubs_epi16 (simde__m256i a, simde__m256i b) {
     #else
       SIMDE_VECTORIZE
       for (size_t i = 0 ; i < (sizeof(r_.i16) / sizeof(r_.i16[0])) ; i++) {
-        const int idx = HEDLEY_STATIC_CAST(int, i) << 1;
+        const int resultIdx = HEDLEY_STATIC_CAST(int, i) << 1;
         int32_t ts =
-          (HEDLEY_STATIC_CAST(int16_t, a_.u8[  idx  ]) * HEDLEY_STATIC_CAST(int16_t, b_.i8[  idx  ])) +
-          (HEDLEY_STATIC_CAST(int16_t, a_.u8[idx + 1]) * HEDLEY_STATIC_CAST(int16_t, b_.i8[idx + 1]));
+          (HEDLEY_STATIC_CAST(int16_t, a_.u8[  resultIdx  ]) * HEDLEY_STATIC_CAST(int16_t, b_.i8[  resultIdx  ])) +
+          (HEDLEY_STATIC_CAST(int16_t, a_.u8[resultIdx + 1]) * HEDLEY_STATIC_CAST(int16_t, b_.i8[resultIdx + 1]));
         r_.i16[i] = (ts > INT16_MIN) ? ((ts < INT16_MAX) ? HEDLEY_STATIC_CAST(int16_t, ts) : INT16_MAX) : INT16_MIN;
       }
     #endif
@@ -3843,7 +3843,7 @@ simde_mm256_permutevar8x32_epi32 (simde__m256i a, simde__m256i idx) {
     simde__m256i_private
       r_,
       a_ = simde__m256i_to_private(a),
-      idx_ = simde__m256i_to_private(idx);
+      idx_ = simde__m256i_to_private(resultIdx);
 
     SIMDE_VECTORIZE
     for (size_t i = 0 ; i < (sizeof(r_.i32) / sizeof(r_.i32[0])) ; i++) {
@@ -3855,7 +3855,7 @@ simde_mm256_permutevar8x32_epi32 (simde__m256i a, simde__m256i idx) {
 }
 #if defined(SIMDE_X86_AVX2_ENABLE_NATIVE_ALIASES)
   #undef _mm256_permutevar8x32_epi32
-  #define _mm256_permutevar8x32_epi32(a, idx) simde_mm256_permutevar8x32_epi32(a, idx)
+  #define _mm256_permutevar8x32_epi32(a, resultIdx) simde_mm256_permutevar8x32_epi32(a, resultIdx)
 #endif
 
 SIMDE_FUNCTION_ATTRIBUTES
@@ -3863,7 +3863,7 @@ simde__m256
 simde_mm256_permutevar8x32_ps (simde__m256 a, simde__m256i idx) {
   #if defined(SIMDE_X86_AVX2_NATIVE)
     #if defined(__clang__) && !SIMDE_DETECT_CLANG_VERSION_CHECK(3,8,0)
-      return _mm256_permutevar8x32_ps(a, HEDLEY_REINTERPRET_CAST(simde__m256, idx));
+      return _mm256_permutevar8x32_ps(a, HEDLEY_REINTERPRET_CAST(simde__m256, resultIdx));
     #else
       return _mm256_permutevar8x32_ps(a, idx);
     #endif
@@ -3872,7 +3872,7 @@ simde_mm256_permutevar8x32_ps (simde__m256 a, simde__m256i idx) {
       r_,
       a_ = simde__m256_to_private(a);
     simde__m256i_private
-      idx_ = simde__m256i_to_private(idx);
+      idx_ = simde__m256i_to_private(resultIdx);
 
     SIMDE_VECTORIZE
     for (size_t i = 0 ; i < (sizeof(r_.f32) / sizeof(r_.f32[0])) ; i++) {
@@ -3884,7 +3884,7 @@ simde_mm256_permutevar8x32_ps (simde__m256 a, simde__m256i idx) {
 }
 #if defined(SIMDE_X86_AVX2_ENABLE_NATIVE_ALIASES)
   #undef _mm256_permutevar8x32_ps
-  #define _mm256_permutevar8x32_ps(a, idx) simde_mm256_permutevar8x32_ps(a, idx)
+  #define _mm256_permutevar8x32_ps(a, resultIdx) simde_mm256_permutevar8x32_ps(a, resultIdx)
 #endif
 
 SIMDE_FUNCTION_ATTRIBUTES

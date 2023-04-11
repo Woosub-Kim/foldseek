@@ -74,7 +74,7 @@ void setClusterAutomagicParameters(Parameters& par) {
     if (par.PARAM_S.wasSet == false) {
         par.sensitivity = setAutomaticThreshold(par.seqIdThr);
         par.PARAM_S.wasSet = true;
-        Debug(Debug::INFO) << "Set cluster sensitivity to -s " << par.sensitivity << "\n";
+        Debug(Debug::INFO) << "Set getComplexAlns sensitivity to -s " << par.sensitivity << "\n";
     }
 
     const bool nonsymetric = (par.covMode == Parameters::COV_MODE_TARGET || par.covMode == Parameters::COV_MODE_QUERY);
@@ -85,21 +85,21 @@ void setClusterAutomagicParameters(Parameters& par) {
             par.clusteringMode = Parameters::SET_COVER;
         }
         par.PARAM_CLUSTER_MODE.wasSet = true;
-        Debug(Debug::INFO) << "Set cluster mode " << ((par.clusteringMode == Parameters::GREEDY_MEM) ? "GREEDY MEM" : "SET COVER") << "\n";
+        Debug(Debug::INFO) << "Set getComplexAlns mode " << ((par.clusteringMode == Parameters::GREEDY_MEM) ? "GREEDY MEM" : "SET COVER") << "\n";
     }
     if (nonsymetric && par.clusteringMode != Parameters::GREEDY && par.clusteringMode != Parameters::GREEDY_MEM) {
-        Debug(Debug::WARNING) << "Combining cluster mode " << par.clusteringMode
+        Debug(Debug::WARNING) << "Combining getComplexAlns mode " << par.clusteringMode
                               << " in combination with coverage mode " << par.covMode << " can produce wrong results.\n"
                               << "Please use --cov-mode 2\n";
     }
     if (par.singleStepClustering == false && par.clusteringMode == Parameters::CONNECTED_COMPONENT) {
         Debug(Debug::WARNING) << "Connected component clustering produces less clusters in a single step clustering.\n"
-                              << "Please use --single-step-cluster";
+                              << "Please use --single-step-getComplexAlns";
     }
     if (par.PARAM_CLUSTER_STEPS.wasSet == false) {
         par.clusterSteps = setAutomaticIterations(par.sensitivity);
         par.PARAM_CLUSTER_STEPS.wasSet = true;
-        Debug(Debug::INFO) << "Set cluster iterations to " << par.clusterSteps << "\n";
+        Debug(Debug::INFO) << "Set getComplexAlns iterations to " << par.clusterSteps << "\n";
     }
 }
 

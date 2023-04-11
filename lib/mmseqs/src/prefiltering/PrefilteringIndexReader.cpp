@@ -45,7 +45,7 @@ bool PrefilteringIndexReader::checkIfIndexFile(DBReader<unsigned int>* reader) {
 
 std::string PrefilteringIndexReader::indexName(const std::string &outDB) {
     std::string result(outDB);
-    result.append(".idx");
+    result.append(".resultIdx");
     return result;
 }
 
@@ -565,7 +565,7 @@ ScoreMatrix PrefilteringIndexReader::get3MerScoreMatrix(DBReader<unsigned int> *
 }
 
 std::string PrefilteringIndexReader::searchForIndex(const std::string &pathToDB) {
-    std::string outIndexName = pathToDB + ".idx";
+    std::string outIndexName = pathToDB + ".resultIdx";
     if (FileUtil::fileExists((outIndexName + ".dbtype").c_str()) == true) {
         const bool ignore = getenv("MMSEQS_IGNORE_INDEX") != NULL;
         if (ignore) {
@@ -579,8 +579,8 @@ std::string PrefilteringIndexReader::searchForIndex(const std::string &pathToDB)
 
 std::string PrefilteringIndexReader::dbPathWithoutIndex(std::string & dbname) {
     std::string rawname = dbname;
-    // check for .idx
-    size_t idxlastpos = dbname.rfind(".idx");
+    // check for .resultIdx
+    size_t idxlastpos = dbname.rfind(".resultIdx");
     if(idxlastpos != std::string::npos && dbname.size() - idxlastpos == 4){
         rawname  = dbname.substr(0, idxlastpos);
     }

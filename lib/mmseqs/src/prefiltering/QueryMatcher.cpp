@@ -257,7 +257,7 @@ size_t QueryMatcher::match(Sequence *seq, float *compositionBias) {
         indexPointer[current_i] = sequenceHits;
         // match the index table
 
-        //idx.printKmer(kmerList.index[0], kmerSize, m->num2aa);
+        //resultIdx.printKmer(kmerList.index[0], kmerSize, m->num2aa);
         //std::cout << "\t" << kmerMatchScore << std::endl;
         kmerListLen += kmerElementSize;
 
@@ -265,7 +265,7 @@ size_t QueryMatcher::match(Sequence *seq, float *compositionBias) {
             const IndexEntryLocal *entries = indexTable->getDBSeqList(index[kmerPos], &seqListSize);
             // DEBUG
             //std::cout << seq->getDbKey() << std::endl;
-            //idx.printKmer(index[kmerPos], kmerSize, kmerSubMat->num2aa);
+            //resultIdx.printKmer(index[kmerPos], kmerSize, kmerSubMat->num2aa);
             //std::cout << "\t" << current_i << "\t"<< index[kmerPos] << std::endl;
             //for (size_t i = 0; i < seqListSize; i++) {
             //    char diag = entries[i].position_j - current_i;
