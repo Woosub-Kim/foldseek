@@ -205,7 +205,8 @@ Matcher::result_t TMaligner::align(unsigned int dbKey, float *x, float *y, float
     return Matcher::result_t(dbKey, TM_0*100000 , qCov, tCov, seqId, TM2, backtrace.length(), shiftQ, queryLen-endQ-1, queryLen, shiftT, targetLen-endT-1, targetLen, Matcher::compressAlignment(backtrace));
 }
 
-TMaligner::TMscoreResult TMaligner::computeTMscore2(float *x, float *y, float *z, unsigned int targetLen, int qStartPos, int dbStartPos, const std::string &backtrace, unsigned int alnLen) {
+TMaligner::TMscoreResult TMaligner::computeTMscore2(float *x, float *y, float *z, unsigned int targetLen, int qStartPos, int dbStartPos, const std::string &backtrace, unsigned int alnLen, unsigned int qLen) {
+    queryLen = qLen;
     int qPos = qStartPos;
     int tPos = dbStartPos;
     std::string cigarString = backtrace;

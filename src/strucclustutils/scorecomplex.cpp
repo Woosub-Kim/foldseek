@@ -102,9 +102,12 @@ struct ChainToChainAln {
         dbChain.setCaData(dbCaXVec, dbCaYVec, dbCaZVec);
         qChain.startPos = 0;
         dbChain.startPos = 0;
-        qChain.length = newBacktrace.length();
-        dbChain.length = newBacktrace.length();
-        alnLength = newBacktrace.length();
+//        qChain.length = newBacktrace.length();
+//        dbChain.length = newBacktrace.length();
+//        alnLength = newBacktrace.length();
+        qChain.length = alnResult.qLen;
+        dbChain.length = alnResult.dbLen;
+        alnLength = alnResult.alnLength;
         backtrace = newBacktrace;
         featureVector = FeatureVector(tmResult.u, tmResult.t);
     }
@@ -687,8 +690,11 @@ private:
     float minAssignedChainsRatio;
 
     double getTmScore(ComplexToComplexAln aln){
-        tmAligner->initQuery(&aln.qCaXVec[0], &aln.qCaYVec[0], &aln.qCaZVec[0], NULL, aln.qLength);
-        TMaligner::TMscoreResult tmResult = tmAligner->computeTMscore2(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], aln.dbLength, 0, 0, Matcher::uncompressAlignment(aln.backtrace), aln.alnLength);
+        unsigned int foo = aln.backtrace.length();
+        tmAligner->initQuery(&aln.qCaXVec[0], &aln.qCaYVec[0], &aln.qCaZVec[0], NULL, foo);
+        TMaligner::TMscoreResult tmResult = tmAligner->computeTMscore2(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], aln.dbLength, 0, 0, Matcher::uncompressAlignment(aln.backtrace), aln.alnLength, aln.qLength);
+//        tmAligner->initQuery(&aln.qCaXVec[0], &aln.qCaYVec[0], &aln.qCaZVec[0], NULL, foo);
+//        TMaligner::TMscoreResult tmResult = tmAligner->computeTMscore2(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], foo, 0, 0, Matcher::uncompressAlignment(aln.backtrace), foo);
         return tmResult.tmscore;
     }
 

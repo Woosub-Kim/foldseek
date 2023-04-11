@@ -42,6 +42,10 @@ public:
                             char * targetSeq, unsigned int targetLen, float &TM);
     TMscoreResult computeTMscore2(float *x, float *y, float *z, unsigned int targetLen, int qStartPos, int dbStartPos,
                                   const std::string &backtrace, unsigned int alnLen);
+
+    TMscoreResult computeTMscore2(float *x, float *y, float *z, unsigned int targetLen, int qStartPos, int dbStartPos,
+                                  const std::string &backtrace, unsigned int alnLen, unsigned int qLen);
+
 private:
     AffineNeedlemanWunsch affineNW;
     std::string backtrace;
@@ -60,6 +64,7 @@ private:
     bool tmAlignFast;
     Coordinates xtm, ytm, xt, r1, r2;
     int * invmap;
+
 };
 
 #endif //FOLDSEEK_TMALIGNER_H
