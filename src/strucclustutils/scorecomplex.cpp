@@ -530,6 +530,7 @@ public:
         maxSeqLen = std::max(qDbr3Di->sequenceReader->getMaxSeqLen()+1, tDbr3Di->sequenceReader->getMaxSeqLen()+1);
         getMaps(qLookupFile, qLookup, qComplexMap, qChainMap);
         getMaps(tLookupFile, tLookup, dbComplexMap, dbChainMap);
+
     }
 
     std::vector<Complex> getQComplexes(){
@@ -637,6 +638,7 @@ public:
             complexAln.tmScore = getTmScore(complexAln);
             complexAlns.emplace_back(complexAln);
         }
+        delete tmAligner;
         return complexAlns;
     }
 
@@ -689,17 +691,6 @@ private:
     float minAssignedChainsRatio;
 
     double getTmScore(ComplexToComplexAln aln){
-//        bool chainOverlapAllowed = false;
-//        std::vector<unsigned int> foundDbKeys;
-//        unsigned int dbKeyIdx = 0;
-//        while (!chainOverlapAllowed && dbKeyIdx<aln.dbChainKeys.size()) {
-//            unsigned int currDbKey = aln.dbChainKeys[dbKeyIdx++];
-//            bool found = std::count(foundDbKeys.begin(), foundDbKeys.end(), currDbKey) > 0;
-//            if (found)
-//                return 0;
-//            foundDbKeys.emplace_back(currDbKey);
-//        }
-        // ???
         tmAligner->initQuery(&aln.qCaXVec[0], &aln.qCaYVec[0], &aln.qCaZVec[0], NULL, aln.qLength);
         TMaligner::TMscoreResult tmResult = tmAligner->computeTMscore2(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], aln.dbLength, 0, 0, Matcher::uncompressAlignment(aln.backtrace), aln.alnLength);
         return tmResult.tmscore;
