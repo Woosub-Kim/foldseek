@@ -102,9 +102,6 @@ struct ChainToChainAln {
         dbChain.setCaData(dbCaXVec, dbCaYVec, dbCaZVec);
         qChain.startPos = 0;
         dbChain.startPos = 0;
-//        qChain.length = newBacktrace.length();
-//        dbChain.length = newBacktrace.length();
-//        alnLength = newBacktrace.length();
         qChain.length = alnResult.qLen;
         dbChain.length = alnResult.dbLen;
         alnLength = alnResult.alnLength;
@@ -690,10 +687,14 @@ private:
     float minAssignedChainsRatio;
 
     double getTmScore(ComplexToComplexAln aln){
-        unsigned int foo = aln.backtrace.length();
-        tmAligner->initQuery(&aln.qCaXVec[0], &aln.qCaYVec[0], &aln.qCaZVec[0], NULL, foo);
-        TMaligner::TMscoreResult tmResult = tmAligner->computeTMscore2(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], foo, 0, 0, Matcher::uncompressAlignment(aln.backtrace), foo);
-        return tmResult.tmscore*foo/aln.alnLength;
+//        unsigned int matches = aln.backtrace.length();
+//        tmAligner->initQuery(&aln.qCaXVec[0], &aln.qCaYVec[0], &aln.qCaZVec[0], NULL, matches);
+//        TMaligner::TMscoreResult tmResult = tmAligner->computeTMscore2(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], matches, 0, 0, Matcher::uncompressAlignment(aln.backtrace), matches);
+//        return tmResult.tmscore * matches / aln.alnLength;
+
+        tmAligner->initQuery(&aln.qCaXVec[0], &aln.qCaYVec[0], &aln.qCaZVec[0], NULL, aln.qLength);
+        TMaligner::TMscoreResult tmResult = tmAligner->computeTMscore2(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], aln.dbLength, 0, 0, Matcher::uncompressAlignment(aln.backtrace), aln.alnLength);
+        return tmResult.tmscore;
     }
 
     static void getMaps(const std::string& file, std::map<unsigned int, unsigned int> &lookupMap, std::map<unsigned int, std::string> &complexNameMap, std::map<unsigned int, std::string> &chainNameMap){
