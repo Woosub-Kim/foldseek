@@ -695,10 +695,10 @@ private:
 //                return 0;
 //            foundDbKeys.emplace_back(currDbKey);
 //        }
-        std::cout << aln.qCaXVec[0] << "\t" << aln.qCaYVec[0] << "\t" << aln.qCaZVec[0] << std::endl;
         float * qCaX = &aln.qCaXVec[0];
         float * qCaY = &aln.qCaYVec[0];
         float * qCaZ = &aln.qCaZVec[0];
+        std::cout << qCaX << "\t" << qCaY << "\t" << qCaZ << std::endl;
         tmAligner->initQuery(qCaX, qCaY, qCaZ, NULL, aln.qLength);
         // ???
 //        tmAligner->initQuery(&aln.qCaXVec[0], &aln.qCaYVec[0], &aln.qCaZVec[0], NULL, aln.qLength);
