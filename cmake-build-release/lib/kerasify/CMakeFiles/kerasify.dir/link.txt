@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libkerasify.a CMakeFiles/kerasify.dir/keras_model.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib libkerasify.a

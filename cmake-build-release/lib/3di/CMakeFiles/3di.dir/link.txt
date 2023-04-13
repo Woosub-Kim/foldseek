@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc lib3di.a CMakeFiles/3di.dir/structureto3di.cpp.o CMakeFiles/3di.dir/structureto3diseqdist.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib lib3di.a

@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libpulchra.a CMakeFiles/pulchra.dir/pulchra.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib libpulchra.a
