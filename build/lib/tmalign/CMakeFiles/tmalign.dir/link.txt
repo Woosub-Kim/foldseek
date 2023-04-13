@@ -1,2 +1,0 @@
-/usr/bin/ar qc libtmalign.a CMakeFiles/tmalign.dir/affineneedlemanwunsch.cpp.o CMakeFiles/tmalign.dir/TMalign.cpp.o
-/usr/bin/ranlib libtmalign.a
