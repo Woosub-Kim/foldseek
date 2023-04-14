@@ -573,7 +573,7 @@ public:
                 size_t tCaLength = tCaDbr->sequenceReader->getEntryLen(tCaId);
                 float* targetCaData = tCoords.read(tCaData, alnResult.dbLen, tCaLength);
                 Chain dbChain = Chain(dbComplexId, dbKey);
-                TMaligner::TMscoreResult tmResult = tmAligner->computeTMscore(targetCaData, &targetCaData[alnResult.dbLen], &targetCaData[alnResult.dbLen + alnResult.dbLen], alnResult.dbLen, alnResult.qStartPos, alnResult.dbStartPos, Matcher::uncompressAlignment(alnResult.backtrace));
+                TMaligner::TMscoreResult tmResult = tmAligner->computeTMscore(targetCaData, &targetCaData[alnResult.dbLen], &targetCaData[alnResult.dbLen + alnResult.dbLen], alnResult.dbLen, alnResult.qStartPos, alnResult.dbStartPos, Matcher::uncompressAlignment(alnResult.backtrace), alnResult..alnLength);
                 ChainToChainAln chainAln(qChain, dbChain, queryCaData, targetCaData, alnResult, tmResult);
                 qTempComplexes[queryComplexId].alnVec.emplace_back(chainAln);
                 data = Util::skipLine(data);
