@@ -208,7 +208,8 @@ struct ComplexToComplexAln{
     std::vector<float> dbCaXVec;
     std::vector<float> dbCaYVec;
     std::vector<float> dbCaZVec;
-    double tmScore;
+    double qTmScore;
+    double dbTmScore;
 
     void appendChainToChainAln(ChainToChainAln aln){
         qChainKeys.emplace_back(aln.qChain.chainKey);
@@ -246,10 +247,12 @@ struct ComplexToComplexAln{
 };
 
 struct OutputLine{
-    OutputLine(unsigned int qComplexId, unsigned int dbComplexId, double tmScore, std::string &qComplexName, std::string &dbComplexName, std::string &qChainNames, std::string &dbChainNames): qComplexId(qComplexId), dbComplexId(dbComplexId), tmScore(tmScore), qComplexName(qComplexName), dbComplexName(dbComplexName), qChainNames(qChainNames), dbChainNames(dbChainNames){}
+    OutputLine(unsigned int qComplexId, unsigned int dbComplexId, double qTmScore, double dbTmScore, std::string &qComplexName, std::string &dbComplexName, std::string &qChainNames, std::string &dbChainNames):
+    qComplexId(qComplexId), dbComplexId(dbComplexId), qTmScore(qTmScore), dbTmScore(dbTmScore), qComplexName(qComplexName), dbComplexName(dbComplexName), qChainNames(qChainNames), dbChainNames(dbChainNames){}
     unsigned int qComplexId;
     unsigned int dbComplexId;
-    double tmScore;
+    double qTmScore;
+    double dbTmScore;
     std::string qComplexName;
     std::string dbComplexName;
     std::string qChainNames;
@@ -263,7 +266,9 @@ struct OutputLine{
          line += sep;
          line += dbComplexName;
          line += sep;
-         line += std::to_string(tmScore);
+         line += std::to_string(qTmScore);
+         line += sep;
+         line += std::to_string(dbTmScore);
          line += sep;
          line += qChainNames;
          line += sep;
@@ -350,10 +355,16 @@ bool compareOutputLine(const OutputLine &first, const OutputLine &second){
     if (first.dbComplexId > second.dbComplexId) {
         return false;
     }
-    if (first.tmScore > second.tmScore) {
+    if (first.qTmScore > second.qTmScore) {
         return true;
     }
-    if (first.tmScore < second.tmScore) {
+    if (first.qTmScore < second.qTmScore) {
+        return false;
+    }
+    if (first.dbTmScore > second.dbTmScore) {
+        return true;
+    }
+    if (first.dbTmScore < second.dbTmScore) {
         return false;
     }
     return false;
@@ -573,7 +584,7 @@ public:
                 size_t tCaLength = tCaDbr->sequenceReader->getEntryLen(tCaId);
                 float* targetCaData = tCoords.read(tCaData, alnResult.dbLen, tCaLength);
                 Chain dbChain = Chain(dbComplexId, dbKey);
-                TMaligner::TMscoreResult tmResult = tmAligner->computeTMscore(targetCaData, &targetCaData[alnResult.dbLen], &targetCaData[alnResult.dbLen + alnResult.dbLen], alnResult.dbLen, alnResult.qStartPos, alnResult.dbStartPos, Matcher::uncompressAlignment(alnResult.backtrace), alnResult..alnLength);
+                TMaligner::TMscoreResult tmResult = tmAligner->computeTMscore(targetCaData, &targetCaData[alnResult.dbLen], &targetCaData[alnResult.dbLen + alnResult.dbLen], alnResult.dbLen, alnResult.qStartPos, alnResult.dbStartPos, Matcher::uncompressAlignment(alnResult.backtrace), alnResult.alnLength);
                 ChainToChainAln chainAln(qChain, dbChain, queryCaData, targetCaData, alnResult, tmResult);
                 qTempComplexes[queryComplexId].alnVec.emplace_back(chainAln);
                 data = Util::skipLine(data);
@@ -622,7 +633,9 @@ public:
                 complexAln.appendChainToChainAln(currAln);
             } else {
                 if (currLabel>0){
-                    complexAln.tmScore = getTmScore(complexAln);
+                    std::pair<double, double> tmScores = getTmScore(complexAln);
+                    complexAln.qTmScore = tmScores.first;
+                    complexAln.dbTmScore = tmScores.second;
                     complexAlns.emplace_back(complexAln);
                 }
                 complexAln.reset(currAln.dbChain.complexId);
@@ -631,7 +644,9 @@ public:
             }
         }
         if (currLabel>0){
-            complexAln.tmScore = getTmScore(complexAln);
+            std::pair<double, double> tmScores = getTmScore(complexAln);
+            complexAln.qTmScore = tmScores.first;
+            complexAln.dbTmScore = tmScores.second;
             complexAlns.emplace_back(complexAln);
         }
         delete tmAligner;
@@ -650,7 +665,7 @@ public:
             std::string dbComplexName = dbComplexMap.at(aln.dbComplexId);
             std::string qChainNames = getChainNames(aln.qChainKeys, qChainMap);
             std::string dbChainNames = getChainNames(aln.dbChainKeys, dbChainMap);
-            OutputLine outputLine = OutputLine(aln.qComplexId, aln.dbComplexId, aln.tmScore, qComplexName, dbComplexName, qChainNames, dbChainNames);
+            OutputLine outputLine = OutputLine(aln.qComplexId, aln.dbComplexId, aln.qTmScore, aln.dbTmScore, qComplexName, dbComplexName, qChainNames, dbChainNames);
             outputLines.emplace_back(outputLine);
         }
 
@@ -686,11 +701,12 @@ private:
     unsigned int thread_idx;
     float minAssignedChainsRatio;
 
-    double getTmScore(ComplexToComplexAln aln){
+    std::pair<double, double> getTmScore(ComplexToComplexAln aln){
         unsigned int matches = aln.backtrace.length();
-        tmAligner->initQueryforComplexAln(&aln.qCaXVec[0], &aln.qCaYVec[0], &aln.qCaZVec[0], NULL, aln.qLength, matches);
-        TMaligner::TMscoreResult tmResult = tmAligner->computeComplexTMscore(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], aln.dbLength, 0, 0, aln.backtrace, aln.alnLength, matches);
-        return tmResult.tmscore;
+        tmAligner->initQueryforComplexAln(&aln.qCaXVec[0], &aln.qCaYVec[0], &aln.qCaZVec[0], aln.qLength, matches);
+        TMaligner::TMscoreResult qTmResult = tmAligner->computeComplexTMscore(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], matches,  aln.backtrace,aln.qLength);
+        TMaligner::TMscoreResult dbTmResult = tmAligner->computeComplexTMscore(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], matches,aln.backtrace,aln.dbLength);
+        return {qTmResult.tmscore, dbTmResult.tmscore};
     }
 
     static void getMaps(const std::string& file, std::map<unsigned int, unsigned int> &lookupMap, std::map<unsigned int, std::string> &complexNameMap, std::map<unsigned int, std::string> &chainNameMap){
