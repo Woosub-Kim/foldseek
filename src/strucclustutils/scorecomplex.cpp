@@ -704,9 +704,10 @@ private:
     std::pair<double, double> getTmScore(ComplexToComplexAln aln){
         unsigned int matches = aln.backtrace.length();
         tmAligner->initQueryforComplexAln(&aln.qCaXVec[0], &aln.qCaYVec[0], &aln.qCaZVec[0], aln.qLength, matches);
-        TMaligner::TMscoreResult qTmResult = tmAligner->computeComplexTMscore(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], matches,  aln.backtrace,aln.qLength);
-        TMaligner::TMscoreResult dbTmResult = tmAligner->computeComplexTMscore(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], matches,aln.backtrace,aln.dbLength);
-        return {qTmResult.tmscore, dbTmResult.tmscore};
+        TMaligner::TMscoreResult tmResult = tmAligner->computeComplexTMscore(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], matches, aln.backtrace, aln.qLength);
+//        Emmanuel's TM
+//        TMaligner::TMscoreResult dbTmResult = tmAligner->computeComplexTMscore(&aln.dbCaXVec[0], &aln.dbCaYVec[0], &aln.dbCaZVec[0], matches,aln.backtrace,aln.dbLength);
+        return {tmResult.tmscore, tmResult.tmscore * aln.qLength / aln.dbLength};
     }
 
     static void getMaps(const std::string& file, std::map<unsigned int, unsigned int> &lookupMap, std::map<unsigned int, std::string> &complexNameMap, std::map<unsigned int, std::string> &chainNameMap){
