@@ -560,7 +560,6 @@ public:
         qTempComplexes.emplace_back(Complex(prevComplexId, qTempChainKeys));
         qTempChainKeys.clear();
         std::sort(qTempComplexes.begin(), qTempComplexes.end(), compareComplex);
-
         for (size_t i = 0; i < alnDbr.getSize(); i++) {
             size_t queryKey = alnDbr.getDbKey(i);
             const unsigned queryComplexId = qLookup.at(queryKey);
@@ -608,11 +607,12 @@ public:
                 qComplex.alnVec.emplace_back(aln);
             }
             qComplex.filterAlnVec(1.0);
-            if (!qComplex.alnVec.empty()) {
-                qComplex.normalize();
-                qComplexes.emplace_back(qComplex);
-            }
-            std::sort(qComplexes[queryComplexId].alnVec.begin(), qComplexes[queryComplexId].alnVec.end(), compareChainToChainAlnByComplexIdAndChainKey);
+            if (qComplex.alnVec.empty())
+                continue;
+            qComplex.normalize();
+            std::sort(qComplex.alnVec.begin(), qComplex.alnVec.end(), compareChainToChainAlnByComplexIdAndChainKey);
+            qComplexes.emplace_back(qComplex);
+
         }
         delete tmAligner;
         return qComplexes;
@@ -759,7 +759,6 @@ int scorecomplex(int argc, const char **argv, const Command& command) {
     IndexReader *t3DiDbr = NULL;
     auto *qCaDbr = new IndexReader(par.db1, par.threads, IndexReader::makeUserDatabaseType(LocalParameters::INDEX_DB_CA_KEY), touch ? IndexReader::PRELOAD_INDEX : 0,  DBReader<unsigned int>::USE_INDEX | DBReader<unsigned int>::USE_DATA, "_ca" );
     IndexReader *tCaDbr = NULL;
-
     bool sameDB = false;
     if (par.db1 == par.db2) {
         sameDB = true;
