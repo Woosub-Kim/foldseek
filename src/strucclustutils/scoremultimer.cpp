@@ -729,7 +729,6 @@ int scoremultimer(int argc, const char **argv, const Command &command) {
         // for each q complex
         for (size_t qComplexIdx = 0; qComplexIdx < qComplexIndices.size(); qComplexIdx++) {
 #pragma omp for schedule(dynamic, 1)
-            complexScorer.free();
             for (size_t dbComplexIdx = 0; dbComplexIdx < dbComplexIndices.size(); dbComplexIdx++) {
                 progress.updateProgress();
                 unsigned int qComplexId = qComplexIndices[qComplexIdx];
@@ -741,6 +740,7 @@ int scoremultimer(int argc, const char **argv, const Command &command) {
                 complexScorer.getSearchResults(qComplexId, dbComplexId, qChainKeys, dbChainKeys, searchResult);
                 complexScorer.getAssignments(qComplexId, searchResult, localAssignments[thread_idx]);
             }
+            complexScorer.free();
         }
     }
 
