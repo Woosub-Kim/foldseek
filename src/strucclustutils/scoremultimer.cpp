@@ -535,7 +535,7 @@ public:
                 dbAlnResult = Matcher::parseAlignmentRecord(data);
                 data = Util::skipLine(data);
                 if (dbAlnResult.backtrace.empty()) continue;
-                // hasBacktrace = true;
+                hasBacktrace = true;
                 size_t tCaId = tCaDbr->sequenceReader->getId(dbChainKey);
                 char *tCaData = tCaDbr->sequenceReader->getData(tCaId, thread_idx);
                 size_t tCaLength = tCaDbr->sequenceReader->getEntryLen(tCaId);
